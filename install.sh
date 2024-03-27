@@ -74,6 +74,7 @@ echo "Symlinking dot (.config) files using GNU Stow"
 stow -R dots -t $XDG_CONFIG_HOME -v
 stow -R local -t  $LOCAL_DIR -v
 #stow -R fonts -t $FONTS_DIR -v
+fc-cache -rf
 
 # TODO: test stowing the other config files from RiceInstaller
 
