@@ -40,7 +40,8 @@ in {
   gpuType = "vm";
 
 
-  # Enable alternative wm
+  # DE / WM
+  bspwm = true;
   kde = true;
   
 

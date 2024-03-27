@@ -88,7 +88,7 @@ echo "-----"
 echo "Now Going To Build $PROJECT_NAME, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
 
-#sudo nixos-rebuild switch --flake .#$host_name
+sudo nixos-rebuild switch --flake .#$host_name
 
 if [ $user_name != $current_user_name ]; then
   echo "Ensuring $PROJECT_NAME repository is in your users HOME directory."

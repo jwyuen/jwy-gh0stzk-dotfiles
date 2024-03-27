@@ -6,6 +6,7 @@
     ./appimages.nix
     ./autorun.nix
     ./boot.nix
+    ./bspwm.nix
     ./kde.nix
     # TODO: create bspwm version of displaymanager.nix?
     #./displaymanager.nix

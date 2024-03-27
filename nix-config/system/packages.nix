@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     # unix porn related
     brightnessctl dunst rofi bspwm polybar sxhkd jq ranger picom ueberzug
-    tdrop eww
+    tdrop eww 
     # X related packages
     xdo xdotool jgmenu
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr

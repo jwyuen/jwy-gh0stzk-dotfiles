@@ -7,6 +7,9 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
+    # non-flakes
+    xqp.url = "github:baskerville/xqp";
+    xqp.flake = false;
   };
 
   #outputs = inputs@{ self, nixpkgs, utils, home-manager, ... }: utils.lib.eachDefaultSystem (system:

@@ -92,7 +92,8 @@
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
-        "utils": "utils"
+        "utils": "utils",
+        "xqp": "xqp"
       }
     },
     "systems": {
@@ -125,6 +126,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "xqp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1566832747,
+        "narHash": "sha256-1lWVLeRukD1d+XhQBOz3ZA0BMPnyp+tAhpAj0KMo6J0=",
+        "owner": "baskerville",
+        "repo": "xqp",
+        "rev": "35cefc0bdafd9c976336c8a46818427ca6a87278",
+        "type": "github"
+      },
+      "original": {
+        "owner": "baskerville",
+        "repo": "xqp",
         "type": "github"
       }
     }

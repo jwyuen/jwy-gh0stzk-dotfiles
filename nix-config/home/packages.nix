@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }:
+{ pkgs, inputs, config, username, ... }:
 
 let 
   inherit (import ../../options.nix) 
@@ -7,6 +7,7 @@ in {
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
+    inputs.xqp
     # audio related
     playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
