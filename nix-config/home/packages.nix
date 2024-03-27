@@ -15,9 +15,12 @@ in {
     xclip maim papirus-icon-theme joypixels
     #discord
 
+    # fonts
+    cherry clarity-city cozette
     (nerdfonts.override { fonts = [
       "JetBrainsMono" "Terminus" "Inconsolata"
     ]; })
+
     # Import Scripts
 #    (import ./../scripts/emopicker9000.nix { inherit pkgs; })
 #    (import ./../scripts/task-waybar.nix { inherit pkgs; })

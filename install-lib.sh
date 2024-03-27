@@ -1,6 +1,7 @@
 #!/bin/bash
 
 XDG_CONFIG_HOME=~/.config
+LOCAL_DIR=~/.local
 
 
 # Non intrusive way of adding custom styling to kitty conf without overwriting

@@ -19,7 +19,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     #inputs.nixvim.homeManagerModules.nixvim
     #inputs.hyprland.homeManagerModules.default
-    #./nix-config/home
+    ./nix-config/home
   ];
 
   # Define Settings For Xresources

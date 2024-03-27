@@ -10,12 +10,7 @@ default_pass="password"
 current_user_name=$(echo $USER)
 user_name=$current_user_name
 
-#mkdir -p $FONTS_DIR
-#stow -R home-files -t ~/ -v
-stow -R dots -t $XDG_CONFIG_HOME -v
-#stow -R fonts -t $FONTS_DIR -v
 
-# TODO: test stowing the other config files from RiceInstaller
 
 
 if [ -n "$(cat /etc/os-release | grep -i nixos)" ]; then
@@ -69,8 +64,21 @@ else
 fi
 
 
+echo "-----"
+echo "Symlinking dot (.config) files using GNU Stow"
+[ ! -d ~/.config ] && mkdir -p $XDG_CONFIG_HOME
+[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
+[ ! -d ~/.local/share ] && mkdir -p ~/.local/share
+
+#stow -R home-files -t ~/ -v
+stow -R dots -t $XDG_CONFIG_HOME -v
+stow -R local -t  $LOCAL_DIR -v
+#stow -R fonts -t $FONTS_DIR -v
+
+# TODO: test stowing the other config files from RiceInstaller
 
 
+echo "-----"
 echo "Generating The Hardware Configuration"
 #sudo nixos-generate-config --show-hardware-config > hardware.nix
 

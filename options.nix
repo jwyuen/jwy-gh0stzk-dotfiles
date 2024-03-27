@@ -21,6 +21,7 @@ in {
   flakePrev = "${userHome}/.zaneyos-previous";
   flakeBackup = "${userHome}/.zaneyos-backup";
   terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
+  browser = "firefox";
 
   # System Settings
   clock24h = false;
