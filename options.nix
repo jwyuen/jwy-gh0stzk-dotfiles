@@ -11,7 +11,7 @@ in {
   inherit username hostname userHome flakeDir;
 
   # User Variables
-  gitUsername = "James Yuen";
+  gitUsername = "jwy";
   gitEmail = "jwingy@gmail.com";
   
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
