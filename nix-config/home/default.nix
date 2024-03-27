@@ -9,6 +9,7 @@
 #    ./hyprland.nix
 #    ./kdenlive.nix
 #    ./kitty.nix
+     ./mpd.nix
 #    ./neofetch.nix
 #    ./neovim.nix
     ./packages.nix

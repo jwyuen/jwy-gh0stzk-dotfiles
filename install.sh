@@ -70,14 +70,16 @@ echo "Symlinking dot (.config) files using GNU Stow"
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 [ ! -d ~/.local/share ] && mkdir -p ~/.local/share
 
-#stow -R home-files -t ~/ -v
-stow -R dots -t $XDG_CONFIG_HOME -v
-stow -R local -t  $LOCAL_DIR -v
+#stow -R dots -t ~/ -v
+#stow -R dots -t $XDG_CONFIG_HOME -v
+#stow -R local -t  $LOCAL_DIR -v
 #stow -R fonts -t $FONTS_DIR -v
 fc-cache -rf
 
-# TODO: test stowing the other config files from RiceInstaller
-
+echo "-----"
+echo "Installing custom Firefox startup page"
+#sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default/user.js
+sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
 
 echo "-----"
 echo "Generating The Hardware Configuration"
