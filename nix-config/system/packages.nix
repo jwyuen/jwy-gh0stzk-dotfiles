@@ -11,12 +11,12 @@
     jq polkit_gnome git playerctl mpd xclip 
     ncmpcpp geany ranger mpc-cli picom xdo xdotool jgmenu 
     feh ueberzug maim pamixer libwebp xdg-user-dirs 
-    webp-pixbuf-loader  physlock papirus-icon-theme 
+    webp-pixbuf-loader physlock papirus-icon-theme imagemagick
   #  ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels 
-    imagemagick 
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr
     wget curl git libvirt unzip unrar virt-viewer ripgrep networkmanagerapplet
-    neofetch htop btop vim git neovim wezterm zsh
+    neofetch htop btop vim git neovim wezterm
+    zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
   ];
 
   fonts.packages = with pkgs; [
