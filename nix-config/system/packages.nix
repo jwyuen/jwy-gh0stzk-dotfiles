@@ -13,10 +13,10 @@
     feh ueberzug maim pamixer libwebp xdg-user-dirs 
     webp-pixbuf-loader  physlock papirus-icon-theme 
   #  ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels 
-    fish imagemagick 
+    imagemagick 
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr
     wget curl git libvirt unzip unrar virt-viewer ripgrep networkmanagerapplet
-    neofetch htop btop vim git neovim wezterm
+    neofetch htop btop vim git neovim wezterm zsh
   ];
 
   fonts.packages = with pkgs; [

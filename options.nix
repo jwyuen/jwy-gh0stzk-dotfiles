@@ -30,7 +30,7 @@ in {
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/New_York";
-  theShell = "fish"; # Possible options: bash, zsh
+  theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
@@ -62,9 +62,9 @@ in {
 
   # Enable Terminals
   # If You Disable All You Get Kitty
-  wezterm = false;
+  wezterm = true;
   alacritty = true;
-  kitty = true;
+  kitty = false;
 
   # Enable Python & PyCharm
   python = false;
