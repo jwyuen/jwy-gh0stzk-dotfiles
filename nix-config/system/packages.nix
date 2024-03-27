@@ -3,39 +3,24 @@
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.joypixels.acceptLicense = true;
+
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    alacritty brightnessctl dunst rofi lsd 
-    bspwm polybar sxhkd 
-    jq polkit_gnome git playerctl mpd xclip 
-    ncmpcpp geany ranger mpc-cli picom xdo xdotool jgmenu 
-    feh ueberzug maim pamixer libwebp xdg-user-dirs joypixels
-    webp-pixbuf-loader physlock papirus-icon-theme imagemagick
-  #  ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels 
+    # unix porn related
+    brightnessctl dunst rofi bspwm polybar sxhkd jq ranger picom ueberzug
+    # X related packages
+    xdo xdotool jgmenu
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr
-    wget curl git libvirt unzip unrar virt-viewer ripgrep networkmanagerapplet
-    neofetch htop btop vim git neovim wezterm
-    rustup
+    # misc helpful utilities
+    alacritty lsd wget curl git unzip unrar virt-viewer ripgrep networkmanagerapplet
+    neofetch htop btop neovim wezterm stow
+    # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+    # more system level stuff
+    polkit_gnome libvirt physlock
   ];
-
-  fonts.packages = with pkgs; [
-
-    (nerdfonts.override { fonts = [
-      "JetBrainsMono" "Terminus" "Inconsolata"
-    ]; })
-  ];
-
- # environment.systemPackages = with pkgs; [
- #   wget curl git cmatrix lolcat neofetch htop btop libvirt
- #   polkit_gnome lm_sensors unzip unrar libnotify eza
- #   v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
- #   pkg-config meson hugo gnumake ninja go nodejs symbola
- #   noto-fonts-color-emoji material-icons brightnessctl
- #   toybox virt-viewer swappy ripgrep appimage-run 
- #   networkmanagerapplet yad playerctl nh
- # ];
 
   programs = {
     #steam.gamescopeSession.enable = true;
