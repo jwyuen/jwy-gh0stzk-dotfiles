@@ -65,25 +65,23 @@ fi
 
 
 echo "-----"
-echo "Symlinking dot (.config) files using GNU Stow"
+echo "Symlinking dot (.config and .local) files using GNU Stow"
 [ ! -d ~/.config ] && mkdir -p $XDG_CONFIG_HOME
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 [ ! -d ~/.local/share ] && mkdir -p ~/.local/share
 
-#stow -R dots -t ~/ -v
-#stow -R dots -t $XDG_CONFIG_HOME -v
-#stow -R local -t  $LOCAL_DIR -v
-#stow -R fonts -t $FONTS_DIR -v
+stow -R dots -t ~/ -v
+
 fc-cache -rf
 
-echo "-----"
-echo "Installing custom Firefox startup page"
+#echo "-----"
+#echo "Installing custom Firefox startup page"
 #sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default/user.js
-sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
+#sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
 
 echo "-----"
 echo "Generating The Hardware Configuration"
-#sudo nixos-generate-config --show-hardware-config > hardware.nix
+sudo nixos-generate-config --show-hardware-config > hardware.nix
 
 echo "-----"
 
@@ -92,12 +90,12 @@ NIX_CONFIG="experimental-features = nix-command flakes"
 
 #sudo nixos-rebuild switch --flake .#$host_name
 
-#  if [ $user_name != $current_user_name ]; then
-#    echo "Ensuring $PROJECT_NAME repository is in your users HOME directory."
-#    cd
-#    cp -r $REPO_NAME /home/$user_name/
-#    sudo chown -R $user_name:users /home/$user_name/$REPO_NAME
-#  fi
+if [ $user_name != $current_user_name ]; then
+  echo "Ensuring $PROJECT_NAME repository is in your users HOME directory."
+  cd
+  cp -r $REPO_NAME /home/$user_name/
+  sudo chown -R $user_name:users /home/$user_name/$REPO_NAME
+fi
 
 echo "-----"
 
