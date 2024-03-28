@@ -11,6 +11,7 @@ in {
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
 
+
   # Set The Colorscheme
   #colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
@@ -32,7 +33,15 @@ in {
     enable = true;
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
+    extraConfig = {
+      core = {
+        editor = "nvim";
+      };
+    };
   };
+
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
 
   # Create XDG Dirs
   xdg = {
