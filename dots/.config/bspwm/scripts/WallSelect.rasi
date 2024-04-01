@@ -14,10 +14,10 @@ configuration {
 //----- Global Properties -----//
 
 * {
-main-bg: #282828E6;
-main-fg: #fbf1c7;
-select-bg: #d79921;
-select-fg: #282828;
+main-bg: #0b0d16E6;
+main-fg: #a5b6cf;
+select-bg: #087152;
+select-fg: #0b0d16;
 }
 
 //----- Main Window -----//
@@ -68,7 +68,7 @@ listview {
 
 element {
     enabled:                     true;
-    orientation:                 horizontal;
+    orientation:                 vertical;
     spacing:                     0px;
     padding:                     0px;
     border-radius:               20px;

@@ -1,5 +1,3 @@
-// # z0mbi3 -  https://github.com/gh0stzk/dotfiles
-
 // Config //
 configuration {
     modi:                        "drun";
@@ -64,7 +62,7 @@ listview {
 // Elements //
 element {
     enabled:                     true;
-    orientation:                 horizontal;
+    orientation:                 vertical;
     spacing:                     0px;
     padding:                     10px;
     border-radius:               20px;
