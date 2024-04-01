@@ -134,14 +134,14 @@ super + c
 	bspc node @/ --circulate {backward,forward}
 
 # Change focus of the Node or Swap Nodes
-super + {_,shift + }{Left,Down,Up,Right}
+super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
 # Switch workspace
-super + ctrl + {Left,Right}
+super + ctrl + {h,l}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -153,7 +153,7 @@ super + ctrl + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 	
 # Send focused Node to workspace directionally
-super + ctrl + shift + {Left,Right}
+super + ctrl + shift + {h,l}
 	bspc node -d {prev,next} '--follow'
 
 #####
@@ -173,13 +173,13 @@ super + ctrl + shift + space
 #####
 	
 # expand a window
-super + alt + {Left,Down,Up,Right}
+super + alt + {h,j,k,l}
 	bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
 
 # contract a window
-super + alt + shift + {Left,Down,Up,Right}
+super + alt + shift + {h,j,k,l}
 	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
 
 # move a floating window
-alt + shift {Left,Down,Up,Right}
+alt + shift {h,j,k,l}
 	bspc node -v {-10 0,0 10,0 -10,10 0}

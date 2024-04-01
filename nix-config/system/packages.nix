@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, inputs, nixpkgs-unstable, ... }:
 
 {
   # Allow unfree packages
@@ -9,8 +9,9 @@
   # List System Programs
   environment.systemPackages = with pkgs; [
     # unix porn related
-    brightnessctl dunst rofi bspwm polybar sxhkd jq ranger picom ueberzug
-    tdrop eww 
+    brightnessctl dunst bspwm polybar sxhkd jq ranger picom ueberzug rofi
+    tdrop eww libwebp gdk-pixbuf webp-pixbuf-loader
+    #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # X related packages
     xdo xdotool jgmenu
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr

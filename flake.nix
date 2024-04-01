@@ -4,17 +4,23 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/23.11";
-    home-manager.url = "github:nix-community/home-manager/master";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
   #outputs = inputs@{ self, nixpkgs, utils, home-manager, ... }: utils.lib.eachDefaultSystem (system:
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, ... }:
   let
     system = "x86_64-linux";
     inherit (import ./options.nix) username hostname;
-
+   # overlay-unstable = final: prev: {
+   #   unstable = import nixpkgs-unstable {
+   #     inherit system;
+   #     config.allowUnfree = true;
+   #   };
+   # };
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -27,6 +33,7 @@
         specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;
+          inherit nixpkgs-unstable;
         };
         modules = [ 
           ./system.nix
