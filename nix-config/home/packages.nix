@@ -9,11 +9,12 @@ in {
     pkgs."${browser}"
     # unix porn related
     dunst bspwm polybar sxhkd jq ranger picom ueberzug rofi tdrop eww jgmenu
+    dmenu
     # audio related
     playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
     alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels
-    xclip
+    xclip 
     # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
     zsh-autocomplete
@@ -21,7 +22,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    physlock
+    physlock networkmanager networkmanager_dmenu
 
     # fonts
     cherry clarity-city cozette
