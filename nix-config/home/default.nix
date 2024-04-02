@@ -9,22 +9,22 @@
 #    ./hyprland.nix
 #    ./kdenlive.nix
 #    ./kitty.nix
-     ./mpd.nix
+    ./mpd.nix
 #    ./neofetch.nix
 #    ./neovim.nix
     ./packages.nix
 #    ./rofi.nix
-#    ./starship.nix
 #    ./waybar.nix
 #    ./wlogout.nix
+    ./starship.nix
 #    ./swappy.nix
 #    ./swaylock.nix
 #    ./swaync.nix
 #    ./wezterm.nix
 #    ./zeroad.nix
-#    ./zsh.nix
+    ./zsh.nix
 
-    # Place Home Files Like Pictures
-#    ./files.nix
+    # Place home and dot files like Pictures
+    ./files.nix
   ];
 }
