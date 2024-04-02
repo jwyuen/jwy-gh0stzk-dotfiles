@@ -13,7 +13,7 @@ WIDGET_DIR="$HOME/.config/bspwm/eww"
 
 case "$1" in
     --menu)
-        rofi -show drun -theme "$HOME"/.config/bspwm/scripts/Launcher.rasi
+        rofi -show drun -theme "$HOME"/.config/bspwm/scripts/Launcher.rasi 
         ;;
     --rice)
         RiceSelector
@@ -30,6 +30,9 @@ case "$1" in
     --checkupdates)
         alacritty --hold --class Updating,Updating -o window.dimensions.lines=22 window.dimensions.columns=47 -e Updates --print-updates
         ;;
+    --netmanager)
+		NetManagerDM
+		;;
     --ranger)
         alacritty --class FloaTerm,FloaTerm -o window.dimensions.lines=14 window.dimensions.columns=90 -e ranger
         ;;
@@ -40,7 +43,7 @@ case "$1" in
         alacritty --class FloaTerm,FloaTerm -o window.dimensions.lines=18 window.dimensions.columns=67 -e ncmpcpp
         ;;
     --fetch)
-        alacritty --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=26 window.dimensions.columns=40 -e neofetch
+        alacritty --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=26 window.dimensions.columns=40 -e ~/.local/bin/sysfetch
         ;;
         # Apps
     --filemanager)
