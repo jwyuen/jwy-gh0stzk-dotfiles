@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, username, ... }:
+{ pkgs, inputs, nixpkgs-unstable, config, username, ... }:
 
 let 
   inherit (import ../../options.nix) 
@@ -7,13 +7,21 @@ in {
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}"
+    # unix porn related
+    dunst bspwm polybar sxhkd jq ranger picom ueberzug rofi tdrop eww jgmenu
     # audio related
     playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
-    geany rustup
-    webp-pixbuf-loader imagemagick libwebp feh
-    xclip maim papirus-icon-theme joypixels
-    #discord
+    alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels
+    xclip
+    # zsh related
+    zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+    zsh-autocomplete
+    # image related
+    gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
+    #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
+    # other
+    physlock
 
     # fonts
     cherry clarity-city cozette

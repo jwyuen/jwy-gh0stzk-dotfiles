@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, nixpkgs-unstable, ... }:
+{ pkgs, config, inputs,  ... }:
 
 {
   # Allow unfree packages
@@ -8,20 +8,14 @@
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    # unix porn related
-    brightnessctl dunst bspwm polybar sxhkd jq ranger picom ueberzug rofi
-    tdrop eww libwebp gdk-pixbuf webp-pixbuf-loader
-    #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # X related packages
-    xdo xdotool jgmenu
+    xdo xdotool
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr
     # misc helpful utilities
-    alacritty lsd wget curl git unzip unrar virt-viewer ripgrep networkmanagerapplet
-    neofetch htop btop neovim wezterm stow
-    # zsh related
-    zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
-    # more system level stuff
-    polkit_gnome libvirt physlock
+    lsd wget curl git unzip unrar virt-viewer ripgrep networkmanagerapplet
+    neofetch htop btop stow brightnessctl 
+    # other
+    polkit_gnome
   ];
 
   programs = {
