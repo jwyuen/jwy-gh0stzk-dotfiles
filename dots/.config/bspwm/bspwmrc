@@ -6,9 +6,6 @@
 #  ██╔══██╗╚════██║██╔═══╝ ██║███╗██║██║╚██╔╝██║██╔══██╗██║
 #  ██████╔╝███████║██║     ╚███╔███╔╝██║ ╚═╝ ██║██║  ██║╚██████╗
 #  ╚═════╝ ╚══════╝╚═╝      ╚══╝╚══╝ ╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-#	- z0mbi3
-#	- https://github.com/gh0stzk/dotfiles
-#	- z0mbi3.zk@protonmail.com
 #
 
 read -r RICETHEME < "$HOME"/.config/bspwm/.rice
@@ -30,7 +27,7 @@ for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
     #bspc monitor "$monitor" -d '' '' '' '' '' ''
 done
 
-## For two or three monitors configuration see https://github.com/gh0stzk/dotfiles/wiki/Two-or-more-monitors-setup
+## For two or three monitors configuration see wiki
 
 #  ╔╗ ╔═╗╔═╗╦ ╦╔╦╗  ╔═╗╔═╗╔╗╔╔═╗╦╔═╗
 #  ╠╩╗╚═╗╠═╝║║║║║║  ║  ║ ║║║║╠╣ ║║ ╦

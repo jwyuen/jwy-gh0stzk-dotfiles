@@ -6,8 +6,6 @@
 #  ██║  ██║██║     ██║     ███████║    ███████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║███████╗██║  ██║
 #  ╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 # Script to control prefered apps to launch for all themes
-# Author: z0mbi3
-# url:    https://github.com/gh0stzk
 
 WIDGET_DIR="$HOME/.config/bspwm/eww"
 

@@ -6,8 +6,8 @@
 #  ██║  ██║██║██████╔╝███████╗    ██████╔╝██║  ██║██║  ██║
 #  ╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 # Simple script to hide/show polybar
-# Author: z0mbi3
-# url:    https://github.com/gh0stzk/dotfiles
+# : 
+# url:    
 
 conf_file="$HOME/.config/bspwm/rices/$RICETHEME/Theme.sh"
 T_Padding=$(grep "bspc config top_padding" "$conf_file" | awk '{print $NF}')

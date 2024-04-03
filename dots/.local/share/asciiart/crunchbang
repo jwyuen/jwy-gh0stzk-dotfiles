@@ -4,7 +4,7 @@
 #    and format output. Make sure to output the reset sequence after 
 #    colors (f = foreground, b = background), and use the 'off'
 #    feature for anything you turn on.
-# Author: steampunknyanja
+# author: steampunknyanja
 # Source: http://crunchbang.org/forums/viewtopic.php?pid=146715#p146715
 initializeANSI()
 {

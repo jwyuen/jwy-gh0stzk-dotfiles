@@ -5,12 +5,10 @@
 #   ███╔╝  ████╔╝██║██║╚██╔╝██║██╔══██╗██║ ╚═══██╗    ██╔══██╗██║██║     ██╔══╝
 #  ███████╗╚██████╔╝██║ ╚═╝ ██║██████╔╝██║██████╔╝    ██║  ██║██║╚██████╗███████╗
 #  ╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚═╝╚═════╝     ╚═╝  ╚═╝╚═╝ ╚═════╝╚══════╝
-#  Author  :  z0mbi3
-#  Url     :  https://github.com/gh0stzk/dotfiles
 #  About   :  This file will configure and launch the rice.
 #
 
-# Set bspwm configuration for z0mbi3
+# Set bspwm configuration
 set_bspwm_config() {
 	bspc config border_width 0
 	bspc config top_padding 3
@@ -28,7 +26,7 @@ pidof -q bspc && pkill -9 bspc >/dev/null
 # Reload terminal colors
 set_term_config() {
 	cat >"$HOME"/.config/alacritty/rice-colors.toml <<EOF
-# (Decay, decayce variant) Color scheme for z0mbi3 Rice
+# (Decay, decayce variant) Color scheme for  Rice
 
 # Default colors
 [colors.primary]
@@ -105,7 +103,7 @@ set_dunst_config() {
 # Set eww colors
 set_eww_colors() {
 	cat >"$HOME"/.config/bspwm/eww/colors.scss <<EOF
-// Eww colors for z0mbi3 rice
+// Eww colors for  rice
 \$bg: #0d0f18;
 \$bg-alt: #151720;
 \$fg: #a5b6cf;
@@ -121,7 +119,7 @@ set_eww_colors() {
 EOF
 }
 
-# Set jgmenu colors for z0mbi3
+# Set jgmenu colors
 set_jgmenu_colors() {
 	sed -i "$HOME"/.config/bspwm/jgmenurc \
 		-e 's/color_menu_bg = .*/color_menu_bg = #0d0f18/' \

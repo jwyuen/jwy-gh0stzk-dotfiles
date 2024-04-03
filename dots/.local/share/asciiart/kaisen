@@ -1,6 +1,6 @@
 #!/bin/sh
   
-# Author: Ivo
+# author: Ivo
 # Source: http://crunchbang.org/forums/viewtopic.php?pid=237794#p237794
 # ANSI Color -- use these variables to easily have different color
 #    and format output. Make sure to output the reset sequence after 
