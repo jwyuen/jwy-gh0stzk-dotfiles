@@ -30,7 +30,7 @@
           (time)
           (pfp)
           (iuse)
-          (infoarch)
+          (infoos)
           (weather)
           ;;(sysinfo)
           (system)
@@ -105,14 +105,14 @@
 (defwidget iuse []
 	(box :orientation "v"
 		 :space-evenly "false"
-		 :class "usearch"
+		 :class "useos"
 		 :hexpand true
          (label :class "launcher-pfp-label"
 				:xalign 0.5
-				:limit-width 30
-				:text "I use Arch btw..")))
+				:limit-width 50
+				:text "Just a whisper. I hear it in my ghost...")))
                  
-(defwidget infoarch []
+(defwidget infoos []
           (box :orientation "h"
 	           :space-evenly "false"
 	           :spacing 7
@@ -132,18 +132,18 @@
 					:space-evenly "false"
 					:class "fetch"
 					:spacing 8
-					(label :class "arch-icon"
+					(label :class "os-icon"
 						   :halign "start"
-						   :text "󰣇")
+						   :text "❄")
 					(box 
 						 :space-evenly "false"
 						 (box :orientation "v"
 							  :spacing 3
 							  :halign "end"
 							  :style "margin-left: 10px;"
-							  (label :class "os-icon" 
+							  (label :class "mini-os-icon" 
 									 :halign "start"
-									 :text "󰣇")
+									 :text "❄")
 							  (label :class "pkgs-icon"
 									 :halign "start"
 									 :text "󰮯")
@@ -157,7 +157,7 @@
 							  :halign "start"
 							  (label :class "os-text"
 									 :halign "start"
-									 :text "Arch")
+									 :text "NixOS")
 							  (label :class "pkgs-text"
 									 :halign "start"
 									 :text packages)

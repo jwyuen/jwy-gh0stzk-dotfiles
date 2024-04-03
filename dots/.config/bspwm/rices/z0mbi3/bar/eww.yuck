@@ -30,7 +30,7 @@
 	  (eventbox :cursor "pointer"
   	  (button :class "launcher_icon" 
 		   	      :onclick "cd ; OpenApps --menu"
-		   	      :onrightclick "OpenApps --rice" "󰣇"
+		   	      :onrightclick "OpenApps --rice" "❄"
       )
     )
   )
