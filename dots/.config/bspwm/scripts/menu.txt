@@ -31,6 +31,6 @@ Restart WM,bspc wm -r,/usr/share/icons/Papirus/32x32/apps/system-reboot.svg
 Quit,bspc quit,/usr/share/icons/Papirus/32x32/apps/system-log-out.svg
 
 ^tag(exit)
-Block computer,physlock -d,/usr/share/icons/Papirus/32x32/status/changes-prevent.svg
+Block computer,betterlockscreen -l,/usr/share/icons/Papirus/32x32/status/changes-prevent.svg
 Reboot,systemctl reboot,/usr/share/icons/Papirus/32x32/apps/system-reboot.svg
 Shutdown,systemctl poweroff,/usr/share/icons/Papirus/32x32/apps/system-shutdown.svg

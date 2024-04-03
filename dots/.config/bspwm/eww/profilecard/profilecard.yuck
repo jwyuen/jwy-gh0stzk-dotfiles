@@ -96,7 +96,7 @@
 				   :hexpand false
 				   ;;:style "border: 1px solid #ffffff;"
 				   (eventbox :cursor "pointer"
-				   (button :class "btn-info" :tooltip "Lock Computer" :onclick "physlock -d" "󱅞"))
+				   (button :class "btn-info" :tooltip "Lock Computer" :onclick "betterlockscreen -l" "󱅞"))
 				   (eventbox :cursor "pointer"
 				   (button :class "btn-info" :tooltip "Logout BSPWM" :onclick "bspc quit" "󰍃")))
 		)

@@ -22,7 +22,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    physlock networkmanager networkmanager_dmenu
+    betterlockscreen networkmanager networkmanager_dmenu
 
     # fonts
     cherry clarity-city cozette

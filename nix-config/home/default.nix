@@ -5,6 +5,7 @@
     # Enable &/ Configure Programs
 #    ./alacritty.nix
 #    ./bash.nix
+    ./betterlockscreen.nix
 #    ./gtk-qt.nix
 #    ./hyprland.nix
 #    ./kdenlive.nix

@@ -32,8 +32,8 @@
   hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
   #security.pam.services.swaylock = {
-  # not sure physlock is supported.......
-  security.pam.services.physlock = {
+  security.pam.services.betterlockscreen = {
+    
     text = ''
       auth include login
     '';

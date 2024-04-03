@@ -11,7 +11,7 @@
 		 :spacing 10
     (eventbox :cursor "pointer"
 		(button :class "powermenu lock" 
-				:onclick "physlock -d"
+				:onclick "betterlockscreen -l"
 				:tooltip "Lock session"
 				""))
     (eventbox :cursor "pointer"
