@@ -23,6 +23,7 @@ in {
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
     betterlockscreen networkmanager networkmanager_dmenu
+    nixpkgs-unstable.legacyPackages.${pkgs.system}.nh
 
     # fonts
     cherry clarity-city cozette

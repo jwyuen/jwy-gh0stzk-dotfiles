@@ -39,7 +39,7 @@
           ./system.nix
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
-              inherit username; inherit inputs;
+              inherit username; inherit inputs; inherit nixpkgs-unstable;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
             home-manager.useGlobalPkgs = true;
