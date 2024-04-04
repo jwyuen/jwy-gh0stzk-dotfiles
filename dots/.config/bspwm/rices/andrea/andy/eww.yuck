@@ -17,7 +17,7 @@
 (defpoll CITY  :interval "15m" "Weather city")
 
 ;; Updates vars
-(defpoll UPDATES :interval "2m" "Updates --get-updates")
+(defpoll UPDATES :interval "30m" "Updates --get-updates")
 
 ;; Volume vars
 (defpoll volume_icon :interval "1s" "scripts/volume.sh --icon")

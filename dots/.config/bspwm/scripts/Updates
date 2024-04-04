@@ -3,10 +3,11 @@
 # Script to check for new updates in NixOS 
 
 HOST=$(hostname -s)
+PROJECT_DIR=~/jwy-gh0stzk-dots
 
 get_total_updates() {
     #nhstring="Closure size: 2048 -> 2048 (0 paths added, 0 paths removed, delta +0, disk usage +0B)."
-    nhstring=$(nh os switch -n --hostname $HOST . | rg Closure)
+    nhstring=$(nh os switch -n --hostname $HOST $PROJECT_DIR | rg Closure)
     num_of_updates=${nhstring##*delta}
     num_of_updates=${num_of_updates%,*}
     num_of_updates=${num_of_updates##*+}
@@ -20,14 +21,14 @@ print_updates() {
 
     if [[ "$print_updates" -gt 0 ]]; then
         echo -e "\033[1m\033[33mThere are $print_updates updates available:\033[0m\n"
-        nh os switch -n --hostname $HOST .
+        nh os switch -n --hostname $HOST $PROJECT_DIR
     else
         echo -e "\033[1m\033[32mYour system is already updated!\033[0m"
     fi
 }
 
 update_system() {
-    nh os switch -a --hostname $HOST .
+    nh os switch -a --hostname $HOST $PROJECT_DIR
 }
 
 case "$1" in

@@ -15,7 +15,7 @@
 (defpoll NETSTAT :interval "30s" `scripts/Network --stat`)
 
 ;; Updates vars
-(defpoll UPDATES :interval "2m" `Updates --get-updates`)
+(defpoll UPDATES :interval "30m" `Updates --get-updates`)
 (defvar pac false)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
