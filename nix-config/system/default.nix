@@ -8,8 +8,7 @@
     ./boot.nix
     ./bspwm.nix
     ./kde.nix
-    # TODO: create bspwm version of displaymanager.nix?
-    #./displaymanager.nix
+    ./displaymanager.nix
     ./hwclock.nix
     ./intel-amd.nix
     ./intel-gpu.nix
