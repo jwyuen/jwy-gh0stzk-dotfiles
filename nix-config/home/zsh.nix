@@ -29,6 +29,7 @@ lib.mkIf (theShell == "zsh") {
         source $HOME/.zshrc-personal
       fi
       eval "$(starship init zsh)"
+      eval "$(zoxide init zsh)"
     '';
     initExtraFirst = ''
       HISTFILE=~/.histfile
@@ -47,6 +48,7 @@ lib.mkIf (theShell == "zsh") {
       flake-rebuild="nh os switch --hostname ${hostname}";
       flake-update="nh os switch --hostname ${hostname} --update";
       gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      cd="z";
       v="nvim";
       ls="lsd";
       ll="lsd -al";

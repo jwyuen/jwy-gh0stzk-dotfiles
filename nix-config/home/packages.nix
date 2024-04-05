@@ -22,7 +22,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    betterlockscreen networkmanager networkmanager_dmenu
+    betterlockscreen networkmanager networkmanager_dmenu zoxide fzf
     nixpkgs-unstable.legacyPackages.${pkgs.system}.nh
 
     # fonts
