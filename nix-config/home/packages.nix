@@ -13,8 +13,8 @@ in {
     # audio related
     playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
-    alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels
-    xclip 
+    alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels zig gcc
+    lazygit xclip zoxide fzf fd neovide
     # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
     zsh-autocomplete
@@ -22,7 +22,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    betterlockscreen networkmanager networkmanager_dmenu zoxide fzf
+    betterlockscreen networkmanager networkmanager_dmenu
     nixpkgs-unstable.legacyPackages.${pkgs.system}.nh
 
     # fonts

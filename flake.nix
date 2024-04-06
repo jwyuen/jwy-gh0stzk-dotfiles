@@ -8,9 +8,12 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
+#    nixvim = {
+#      url = "github:nix-community/nixvim/nixos-23.11";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
   };
 
-  #outputs = inputs@{ self, nixpkgs, utils, home-manager, ... }: utils.lib.eachDefaultSystem (system:
   outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, ... }:
   let
     system = "x86_64-linux";
