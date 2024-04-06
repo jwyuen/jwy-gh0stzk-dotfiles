@@ -13,6 +13,8 @@ lib.mkIf (theShell == "zsh") {
       #fi
     '';
     initExtra = ''
+      zstyle ":completion:*" menu select
+      zstyle ":completion:*" matcher-list "" "m:{a-z0A-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
       if type nproc &>/dev/null; then
         export MAKEFLAGS="$MAKEFLAGS -j$(($(nproc)-1))"
       fi
