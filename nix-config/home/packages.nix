@@ -14,7 +14,7 @@ in {
     playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
     alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels zig gcc
-    lazygit xclip zoxide fzf fd neovide
+    lazygit xclip zoxide fzf fd
     # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
     zsh-autocomplete
