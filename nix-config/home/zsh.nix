@@ -7,14 +7,38 @@ lib.mkIf (theShell == "zsh") {
     syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     historySubstringSearch.enable = true;
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "bf3ef5588af6d3bf7cc60f2ad2c1c95bca216241";
+          #sha256 = "G2SWncbLNaclSYUz7VyfWu+OB8TYJYm4NYkM";
+          #sha256 = lib.fakeSha256;
+          sha256 = "0/YOL1/G2SWncbLNaclSYUz7VyfWu+OB8TYJYm4NYkM=";
+        };
+      }
+    ];
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VNTR" = 1 ]; then
       #  exec Hyprland
       #fi
     '';
     initExtra = ''
-      zstyle ":completion:*" menu select
-      zstyle ":completion:*" matcher-list "" "m:{a-z0A-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
+      enable-fzf-tab
+      # disable sort when completing `git checkout`
+      zstyle ':completion:*:git-checkout:*' sort false
+      # set descriptions format to enable group support
+      # NOTE: don't use escape sequences here, fzf-tab will ignore them
+      zstyle ':completion:*:descriptions' format '[%d]'
+      # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+      zstyle ':completion:*' menu no
+      # preview directory's content with eza when completing cd
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+      # switch group using `<` and `>`
+      zstyle ':fzf-tab:*' switch-group '<' '>'
+
       if type nproc &>/dev/null; then
         export MAKEFLAGS="$MAKEFLAGS -j$(($(nproc)-1))"
       fi
@@ -39,7 +63,7 @@ lib.mkIf (theShell == "zsh") {
       SAVEHIST=1000
       setopt autocd nomatch
       unsetopt beep extendedglob notify
-      autoload -Uz compinit
+      autoload -Uz compinit; 
       compinit
     '';
     sessionVariables = {
