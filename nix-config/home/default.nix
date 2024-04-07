@@ -12,7 +12,7 @@
 #    ./kitty.nix
     ./mpd.nix
 #    ./neofetch.nix
-#    ./neovim.nix
+    ./neovim.nix
     ./packages.nix
 #    ./rofi.nix
 #    ./waybar.nix

@@ -1,4 +1,4 @@
-{ pkgs, inputs, nixpkgs-unstable, config, username, ... }:
+{ pkgs, inputs, config, username, ... }:
 
 let 
   inherit (import ../../options.nix) 
@@ -22,8 +22,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    betterlockscreen networkmanager networkmanager_dmenu
-    nixpkgs-unstable.legacyPackages.${pkgs.system}.nh
+    betterlockscreen networkmanager networkmanager_dmenu nh
 
     # fonts
     cherry clarity-city cozette

@@ -13,12 +13,12 @@ in {
 
 
   # Set The Colorscheme
-  #colorScheme = inputs.nix-colors.colorSchemes."${theme}";
+  colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
   # Import Program Configurations
   imports = [
-    #inputs.nix-colors.homeManagerModules.default
-    #inputs.nixvim.homeManagerModules.nixvim
+    inputs.nix-colors.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
     #inputs.hyprland.homeManagerModules.default
     ./nix-config/home
   ];
@@ -39,9 +39,6 @@ in {
       };
     };
   };
-
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
 
   # Create XDG Dirs
   xdg = {

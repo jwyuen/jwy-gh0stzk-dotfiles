@@ -44,6 +44,8 @@ in {
   bspwm = true;
   kde = true;
   
+  # Base16 Theme
+  theme = "catppuccin-mocha";
 
   # NTP & HWClock Settings
   ntp = true;

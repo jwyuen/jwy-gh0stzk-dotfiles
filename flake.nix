@@ -3,27 +3,20 @@
 
   inputs = {
     utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/23.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
-#    nixvim = {
-#      url = "github:nix-community/nixvim/nixos-23.11";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
     inherit (import ./options.nix) username hostname;
-   # overlay-unstable = final: prev: {
-   #   unstable = import nixpkgs-unstable {
-   #     inherit system;
-   #     config.allowUnfree = true;
-   #   };
-   # };
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -36,13 +29,13 @@
         specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;
-          inherit nixpkgs-unstable;
         };
         modules = [ 
           ./system.nix
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
-              inherit username; inherit inputs; inherit nixpkgs-unstable;
+              inherit username; 
+              inherit inputs;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
             home-manager.useGlobalPkgs = true;
