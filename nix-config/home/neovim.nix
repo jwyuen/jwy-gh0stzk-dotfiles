@@ -48,26 +48,26 @@ in {
     
     plugins = {
       barbecue.enable = true;
-      gitsigns.enable = true;
-      telescope = {
-        enable = true;
-        keymaps = {
-          "<leader>ff" = "find_files";
-          "<leader>lg" = "live_grep";
-        };
-      };
-      indent-blankline.enable = true;
-      nvim-colorizer.enable = true;
-      nvim-autopairs.enable = true;
-      nix.enable = true;
+      bufferline.enable = true;
       comment.enable = true;
+      cmp = {
+	enable = true;
+	autoEnableSources = true;
+      };
+      cmp-buffer.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-path.enable = true;
+      conform-nvim.enable = true;
+      dashboard.enable = true;
+      flash.enable = true;
+      friendly-snippets.enable = true;
+      gitsigns.enable = true;
+      indent-blankline.enable = true;
+      lint.enable = true;
       lualine = {
         enable = true;
       };
-      startup = { 
-	enable = true;
-	theme = "dashboard";
-      };
+      luasnip.enable = true;
       lsp = {
 	enable = true;
 	servers = {
@@ -92,26 +92,40 @@ in {
 	};
       };
       lsp-lines.enable = true;
+      mini.enable = true;
+      nix.enable = true;
+      noice.enable = true;
+      notify.enable = true;
+      nvim-colorizer.enable = true;
+      nvim-autopairs.enable = true;
+      persistence.enable = true;
+      startup = { 
+	enable = true;
+	theme = "dashboard";
+      };
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>f" = "find_files";
+          "<leader>l" = "live_grep";
+        };
+      };
+      todo-comments.enable = true;
       treesitter = {
 	enable = true;
 	nixGrammars = true;
       };
-      cmp.settings = {
-	enable = true;
-	autoEnableSources = true;
-	sources = [
-	  { name = "nvim_lsp"; }
-	  { name = "path"; }
-	  { name = "buffer"; }
-	];
-	mapping = {
-	  "<CR>" = "cmp.mapping.confirm({ select = true })";
-	  "<Tab>" = {
-	    action = ''cmp.mapping.select_next_item()'';
-	    modes = [ "i" "s" ];
-	  };
-	};
+      treesitter-context.enable = true;
+      treesitter-textobjects.enable = true;
+      trouble.enable = true;
+      ts-autotag.enable = true;
+      ts-context-commentstring = {
+        enable = true;
+        extraOptions = {
+          enable_autocmd = false;
+        };
       };
+      which-key.enable = true;
     };
 
     extraPlugins = [ plugins.telescope-file-browser-nvim ];

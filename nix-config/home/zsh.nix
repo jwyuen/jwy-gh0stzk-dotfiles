@@ -83,6 +83,7 @@ lib.mkIf (theShell == "zsh") {
       ".."="cd ..";
       neofetch="neofetch --ascii ~/.config/ascii-neofetch";
       history="history 0";
+      nf="nvim $(fzf)";
     };
   };
 }
