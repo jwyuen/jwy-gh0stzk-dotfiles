@@ -2,8 +2,8 @@
 
 (defpoll completeday :interval "1s" "date '+%A, %d %B'")
 
-
-(defvar IMAGEP "../assets/profile.png")
+; this is a css path
+(defvar IMAGEP "./../bspwm/assets/profile.png")
 
 (defpoll username :interval "24h" "whoami")
 (defpoll hostname :interval "24h" "cat /etc/hostname")
@@ -18,7 +18,7 @@
 (defpoll weatherdesc :interval "15m" "Weather weather_desc")
 (defpoll weatherhex :interval "15m" "Weather hex")
 
-(defpoll temp :interval "5s" "../scripts/temp.sh")
+(defpoll temp :interval "5s" "~/.config/bspwm/scripts/temp.sh")
 
 ;; Widegets ;;
 
