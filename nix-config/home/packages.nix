@@ -6,7 +6,6 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}"
     # unix porn related
     dunst bspwm polybar sxhkd jq ranger picom ueberzug rofi tdrop eww jgmenu
     dmenu
@@ -22,7 +21,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    betterlockscreen networkmanager networkmanager_dmenu nh
+    betterlockscreen networkmanager networkmanager_dmenu nh tldr
 
     # fonts
     cherry clarity-city cozette

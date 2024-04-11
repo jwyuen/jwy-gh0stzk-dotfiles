@@ -92,7 +92,25 @@ in {
 	};
       };
       lsp-lines.enable = true;
-      mini.enable = true;
+      mini = {
+        enable = true;
+        modules = {
+          comment = { };
+          diff = { };
+          files = { };
+          hipatterns = { };
+          indentscope = { 
+            symbol = "|";
+            options = {
+              try_as_border = true;
+            };
+          };
+          move = { };
+          pairs = { };
+          surround = { };
+          starter = { };
+        };
+      };
       nix.enable = true;
       noice.enable = true;
       notify.enable = true;
@@ -202,8 +220,14 @@ in {
     keymaps = [
       {
         mode = "n";
-        key = "<space>fb";
+        key = "<leader>tb";
         action = ":Telescope file_browser<CR>";
+        options.noremap = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>fb";
+        action = ":lua MiniFiles.open()";
         options.noremap = true;
       }
       {

@@ -7,7 +7,7 @@ PROJECT_NAME="jwy-gh0stzk-dots"
 REPO_NAME=$PROJECT_NAME
 host_name="nixrice"
 default_pass="password"
-current_user_name=$(echo $USER)
+current_user_name=$USER
 user_name=$current_user_name
 
 
@@ -30,7 +30,7 @@ if [[ $REPLY =~ ^[Nn]$ ]] ; then
 
   echo "-----"
 
-  read -p "Enter Your Username: [ $current_user_name ] " user_name_response
+  read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
   if [ ! -z "$user_name_response" ]; then
     user_name=$user_name_response
   fi

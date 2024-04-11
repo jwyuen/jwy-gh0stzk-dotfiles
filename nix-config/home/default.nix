@@ -6,6 +6,7 @@
 #    ./alacritty.nix
 #    ./bash.nix
     ./betterlockscreen.nix
+    ./firefox.nix
 #    ./gtk-qt.nix
 #    ./hyprland.nix
 #    ./kdenlive.nix
