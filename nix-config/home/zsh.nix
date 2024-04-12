@@ -84,6 +84,7 @@ lib.mkIf (theShell == "zsh") {
       neofetch="neofetch --ascii ~/.config/ascii-neofetch";
       history="history 0";
       nf="nvim $(fzf)";
+      "gitrmall" = "git rm $(git ls-files --deleted)";
     };
   };
 }
