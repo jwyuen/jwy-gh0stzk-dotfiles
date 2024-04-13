@@ -16,7 +16,7 @@ in {
       shiftwidth = 2;        # Tab width should be 2
       softtabstop = 2;
       smartindent = true;
-      wrap = false;
+      wrap = true;
       swapfile = false;
       backup = false;
       hlsearch = false;

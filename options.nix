@@ -42,7 +42,7 @@ in {
 
   # DE / WM
   bspwm = true;
-  kde = true;
+  kde = false;
   
   # Base16 Theme
   theme = "catppuccin-mocha";
