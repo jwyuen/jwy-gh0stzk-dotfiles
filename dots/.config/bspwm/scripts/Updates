@@ -7,13 +7,15 @@ PROJECT_DIR=~/jwy-gh0stzk-dots
 
 get_total_updates() {
     #nhstring="Closure size: 2048 -> 2048 (0 paths added, 0 paths removed, delta +0, disk usage +0B)."
-    nhstring=$(nh os switch -n --hostname $HOST $PROJECT_DIR | rg Closure)
+    #Since update checker command takes time to run, show 0 as default until command finishes
+    echo "0"
+    nhstring=$(nh os switch -n --hostname "$HOST" $PROJECT_DIR 2>/dev/null | rg Closure)
     num_of_updates=${nhstring##*delta}
     num_of_updates=${num_of_updates%,*}
     num_of_updates=${num_of_updates##*+}
     num_of_updates=${num_of_updates##*-}
 
-    echo $num_of_updates
+    echo "$num_of_updates"
 }
 
 print_updates() {
