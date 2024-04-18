@@ -7,10 +7,10 @@ in {
   # Install Packages For The User
   home.packages = with pkgs; [
     # unix porn related
-    dunst bspwm polybar sxhkd jq ranger picom ueberzug rofi tdrop eww jgmenu
-    dmenu
+    dunst bspwm dmenu sxhkd jq ranger picom ueberzug rofi tdrop eww jgmenu
+    polybarFull polybar-pulseaudio-control
     # audio related
-    playerctl mpd ncmpcpp mpc-cli pamixer
+    libmpdclient playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
     alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels zig gcc
     lazygit xclip zoxide fzf fd
