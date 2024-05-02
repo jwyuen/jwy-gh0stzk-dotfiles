@@ -53,6 +53,10 @@ super + alt + o
 ctrl + super + alt + {p,r,q,l,k}
 	{systemctl poweroff, systemctl reboot,bspc quit,betterlockscreen -l,xkill}
 
+# Hide/Show Bar (Polybar and/or eww)
+super + alt + {b,n}
+	HideBar {-h,-u}
+
 # Change transparency on focused window
 ctrl + alt + {plus,minus,t}
 	picom-trans {-c -o +3,-c -o -1,-c -d}
