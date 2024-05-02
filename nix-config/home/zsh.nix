@@ -50,7 +50,7 @@ lib.mkIf (theShell == "zsh") {
       bindkey '^[[H' beginning-of-line                # Key Home
       bindkey '^[[F' end-of-line                      # Key End
       bindkey '^F' autosuggest-accept                 # ctrl+f
-      neofetch
+      fastfetch
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi
@@ -81,7 +81,6 @@ lib.mkIf (theShell == "zsh") {
       la="lsd -a";
       lal="lsd -al";
       ".."="cd ..";
-      neofetch="neofetch --ascii ~/.config/ascii-neofetch";
       history="history 0";
       nf="nvim $(fzf)";
       "gitrmall" = "git rm $(git ls-files --deleted)";
