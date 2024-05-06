@@ -16,6 +16,7 @@
     ./kernel.nix
     ./ntp.nix
     ./nvidia.nix
+    ./opengl.nix
     ./packages.nix
     ./polkit.nix
     ./services.nix
