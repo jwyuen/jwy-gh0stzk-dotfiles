@@ -1,7 +1,7 @@
-{ pkgs, inputs, config, username, ... }:
+{ pkgs, inputs, config, username, host, ... }:
 
 let 
-  inherit (import ../../options.nix) 
+  inherit (import ../hosts/${host}/options.nix) 
     browser wallpaperDir wallpaperGit flakeDir;
 in {
   # Install Packages For The User

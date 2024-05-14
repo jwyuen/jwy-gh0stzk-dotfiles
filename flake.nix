@@ -20,7 +20,8 @@
   outputs = inputs@{ nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
-    inherit (import ./options.nix) username hostname;
+    host = "nix-deskstar";
+    inherit (import ./nix-config/hosts/${host}/options.nix) username hostname;
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -29,10 +30,12 @@
     };
   in {
     nixosConfigurations = {
+      # default config
       "${hostname}" = nixpkgs.lib.nixosSystem {
         specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;
+          inherit host;
         };
         modules = [ 
           ./system.nix
@@ -40,12 +43,57 @@
             home-manager.extraSpecialArgs = {
               inherit username; 
               inherit inputs;
+              inherit host;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.users.${username} = import ./home.nix;
+          }
+        ];
+      };
+      "nix-vm" = nixpkgs.lib.nixosSystem {
+        specialArgs = { 
+          inherit system; inherit inputs; 
+          inherit username; inherit hostname;
+          host = "nix-vm";
+        };
+        modules = [ 
+          ./system.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = {
+              inherit username; 
+              inherit inputs;
+              host = "nix-vm";
+              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.non = import ./home.nix;
+          }
+        ];
+      };
+      "nix-lappy" = nixpkgs.lib.nixosSystem {
+        specialArgs = { 
+          inherit system; inherit inputs; 
+          inherit username; inherit hostname;
+          host = "nix-lappy";
+        };
+        modules = [ 
+          ./system.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = {
+              inherit username; 
+              inherit inputs;
+              host = "nix-lappy";
+              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.non = import ./home.nix;
           }
         ];
       };

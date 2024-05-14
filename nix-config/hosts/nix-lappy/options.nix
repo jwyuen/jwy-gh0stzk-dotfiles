@@ -2,26 +2,21 @@
 
 let
   # THINGS YOU NEED TO CHANGE
-  username = "non";
-  hostname = "nixrice";
-  userHome = "/home/${username}";
-  flakeDir = "${userHome}/jwy-gh0stzk-dots";
+  setUsername = "non";
+  setHostname = "nix-lappy";
 in {
 
-  inherit username hostname userHome flakeDir;
+  #inherit username hostname userHome flakeDir;
+  username = "${setUsername}";
+  hostname = "${setHostname}";
+  userHome = "/home/${setUsername}";
+  flakeDir = "/home/${setUsername}/jwy-gh0stzk-dots";
+  wallpaperDir = "/home/${setUsername}/Pictures/Wallpapers";
+  screenshotDir = "/home/${setUsername}/Pictures/Screenshots";
 
   # User Variables
   gitUsername = "jwy";
   gitEmail = "jwingy@gmail.com";
-  
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
-  # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
-  wallpaperDir = "${userHome}/Pictures/Wallpapers";
-  screenshotDir = "${userHome}/Pictures/Screenshots";
-  flakePrev = "${userHome}/.zaneyos-previous";
-  flakeBackup = "${userHome}/.zaneyos-backup";
-  terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
-  browser = "firefox";
 
   # System Settings
   clock24h = false;
@@ -37,9 +32,13 @@ in {
 
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "vm";
-  gpuType = "vm";
+  cpuType = "amd";
+  gpuType = "nvidia";
 
+  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS! 
+  amd-bus-id = "PCI:1:0:0";
+  intel-bus-id = "PCI:1:0:0";
+  nvidia-bus-id = "PCI:0:2:0";
 
   # DE / WM
   bspwm = true;
@@ -55,7 +54,9 @@ in {
   # Enable Printer & Scanner Support
   printer = false;
 
-  # Enable Flatpak & Larger Programs
+  # Program options
+  terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
+  browser = "firefox";
   distrobox = false;
   flatpak = false;
   kdenlive = false;

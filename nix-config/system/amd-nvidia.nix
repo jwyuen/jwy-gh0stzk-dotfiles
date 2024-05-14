@@ -1,6 +1,6 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, host, ... }:
 
-let inherit (import ../../options.nix) amd-bus-id nvidia-bus-id gpuType; in
+let inherit (import ../hosts/${host}/options.nix) amd-bus-id nvidia-bus-id gpuType; in
 lib.mkIf ("${gpuType}" == "amd-nvidia") { 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {

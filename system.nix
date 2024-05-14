@@ -1,8 +1,8 @@
 { inputs, config, pkgs,
-  username, hostname, ... }:
+  username, hostname, host, ... }:
 
 let 
-  inherit (import ./options.nix) 
+  inherit (import ./nix-config/hosts/${host}/options.nix) 
     theLocale theTimezone gitUsername
     theShell wallpaperDir wallpaperGit
     theLCVariables theKBDLayout flakeDir
@@ -10,8 +10,9 @@ let
 in {
   imports =
     [
-      ./hardware.nix
+      ./nix-config/hosts/${host}/hardware.nix
       ./nix-config/system
+      ./nix-config/users/users.nix
     ];
 
   # Enable networking
@@ -37,22 +38,6 @@ in {
 
   console.keyMap = "${theKBDLayout}";
 
-  # Define a user account.
-  users = {
-    mutableUsers = true;
-    users."${username}" = {
-      homeMode = "755";
-      hashedPassword = "$6$edpk.us5k8TGExLh$f3Q6AhZtLGXcOOOmnyUE7CSOMAmB0219Vgw1gbQkXE49M53XRYP7eRbiH9p84nsYjwBHsmrJVUB0Tm1YeS4AS.";
-      isNormalUser = true;
-      description = "${gitUsername}";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-      shell = pkgs.${theShell};
-      ignoreShellProgramCheck = true;
-      packages = with pkgs; [];
-    };
-  };
-
-  # TODO: add other relevant env vars?
   environment.variables = {
     FLAKE = "${flakeDir}";
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

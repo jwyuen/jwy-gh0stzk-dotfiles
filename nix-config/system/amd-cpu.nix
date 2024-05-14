@@ -1,7 +1,7 @@
-{ lib, config, ... }:
+{ lib, config, host, ... }:
 let
   kver = config.boot.kernelPackages.kernel.version;
-  inherit (import ../../options.nix) cpuType;
+  inherit (import ../hosts/${host}/options.nix) cpuType;
 in
 lib.mkIf ("${cpuType}" == "amd") { 
   hardware.cpu.amd.updateMicrocode =

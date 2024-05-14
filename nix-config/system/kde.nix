@@ -1,6 +1,6 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, host, ... }:
 
-let inherit (import ../../options.nix) kde; in
+let inherit (import ../hosts/${host}/options.nix) kde; in
 lib.mkIf (kde == true) {
   services.xserver.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
