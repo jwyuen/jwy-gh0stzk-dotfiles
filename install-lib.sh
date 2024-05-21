@@ -11,6 +11,7 @@ THEME_FILES=(
   dots/.config/bspwm/picom.conf
   dots/.config/bspwm/scripts/Launcher.rasi
   dots/.config/bspwm/scripts/NetManagerDM.rasi
+  dots/.config/bspwm/scripts/system.ini
   dots/.config/bspwm/scripts/WallSelect.rasi
   dots/.config/eww/colors.scss
 )
