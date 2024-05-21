@@ -28,8 +28,8 @@ opacity = 1.0
 dynamic_padding = true
 
 [window.padding]
-x = 15
-y = 15
+x = 5
+y = 5
 
 [scrolling]
 history = 10000
@@ -39,3 +39,6 @@ multiplier = 3
 animation = "Linear"
 duration = 0
 command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.4"
