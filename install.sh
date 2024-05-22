@@ -5,7 +5,6 @@ source install-lib.sh
 
 PROJECT_NAME="jwy-gh0stzk-dots"
 REPO_NAME=$PROJECT_NAME
-default_pass="password"
 current_user_name=$USER
 user_name=$current_user_name
 
@@ -41,9 +40,9 @@ if [[ $REPLY =~ ^[Nn]$ ]] ; then
     echo "This will create a hashedPassword for the new user in the options file."
     while true; do
       echo
-      read -s -p "Enter New User Password: " new_pass
+      read -s -p -r "Enter New User Password: " new_pass
       echo
-      read -s -p "Enter New User Password Again: " new_pass2
+      read -s -p -r "Enter New User Password Again: " new_pass2
       if [ "$new_pass" == "$new_pass2" ]; then
         echo "Passwords Match. Setting password."
         user_password=$(mkpasswd -m sha-512 "$new_pass")
@@ -89,14 +88,15 @@ sudo nixos-generate-config --show-hardware-config > ./nix-config/hosts/$host_nam
 echo "-----"
 
 echo "Now Going To Build $PROJECT_NAME, 🤞"
-NIX_CONFIG="experimental-features = nix-command flakes" 
+#NIX_CONFIG="experimental-features = nix-command flakes" 
 
 if [ "$user_name" != "$current_user_name" ]; then
   echo "Ensuring $PROJECT_NAME repository is in your users HOME directory."
-  cd
+  cd ... || exit
   cp -r $REPO_NAME /home/"$user_name"/
   sudo chown -R "$user_name":users /home/"$user_name"/$REPO_NAME
 fi
+sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./flake.nix
 
 echo "using the following host name: $host_name"
 if sudo nixos-rebuild switch --flake .#"$host_name"; then
@@ -104,6 +104,7 @@ if sudo nixos-rebuild switch --flake .#"$host_name"; then
   echo "$PROJECT_NAME Has Been Installed!"
 fi
 
-
-
-
+echo "-----"
+echo "Cleaning up..."
+git restore ./flake.nix
+echo "Done!"

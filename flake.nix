@@ -53,50 +53,6 @@
           }
         ];
       };
-      "nix-vm" = nixpkgs.lib.nixosSystem {
-        specialArgs = { 
-          inherit system; inherit inputs; 
-          inherit username; inherit hostname;
-          host = "nix-vm";
-        };
-        modules = [ 
-          ./system.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = {
-              inherit username; 
-              inherit inputs;
-              host = "nix-vm";
-              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.non = import ./home.nix;
-          }
-        ];
-      };
-      "nix-lappy" = nixpkgs.lib.nixosSystem {
-        specialArgs = { 
-          inherit system; inherit inputs; 
-          inherit username; inherit hostname;
-          host = "nix-lappy";
-        };
-        modules = [ 
-          ./system.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = {
-              inherit username; 
-              inherit inputs;
-              host = "nix-lappy";
-              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.non = import ./home.nix;
-          }
-        ];
-      };
     };
   };
 }
