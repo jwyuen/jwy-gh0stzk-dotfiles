@@ -14,6 +14,7 @@
     ./mpd.nix
     ./neovim.nix
     ./packages.nix
+    ./pass-secret-service.nix
 #    ./rofi.nix
 #    ./waybar.nix
 #    ./wlogout.nix

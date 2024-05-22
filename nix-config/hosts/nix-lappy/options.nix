@@ -30,15 +30,13 @@ in {
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
-  # For Hybrid Systems intel-nvidia
-  # Should Be Used As gpuType
   cpuType = "amd";
-  gpuType = "nvidia";
+  #gpuType = "nvidia";
+  gpuType = "amd";
 
   # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS! 
-  amd-bus-id = "PCI:1:0:0";
-  intel-bus-id = "PCI:1:0:0";
-  nvidia-bus-id = "PCI:0:2:0";
+  amd-bus-id = "";
+  nvidia-bus-id = "";
 
   # DE / WM
   bspwm = true;

@@ -3,12 +3,14 @@
 let inherit (import ../hosts/${host}/options.nix) theKBDVariant
 theKBDLayout theSecondKBDLayout; in
 {
+  #hardware.video.hidpi.enable = true;
   services.xserver = {
     enable = true;
     xkb = {
       variant = "${theKBDVariant}";
       layout = "${theKBDLayout}, ${theSecondKBDLayout}";
     };
+    xkbOptions = "ctrl:nocaps";
     libinput.enable = true;
     displayManager.sddm = {
       enable = true;
@@ -17,7 +19,11 @@ theKBDLayout theSecondKBDLayout; in
       theme = "tokyo-night-sddm";
     };
   };
-    
+ # environment.variables = {
+ #   GDK_SCALE = "1.2";
+ #   GDK_DPI_SCALE = "0.8";
+ #   _JAVA_OPTIONS = "-Dsun.java2d.uiScale=1.2";
+ # };
   environment.systemPackages =
 let
     sugar = pkgs.callPackage ../pkgs/sddm-sugar-dark.nix {};
