@@ -1,4 +1,4 @@
-{ pkgs, config, host, ... }:
+{ lib, pkgs, config, host, ... }:
 
 let inherit (import ../hosts/${host}/options.nix) theKBDVariant
 theKBDLayout theSecondKBDLayout; in
@@ -25,12 +25,12 @@ theKBDLayout theSecondKBDLayout; in
  #   _JAVA_OPTIONS = "-Dsun.java2d.uiScale=1.2";
  # };
   environment.systemPackages =
-let
-    sugar = pkgs.callPackage ../pkgs/sddm-sugar-dark.nix {};
-    tokyo-night = pkgs.libsForQt5.callPackage ../pkgs/sddm-tokyo-night.nix {};
-in [ 
-    sugar.sddm-sugar-dark # Name: sugar-dark
-    tokyo-night # Name: tokyo-night-sddm
-    pkgs.libsForQt5.qt5.qtgraphicaleffects
-  ];
+    let
+      sugar = pkgs.callPackage ../pkgs/sddm-sugar-dark.nix {};
+      tokyo-night = pkgs.libsForQt5.callPackage ../pkgs/sddm-tokyo-night.nix {};
+    in [ 
+      sugar.sddm-sugar-dark # Name: sugar-dark
+      tokyo-night # Name: tokyo-night-sddm
+      pkgs.libsForQt5.qt5.qtgraphicaleffects
+    ];
 }

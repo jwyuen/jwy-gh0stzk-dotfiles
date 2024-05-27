@@ -3,7 +3,7 @@
 # Script to check for new updates in NixOS 
 
 HOST=$(hostname -s)
-PROJECT_DIR=~/jwy-gh0stzk-dots
+PROJECT_DIR=~/jwy-gh0stzk-dotfiles
 
 get_total_updates() {
     #nhstring="Closure size: 2048 -> 2048 (0 paths added, 0 paths removed, delta +0, disk usage +0B)."

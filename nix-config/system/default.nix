@@ -23,5 +23,6 @@
     ./services.nix
     ./syncthing.nix
     ./vm.nix
+    ./xorgScale.nix
   ];
 }

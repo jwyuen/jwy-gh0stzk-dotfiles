@@ -76,4 +76,7 @@ in {
   # Enable SyncThing
   syncthing = true;
 
+  # Xorg scaling
+  xrandrScale = "0.8x0.8";
+
 }
