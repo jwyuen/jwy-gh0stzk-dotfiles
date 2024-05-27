@@ -21,7 +21,7 @@ in {
     gdk-pixbuf webp-pixbuf-loader imagemagick libwebp feh
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
-    betterlockscreen networkmanager networkmanager_dmenu nh tldr
+    betterlockscreen nh tldr tor-browser networkmanager_dmenu networkmanagerapplet
 
     # fonts
     cherry clarity-city cozette
