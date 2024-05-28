@@ -71,8 +71,8 @@ echo "Symlinking dot (.config and .local) files using GNU Stow"
 [ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
 [ ! -d ~/.local/share ] && mkdir -p ~/.local/share
 
-stow -R dots -t ~/ -v
-#stow --no-folding -R dots -t ~/ -v
+cd $PROJECT_DIR/dots && stow -R config -t ~/.config/ -v
+cd $PROJECT_DIR/dots && stow -R local -t ~/.local/ -v
 
 fc-cache -rf
 
