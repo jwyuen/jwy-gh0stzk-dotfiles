@@ -6,5 +6,6 @@ source install-lib.sh
 echo "Adding the following theme files to temporary ignore list for development purposes:"
 for file in "${THEME_FILES[@]}"; do
   echo "$file"
-  git update-index --assume-unchanged "$file"
+  #git update-index --assume-unchanged "$file"
+  git update-index --skip-worktree "$file"
 done
