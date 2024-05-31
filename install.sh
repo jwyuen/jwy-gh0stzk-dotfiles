@@ -3,7 +3,7 @@
 
 source install-lib.sh
 
-PROJECT_NAME="jwy-gh0stzk-dots"
+PROJECT_NAME="jwy-gh0stzk-dotfiles"
 REPO_NAME=$PROJECT_NAME
 current_user_name=$USER
 user_name=$current_user_name
@@ -73,6 +73,7 @@ echo "Symlinking dot (.config and .local) files using GNU Stow"
 
 cd $PROJECT_DIR/dots && stow -R config -t ~/.config/ -v
 cd $PROJECT_DIR/dots && stow -R local -t ~/.local/ -v
+cd $PROJECT_DIR || exit
 
 fc-cache -rf
 
