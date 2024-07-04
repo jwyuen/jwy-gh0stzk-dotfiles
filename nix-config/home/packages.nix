@@ -22,6 +22,7 @@ in {
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
     betterlockscreen nh tldr tor-browser networkmanager_dmenu networkmanagerapplet
+    thunderbird
 
     # fonts
     cherry clarity-city cozette
