@@ -100,7 +100,7 @@ fi
 sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./flake.nix
 
 echo "using the following host name: $host_name"
-if sudo nixos-rebuild switch --flake .#"$host_name"; then
+if sudo nixos-rebuild switch --flake .#"$host_name" --show-trace; then
   echo "-----"
   echo "$PROJECT_NAME Has Been Installed!"
 fi

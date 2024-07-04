@@ -78,4 +78,6 @@ in {
   # Enable SyncThing
   syncthing = true;
 
+  # Power profiles daemon
+  powerprofiles = false;
 }

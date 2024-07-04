@@ -20,6 +20,7 @@
     ./opengl.nix
     ./packages.nix
     ./polkit.nix
+    ./power-profiles-daemon.nix
     ./services.nix
     ./syncthing.nix
     ./vm.nix

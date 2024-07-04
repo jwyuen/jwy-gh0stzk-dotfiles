@@ -79,4 +79,6 @@ in {
   # Xorg scaling
   xrandrScale = "0.8x0.8";
 
+  # Power profiles daemon
+  powerprofiles = true;
 }
