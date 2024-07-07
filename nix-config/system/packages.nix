@@ -16,6 +16,8 @@
     fastfetch htop btop stow brightnessctl
     # other
     polkit_gnome
+    # secure boot
+    sbctl
   ];
 
   programs = {
