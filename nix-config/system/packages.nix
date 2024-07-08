@@ -13,7 +13,7 @@
     xorg.xprop xorg.xkill xorg.xdpyinfo xorg.xsetroot xorg.xwininfo xorg.xrandr
     # misc helpful utilities
     lsd wget curl git unzip unrar virt-viewer ripgrep
-    fastfetch htop btop stow brightnessctl
+    fastfetch htop btop stow brightnessctl gparted
     # other
     polkit_gnome
     # secure boot

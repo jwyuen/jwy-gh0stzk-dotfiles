@@ -15,9 +15,14 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, lanzaboote, ... }:
   let
     system = "x86_64-linux";
     host = "nix-deskstar";
@@ -39,6 +44,7 @@
         };
         modules = [ 
           ./system.nix
+          lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
               inherit username; 
