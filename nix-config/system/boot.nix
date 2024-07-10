@@ -1,13 +1,31 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, host, ... }:
 
+let inherit (import ../hosts/${host}/options.nix) secureboot; in
 {
+
+
   # Bootloader
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.lanzaboote = {
+  #boot.loader.systemd-boot.enable = lib.mkForce false;
+  #boot.loader.systemd-boot.enable = mkMerge 
+  boot.loader.systemd-boot = lib.mkMerge [
+    (lib.mkIf (secureboot == true)
+      {
+        enable = lib.mkForce false;
+      }
+    )
+    (lib.mkIf (secureboot == false)
+      {
+        enable = true;
+      }
+    )
+  ];
+
+  boot.lanzaboote = lib.mkIf (secureboot == true) {
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
+
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl = { "vm.max_map_count" = 2147483642; };
   boot.tmp.useTmpfs = true;

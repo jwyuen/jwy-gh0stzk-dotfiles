@@ -81,4 +81,7 @@ in {
 
   # Power profiles daemon
   powerprofiles = true;
+
+  # Use lanzaboote for secureboot
+  secureboot = true;
 }
