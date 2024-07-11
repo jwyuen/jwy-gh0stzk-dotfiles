@@ -78,6 +78,9 @@ in {
   # Enable SyncThing
   syncthing = true;
 
+  # Xorg scaling
+  x11ScaleFactor = "1.0";
+
   # Power profiles daemon
   powerprofiles = false;
 

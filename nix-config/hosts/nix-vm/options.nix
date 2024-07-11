@@ -55,6 +55,7 @@ in {
   printer = false;
 
   # Program options
+      
   terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
   browser = "firefox";
   distrobox = false;
@@ -77,6 +78,9 @@ in {
   
   # Enable SyncThing
   syncthing = true;
+
+  # Xorg scaling
+  x11ScaleFactor = "1.0";
 
   # Power profiles daemon
   powerprofiles = false;

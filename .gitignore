@@ -2,5 +2,6 @@ zhistory
 zcompdump
 .sys
 *cache*
-dots/.config/mpd/state
-dots/.config/mpd/sticker.sql
+dots/config/mpd/state
+dots/config/mpd/sticker.sql
+dots/config/alacritty/alacritty.toml

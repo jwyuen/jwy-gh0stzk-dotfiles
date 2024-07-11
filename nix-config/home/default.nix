@@ -3,7 +3,7 @@
 {
   imports = [
     # Enable &/ Configure Programs
-#    ./alacritty.nix
+    ./alacritty.nix
 #    ./bash.nix
     ./betterlockscreen.nix
     ./firefox.nix

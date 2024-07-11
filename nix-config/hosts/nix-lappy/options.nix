@@ -77,6 +77,7 @@ in {
   syncthing = true;
 
   # Xorg scaling
+  x11ScaleFactor = "1.4";
   xrandrScale = "0.8x0.8";
 
   # Power profiles daemon
@@ -84,4 +85,6 @@ in {
 
   # Use lanzaboote for secureboot
   secureboot = true;
+
+
 }
