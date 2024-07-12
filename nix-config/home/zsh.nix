@@ -76,10 +76,10 @@ lib.mkIf (theShell == "zsh") {
       gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       cd="z";
       v="nvim";
-      ls="lsd";
-      ll="lsd -al";
-      la="lsd -a";
-      lal="lsd -al";
+      ls="eza -a --icons --git --group-directories-first";
+      ll="eza -l --icons --git --group-directories-first";
+      la="eza -la --icons --git --group-directories-first";
+      lt="eza -la --icons --git --tree --level=2 --group-directories-first";
       ".."="cd ..";
       history="history 0";
       nf="nvim $(fzf)";

@@ -17,20 +17,19 @@ else
     exit
 fi
 
+echo "Default options are in brackets []"
+echo "Just press enter to select the default"
+
+echo "-----"
 
 read -rp "Enter Your Hostname: [ nix-vm ] " host_name
 if [ -z "$host_name" ]; then
   host_name="nix-vm"
 fi
 
-read -p "Do you want to do an express install? (use defaults)" -n 1 -r
+read -p "Do you want to do an express install? [use defaults] " -n 1 -r
 if [[ $REPLY =~ ^[Nn]$ ]] ; then
-  echo "Default options are in brackets []"
-  echo "Just press enter to select the default"
-  sleep 1
-
-  echo "-----"
-
+  
   read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
   if [ ! -z "$user_name_response" ]; then
     user_name=$user_name_response
