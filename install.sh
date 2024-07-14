@@ -82,10 +82,12 @@ fc-cache -rf
 #sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
 
 echo "-----"
-echo "Generating The Hardware Configuration"
-sudo nixos-generate-config --show-hardware-config > ./nix-config/hosts/$host_name/hardware.nix
-
+# Exclude nix-lappy host since generating hardware config breaks the encrypted swap for some reason
+if [ "$host_name" != "nix-lappy" ]; then
+  echo "Generating The Hardware Configuration"
+  sudo nixos-generate-config --show-hardware-config > ./nix-config/hosts/"$host_name"/hardware.nix
 echo "-----"
+fi
 
 echo "Now Going To Build $PROJECT_NAME, 🤞"
 #NIX_CONFIG="experimental-features = nix-command flakes" 
