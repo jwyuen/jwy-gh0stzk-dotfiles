@@ -9,8 +9,8 @@ theKBDLayout theSecondKBDLayout; in
     xkb = {
       variant = "${theKBDVariant}";
       layout = "${theKBDLayout}, ${theSecondKBDLayout}";
+      options = "ctrl:nocaps";
     };
-    xkbOptions = "ctrl:nocaps";
     libinput.enable = true;
     displayManager.sddm = {
       enable = true;
