@@ -13,10 +13,8 @@ lib.mkIf (theShell == "zsh") {
         src = pkgs.fetchFromGitHub {
           owner = "Aloxaf";
           repo = "fzf-tab";
-          rev = "bf3ef5588af6d3bf7cc60f2ad2c1c95bca216241";
-          #sha256 = "G2SWncbLNaclSYUz7VyfWu+OB8TYJYm4NYkM";
-          #sha256 = lib.fakeSha256;
-          sha256 = "0/YOL1/G2SWncbLNaclSYUz7VyfWu+OB8TYJYm4NYkM=";
+          rev = "14e16f0d36ae9938e28b2f6efdb7344cd527a1a6";
+          sha256 = "o8hgnTl84nI7jMVfA5jEcDXkMFFlnxKbRva+l/Fx4jI=";
         };
       }
     ];
@@ -34,6 +32,8 @@ lib.mkIf (theShell == "zsh") {
       zstyle ':completion:*:descriptions' format '[%d]'
       # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
       zstyle ':completion:*' menu no
+      # case insensitive matching
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       # preview directory's content with eza when completing cd
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
       # switch group using `<` and `>`
@@ -60,7 +60,15 @@ lib.mkIf (theShell == "zsh") {
     initExtraFirst = ''
       HISTFILE=~/.histfile
       HISTSIZE=1000
+      HISTDUP=erase
       SAVEHIST=1000
+      setopt appendhistory
+      setopt sharehistory
+      setopt hist_ignore_space
+      setopt hist_ignore_all_dups
+      setopt hist_save_no_dups
+      setopt hist_ignore_dups
+      setopt hist_find_no_dups
       setopt autocd nomatch
       unsetopt beep extendedglob notify
       autoload -Uz compinit; 
