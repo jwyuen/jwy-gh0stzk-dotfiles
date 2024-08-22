@@ -72,11 +72,11 @@ in {
 	enable = true;
 	servers = {
 	  bashls.enable = true;
-	  cssls.enable = true;
+#	  cssls.enable = true;
           docker-compose-language-service.enable = true;
           dockerls.enable = true;
-	  html.enable = true;
-	  jsonls.enable = true;
+#	  html.enable = true;
+#	  jsonls.enable = true;
 	  lua-ls.enable = true;
           marksman.enable = true;
           nil-ls.enable = true;

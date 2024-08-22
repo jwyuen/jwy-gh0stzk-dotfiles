@@ -11,14 +11,15 @@ theKBDLayout theSecondKBDLayout; in
       layout = "${theKBDLayout}, ${theSecondKBDLayout}";
       options = "ctrl:nocaps";
     };
-    libinput.enable = true;
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = true;
-      wayland.enable = true;
-      theme = "tokyo-night-sddm";
-    };
   };
+  services.displayManager.sddm = {
+    enable = true;
+    autoNumlock = true;
+    wayland.enable = true;
+    theme = "tokyo-night-sddm";
+  };
+  services.libinput.enable = true;
+
  # environment.variables = {
  #   GDK_SCALE = "1.2";
  #   GDK_DPI_SCALE = "0.8";
