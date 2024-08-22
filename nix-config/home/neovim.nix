@@ -71,25 +71,31 @@ in {
       lsp = {
 	enable = true;
 	servers = {
-	  tsserver.enable = true;
-	  lua-ls.enable = true;
 	  bashls.enable = true;
-	  rust-analyzer = {
+	  cssls.enable = true;
+          docker-compose-language-service.enable = true;
+          dockerls.enable = true;
+	  html.enable = true;
+	  jsonls.enable = true;
+	  lua-ls.enable = true;
+          marksman.enable = true;
+          nil-ls.enable = true;
+	  nixd.enable = true;
+          nginx-language-server.enable = true;
+          phpactor.enable = true;
+	  pyright.enable = true;
+          rust-analyzer = {
 	    enable = true;
 	    installRustc = true;
 	    installCargo = true;
 	  };
-	  nixd.enable = true;
-	  html.enable = true;
-	  ccls.enable = true;
-	  cmake.enable = true;
-	  csharp-ls.enable = true;
-	  cssls.enable = true;
-	  gopls.enable = true;
-	  jsonls.enable = true;
-	  pyright.enable = true;
+          sqls.enable = true;
 	  tailwindcss.enable = true;
+	  tsserver.enable = true;
+          yamlls.enable = true;
+          zls.enable = true;
 	};
+
       };
       lsp-lines.enable = true;
       mini = {
@@ -128,6 +134,7 @@ in {
           "<leader>l" = "live_grep";
         };
       };
+      tmux-navigator.enable = true;
       todo-comments.enable = true;
       treesitter = {
 	enable = true;

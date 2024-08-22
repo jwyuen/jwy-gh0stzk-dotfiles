@@ -21,6 +21,7 @@
 #    ./swappy.nix
 #    ./swaylock.nix
 #    ./swaync.nix
+    ./tmux.nix
 #    ./wezterm.nix
 #    ./zeroad.nix
     ./zsh.nix
