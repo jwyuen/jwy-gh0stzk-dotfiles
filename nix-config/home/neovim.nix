@@ -150,6 +150,7 @@ in {
           enable_autocmd = false;
         };
       };
+      typescript-tools.enable = true;
       which-key.enable = true;
     };
 

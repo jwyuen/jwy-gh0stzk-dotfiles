@@ -13,7 +13,7 @@ in {
     libmpdclient playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
     alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels zig gcc
-    lazygit xclip zoxide fzf fd zellij sesh
+    lazygit xclip zoxide fzf fd zellij sesh docker mysql-workbench
     # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
     zsh-autocomplete
@@ -45,5 +45,11 @@ in {
 #    (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
   ];
 
-  programs.gh.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    gh.enable = true;
+  };
 }
