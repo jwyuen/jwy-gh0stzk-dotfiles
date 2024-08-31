@@ -13,9 +13,10 @@ in {
       clipboard="unnamedplus";
       number = true;         # Show line numbers
       relativenumber = true; # Show relative line numbers
-      shiftwidth = 2;        # Tab width should be 2
+      tabstop = 2;
       softtabstop = 2;
-      smartindent = true;
+      shiftwidth = 2;        # Tab width should be 2
+      expandtab = true;
       wrap = true;
       swapfile = false;
       backup = false;
@@ -47,6 +48,14 @@ in {
     };
     
     plugins = {
+      auto-session = {
+        enable = true;
+#        autoRestore.enabled = true;
+#        autoSave.enabled = true;
+        autoSession = {
+          enabled = true;
+        };
+      };
       barbecue.enable = true;
       bufferline.enable = true;
       comment.enable = true;
