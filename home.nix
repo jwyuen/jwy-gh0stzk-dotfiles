@@ -36,6 +36,7 @@ in {
     extraConfig = {
       core = {
         editor = "nvim";
+        pager = "delta";
       };
     };
   };

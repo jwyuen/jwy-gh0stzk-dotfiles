@@ -13,7 +13,7 @@ in {
     libmpdclient playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
     alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels zig gcc
-    lazygit xclip zoxide fzf fd zellij sesh docker mysql-workbench
+    lazygit xclip zoxide fzf fd zellij sesh docker mysql-workbench delta
     # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
     zsh-autocomplete
