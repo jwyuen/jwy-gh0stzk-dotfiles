@@ -57,8 +57,7 @@ in
       bind-key -n C-l select-pane -R
       bind-key -n C-S-F2 new-session
 
-      bind-key "o" run-shell "sesh connect \"$(
-	sesh list | fzf-tmux -p 55%,60% \
+      bind-key "o" run-shell "sesh connect \"$(sesh list | fzf-tmux -p 55%,60% \
 		--no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
 		--header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
 		--bind 'tab:down,btab:up' \
@@ -108,6 +107,7 @@ in
       set -g set-clipboard on          # use system clipboard
       set -g status-position top       # macOS / darwin style
       setw -g mode-keys vi
+      set-option -g mouse on
 
       set -g @fzf-url-fzf-options '-p 60%,30% --prompt="   " --border-label=" Open URL "'
       set -g @fzf-url-history-limit '2000'

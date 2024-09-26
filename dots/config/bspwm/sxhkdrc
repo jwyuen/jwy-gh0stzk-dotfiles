@@ -45,9 +45,9 @@ alt + @space
 ~button2
   jgmenu --csv-file=~/.config/bspwm/scripts/menu.txt --config-file=~/.config/bspwm/jgmenurc --at-pointer
 
-# Scratchpad
+# Scratchpad / note pad
 super + alt + o
-	tdrop -a -w 70% -h 35% -y 0 -x 15%  --class scratch alacritty --class=scratch
+	tdrop -a -w 70% -h 55% -y 0 -x 15%  --class scratch alacritty --class=scratch
 
 # Power off, Reboot, Log out, Lockscreen, kill an app
 ctrl + super + alt + {p,r,q,l,k}

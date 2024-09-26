@@ -60,8 +60,8 @@ in {
       bufferline.enable = true;
       comment.enable = true;
       cmp = {
-	enable = true;
-	autoEnableSources = true;
+	      enable = true;
+	      autoEnableSources = true;
       };
       cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
@@ -78,33 +78,32 @@ in {
       };
       luasnip.enable = true;
       lsp = {
-	enable = true;
-	servers = {
-	  bashls.enable = true;
-#	  cssls.enable = true;
+	      enable = true;
+	      servers = {
+          bashls.enable = true;
+      #	  cssls.enable = true;
           docker-compose-language-service.enable = true;
           dockerls.enable = true;
 #	  html.enable = true;
 #	  jsonls.enable = true;
-	  lua-ls.enable = true;
+	        lua-ls.enable = true;
           marksman.enable = true;
           nil-ls.enable = true;
-	  nixd.enable = true;
+	        nixd.enable = true;
           nginx-language-server.enable = true;
           phpactor.enable = true;
-	  pyright.enable = true;
+	        pyright.enable = true;
           rust-analyzer = {
-	    enable = true;
-	    installRustc = true;
-	    installCargo = true;
-	  };
+            enable = true;
+            installRustc = true;
+            installCargo = true;
+          };
           sqls.enable = true;
-	  tailwindcss.enable = true;
-	  tsserver.enable = true;
+          tailwindcss.enable = true;
+          tsserver.enable = true;
           yamlls.enable = true;
           zls.enable = true;
-	};
-
+	      };
       };
       lsp-lines.enable = true;
       mini = {
