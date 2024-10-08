@@ -14,10 +14,10 @@ in lib.mkIf (alacritty == true) {
       ];
       live_config_reload = true;
       cursor = {
-	style = {
-	  shape = "Beam";
-	  blinking = "On";
-	};
+      style = {
+        shape = "Beam";
+        blinking = "On";
+      };
         blink_interval = 550;
         unfocused_hollow = false;
         thickness = 0.15;
@@ -29,12 +29,12 @@ in lib.mkIf (alacritty == true) {
         save_to_clipboard = true;
       };
       window = {
-	decorations = "none";
-	dynamic_title = true;
+        decorations = "none";
+        dynamic_title = true;
         dynamic_padding = true;
-	padding.x = 5;
-	padding.y = 5;
-	opacity = 1;
+        padding.x = 5;
+        padding.y = 5;
+        opacity = 1;
       };
       scrolling = {
         history = 10000;

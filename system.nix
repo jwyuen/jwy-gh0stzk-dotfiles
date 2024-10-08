@@ -18,6 +18,10 @@ in {
   # Enable networking
   networking.hostName = "${hostname}"; # Define your hostname
   networking.networkmanager.enable = true;
+  #networking.firewall.allowedTCPPorts = [ 8384 22000 3000 ];
+  #networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  networking.firewall.enable = false;
+  
 
   # Set your time zone
   time.timeZone = "${theTimezone}";

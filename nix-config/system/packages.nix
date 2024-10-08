@@ -30,6 +30,7 @@
    #   xwayland.enable = true;
    # };
     fuse.userAllowOther = true;
+    # network diagnostic tool
     mtr.enable = true;
     gnupg.agent = {
       enable = true;

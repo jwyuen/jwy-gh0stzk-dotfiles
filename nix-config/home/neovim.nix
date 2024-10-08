@@ -132,8 +132,8 @@ in {
       nvim-autopairs.enable = true;
       persistence.enable = true;
       startup = { 
-	enable = true;
-	theme = "dashboard";
+        enable = true;
+        theme = "dashboard";
       };
       telescope = {
         enable = true;
@@ -145,8 +145,8 @@ in {
       tmux-navigator.enable = true;
       todo-comments.enable = true;
       treesitter = {
-	enable = true;
-	nixGrammars = true;
+        enable = true;
+        nixGrammars = true;
       };
       treesitter-context.enable = true;
       treesitter-textobjects.enable = true;
