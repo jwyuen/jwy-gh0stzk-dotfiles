@@ -21,6 +21,7 @@
         yaml-language-server
         # formatters
         beautysh
+        nixfmt-rfc-style
         stylelint
         stylua
       ];
@@ -47,7 +48,7 @@
         # large colletion of code snippets (use w/ snippet plugin like luasnip)
         friendly-snippets
         # fast git decorations - can integrate with vim-fugitive and trouble.nvim
-	      gitsigns-nvim
+        gitsigns-nvim
         # vertical guide lines for indentation levels
         indent-blankline-nvim
         # configures lua LSP for editing neovim config by lazily updating workspace libs
@@ -55,13 +56,13 @@
         # adds vscode-like pictograms to neovim built-in lsp
         lspkind-nvim
         # renders lsp diagnostic info using virtual lines on top of real code
-	      lsp_lines-nvim
+        lsp_lines-nvim
         # fast status line
         lualine-nvim
         # snippet engine
         luasnip
         # replaces UI for messages, cmdline, and popupmenu
-	      noice-nvim
+        noice-nvim
         # dep for noice-nvim
         nui-nvim
         # completion
@@ -93,7 +94,7 @@
         # async display colors in a file (e.g. show what color a hex or rgb code is)
         vim-hexokinase
         # support for writing nix expressions in vim
-	      vim-nix
+        vim-nix
         # file manager
         mini-files
         # auto pairs like parentheses, etc.
@@ -105,8 +106,7 @@
         # check keybinds easily
         which-key-nvim
       ];
-      extraConfig = ''
-      '';
+      extraConfig = '''';
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/keymaps.lua}
         ${builtins.readFile ./nvim/options.lua}
@@ -115,6 +115,7 @@
         ${builtins.readFile ./nvim/plugins/lsp.lua}
         ${builtins.readFile ./nvim/plugins/lualine.lua}
         ${builtins.readFile ./nvim/plugins/misc.lua}
+        ${builtins.readFile ./nvim/plugins/telescope.lua}
         vim.diagnostic.config({
           virtual_text = false,
         })

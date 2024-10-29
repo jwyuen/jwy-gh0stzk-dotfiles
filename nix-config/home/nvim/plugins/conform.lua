@@ -11,6 +11,7 @@ require("conform").setup({
 		javascriptreact = { "biome", "prettier", stop_after_first = true },
 		json = { "biome" },
 		lua = { "stylua" },
+		nix = { "nixfmt" },
 		typescript = { "biome", "prettier", stop_after_first = true },
 		typescriptreact = { "biome", "prettier", stop_after_first = true },
 	},
