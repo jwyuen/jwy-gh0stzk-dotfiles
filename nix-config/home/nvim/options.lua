@@ -1,0 +1,19 @@
+local opt = vim.opt
+opt.clipboard = "unnamedplus"
+opt.number = true
+opt.relativenumber = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2 -- Tab width should be 2
+opt.expandtab = true
+opt.wrap = true
+opt.swapfile = false
+opt.backup = false
+opt.hlsearch = false
+opt.incsearch = true
+opt.termguicolors = true
+opt.scrolloff = 8
+opt.updatetime = 50
+opt.showmode = false
+opt.guifont = "JetBrainsMono\\ NFM,Noto_Color_Emoji:h14"
+vim.cmd.colorscheme("catppuccin")

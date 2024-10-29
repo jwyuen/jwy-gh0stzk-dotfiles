@@ -12,8 +12,8 @@ in {
     # audio related
     libmpdclient playerctl mpd ncmpcpp mpc-cli pamixer
     # dev related
-    alacritty wezterm geany rustup libvirt maim papirus-icon-theme joypixels zig gcc
-    lazygit xclip zoxide fzf fd zellij sesh docker mysql-workbench delta
+    alacritty geany libvirt maim papirus-icon-theme joypixels zig gcc
+    lazygit xclip zoxide fzf fd sesh docker mysql-workbench delta
     # zsh related
     zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
     zsh-autocomplete
@@ -22,7 +22,7 @@ in {
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
     betterlockscreen nh tldr tor-browser networkmanager_dmenu networkmanagerapplet
-    thunderbird inetutils remmina
+    thunderbird inetutils remmina keepassxc
 
     # fonts
     cherry clarity-city cozette

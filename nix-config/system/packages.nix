@@ -5,7 +5,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.joypixels.acceptLicense = true;
 
-
   # List System Programs
   environment.systemPackages = with pkgs; [
     # X related packages
@@ -21,7 +20,8 @@
   ];
 
   programs = {
-    #steam.gamescopeSession.enable = true;
+    neovim.enable = true;    
+#steam.gamescopeSession.enable = true;
     dconf.enable = true;
    # seahorse.enable=true;
    # hyprland = {

@@ -1,263 +1,125 @@
-{ config, pkgs, ... }:
+{ pkgs, inputs, ... }:
 
-let
-  plugins = pkgs.vimPlugins;
-  theme = config.colorScheme.palette;
-in {
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-    globals.mapleader = ","; # Sets the leader key to space
-    
-    opts = {
-      clipboard="unnamedplus";
-      number = true;         # Show line numbers
-      relativenumber = true; # Show relative line numbers
-      tabstop = 2;
-      softtabstop = 2;
-      shiftwidth = 2;        # Tab width should be 2
-      expandtab = true;
-      wrap = true;
-      swapfile = false;
-      backup = false;
-      hlsearch = false;
-      incsearch = true;
-      termguicolors = true;
-      scrolloff = 8;
-      updatetime = 50;
+{
+  programs = {
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      withNodeJs = true;
+      extraPackages = with pkgs; [
+        # LSPs
+        bash-language-server
+        biome
+        lua-language-server
+        marksman
+        nil
+        stylelint-lsp
+        typescript-language-server
+        yaml-language-server
+        # formatters
+        beautysh
+        stylelint
+        stylua
+      ];
+      plugins = with pkgs.vimPlugins; [
+        # automated session management
+        auto-session
+        # snazzy buffer line
+        bufferline-nvim
+        # vscode-like winbar to get LSP context from LSP
+        barbecue-nvim
+        catppuccin-nvim
+        # luasnip completion source for nvim-cmp
+        cmp_luasnip
+        # replaces nvim default omnifunc to support more types of completion candidates
+        cmp-nvim-lsp
+        # nvim-cmp source for buffer words
+        cmp-buffer
+        # better code formatter, requires setup (https://github.com/stevearc/conform.nvim/)
+        conform-nvim
+        # startup screen
+        dashboard-nvim
+        # improve default vim.ui interfaces
+        dressing-nvim
+        # large colletion of code snippets (use w/ snippet plugin like luasnip)
+        friendly-snippets
+        # fast git decorations - can integrate with vim-fugitive and trouble.nvim
+	      gitsigns-nvim
+        # vertical guide lines for indentation levels
+        indent-blankline-nvim
+        # configures lua LSP for editing neovim config by lazily updating workspace libs
+        lazydev-nvim
+        # adds vscode-like pictograms to neovim built-in lsp
+        lspkind-nvim
+        # renders lsp diagnostic info using virtual lines on top of real code
+	      lsp_lines-nvim
+        # fast status line
+        lualine-nvim
+        # snippet engine
+        luasnip
+        # replaces UI for messages, cmdline, and popupmenu
+	      noice-nvim
+        # dep for noice-nvim
+        nui-nvim
+        # completion
+        nvim-cmp
+        # quickstart configs for LSPs
+        nvim-lspconfig
+        # dep for barbecue-nvim
+        nvim-navic
+        # dep for noice-nvim
+        nvim-notify
+        nvim-treesitter.withAllGrammars
+        nvim-treesitter-context
+        nvim-treesitter-textobjects
+        # Use treesitter to autoclose and autorename html tag
+        nvim-ts-autotag
+        # setting comment string based on cursor location in file
+        nvim-ts-context-commentstring
+        nvim-web-devicons
+        # lua functions (dep for plugins)
+        plenary-nvim
+        telescope-fzf-native-nvim
+        # extendable fuzzy finder over lists
+        telescope-nvim
+        todo-comments-nvim
+        # pretty list for showing diagnostics, references, etc. to solve trouble code is causing
+        trouble-nvim
+        # better, faster replacement for typescript-language-server
+        typescript-tools-nvim
+        # async display colors in a file (e.g. show what color a hex or rgb code is)
+        vim-hexokinase
+        # support for writing nix expressions in vim
+	      vim-nix
+        # file manager
+        mini-files
+        # auto pairs like parentheses, etc.
+        mini-pairs
+        # add/delete/change surrounding pairs like parentheses, etc.
+        mini-surround
+        # move between vim and tmux panes seamlessly
+        vim-tmux-navigator
+        # check keybinds easily
+        which-key-nvim
+      ];
+      extraConfig = ''
+      '';
+      extraLuaConfig = ''
+        ${builtins.readFile ./nvim/keymaps.lua}
+        ${builtins.readFile ./nvim/options.lua}
+        ${builtins.readFile ./nvim/plugins/cmp.lua}
+        ${builtins.readFile ./nvim/plugins/conform.lua}
+        ${builtins.readFile ./nvim/plugins/lsp.lua}
+        ${builtins.readFile ./nvim/plugins/lualine.lua}
+        ${builtins.readFile ./nvim/plugins/misc.lua}
+        vim.diagnostic.config({
+          virtual_text = false,
+        })
+      '';
     };
-
-    colorschemes.base16.enable = true;
-    colorschemes.base16.colorscheme = {
-      base00 = "#${theme.base00}";
-      base01 = "#${theme.base01}";
-      base02 = "#${theme.base02}";
-      base03 = "#${theme.base03}";
-      base04 = "#${theme.base04}";
-      base05 = "#${theme.base05}";
-      base06 = "#${theme.base06}";
-      base07 = "#${theme.base07}";
-      base08 = "#${theme.base08}";
-      base09 = "#${theme.base09}";
-      base0A = "#${theme.base0A}";
-      base0B = "#${theme.base0B}";
-      base0C = "#${theme.base0C}";
-      base0D = "#${theme.base0D}";
-      base0E = "#${theme.base0E}";
-      base0F = "#${theme.base0F}";
-    };
-    
-    plugins = {
-      auto-session = {
-        enable = true;
-#        autoRestore.enabled = true;
-#        autoSave.enabled = true;
-        autoSession = {
-          enabled = true;
-        };
-      };
-      barbecue.enable = true;
-      bufferline.enable = true;
-      comment.enable = true;
-      cmp = {
-	      enable = true;
-	      autoEnableSources = true;
-      };
-      cmp-buffer.enable = true;
-      cmp-nvim-lsp.enable = true;
-      cmp-path.enable = true;
-      conform-nvim.enable = true;
-      dashboard.enable = true;
-      flash.enable = true;
-      friendly-snippets.enable = true;
-      gitsigns.enable = true;
-      indent-blankline.enable = true;
-      lint.enable = true;
-      lualine = {
-        enable = true;
-      };
-      luasnip.enable = true;
-      lsp = {
-	      enable = true;
-	      servers = {
-          bashls.enable = true;
-      #	  cssls.enable = true;
-          docker-compose-language-service.enable = true;
-          dockerls.enable = true;
-#	  html.enable = true;
-#	  jsonls.enable = true;
-	        lua-ls.enable = true;
-          marksman.enable = true;
-          nil-ls.enable = true;
-	        nixd.enable = true;
-          nginx-language-server.enable = true;
-          phpactor.enable = true;
-	        pyright.enable = true;
-          rust-analyzer = {
-            enable = true;
-            installRustc = true;
-            installCargo = true;
-          };
-          sqls.enable = true;
-          tailwindcss.enable = true;
-          tsserver.enable = true;
-          yamlls.enable = true;
-          zls.enable = true;
-	      };
-      };
-      lsp-lines.enable = true;
-      mini = {
-        enable = true;
-        modules = {
-          comment = { };
-          diff = { };
-          files = { };
-          hipatterns = { };
-          indentscope = { 
-            symbol = "|";
-            options = {
-              try_as_border = true;
-            };
-          };
-          move = { };
-          pairs = { };
-          surround = { };
-          starter = { };
-        };
-      };
-      nix.enable = true;
-      noice.enable = true;
-      notify.enable = true;
-      nvim-colorizer.enable = true;
-      nvim-autopairs.enable = true;
-      persistence.enable = true;
-      startup = { 
-        enable = true;
-        theme = "dashboard";
-      };
-      telescope = {
-        enable = true;
-        keymaps = {
-          "<leader>f" = "find_files";
-          "<leader>l" = "live_grep";
-        };
-      };
-      tmux-navigator.enable = true;
-      todo-comments.enable = true;
-      treesitter = {
-        enable = true;
-        nixGrammars = true;
-      };
-      treesitter-context.enable = true;
-      treesitter-textobjects.enable = true;
-      trouble.enable = true;
-      ts-autotag.enable = true;
-      ts-context-commentstring = {
-        enable = true;
-        extraOptions = {
-          enable_autocmd = false;
-        };
-      };
-      typescript-tools.enable = true;
-      which-key.enable = true;
-    };
-
-    extraPlugins = [ plugins.telescope-file-browser-nvim ];
-
-    # FOR NEOVIDE
-    extraConfigLua = '' 
-      vim.opt.guifont = "JetBrainsMono\\ NFM,Noto_Color_Emoji:h14"
-      vim.g.neovide_cursor_animation_length = 0.05
-
-      local colors = {
-        blue   = '#${theme.base0D}',
-        cyan   = '#${theme.base0C}',
-        black  = '#${theme.base00}',
-        white  = '#${theme.base05}',
-        red    = '#${theme.base08}',
-        violet = '#${theme.base0E}',
-        grey   = '#${theme.base02}',
-      }
-
-      local bubbles_theme = {
-        normal = {
-          a = { fg = colors.black, bg = colors.violet },
-          b = { fg = colors.white, bg = colors.grey },
-          c = { fg = colors.black, bg = colors.black },
-        },
-
-        insert = { a = { fg = colors.black, bg = colors.blue } },
-        visual = { a = { fg = colors.black, bg = colors.cyan } },
-        replace = { a = { fg = colors.black, bg = colors.red } },
-
-        inactive = {
-          a = { fg = colors.white, bg = colors.black },
-          b = { fg = colors.white, bg = colors.black },
-          c = { fg = colors.black, bg = colors.black },
-        },
-      }
-
-      require('lualine').setup {
-        options = {
-          theme = bubbles_theme,
-          component_separators = '|',
-          section_separators = { left = '', right = '' },
-        },
-        sections = {
-          lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 },
-          },
-          lualine_b = { 'filename', 'branch' },
-          lualine_c = { 'fileformat' },
-          lualine_x = {},
-          lualine_y = { 'filetype', 'progress' },
-          lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 },
-          },
-        },
-        inactive_sections = {
-          lualine_a = { 'filename' },
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = { 'location' },
-        },
-        tabline = {},
-        extensions = {},
-      }
-    '';
-
-    extraConfigVim = ''
-      set noshowmode
-      inoremap jj <ESC>
-    '';
-
-    keymaps = [
-      {
-        mode = "n";
-        key = "<leader>tb";
-        action = ":Telescope file_browser<CR>";
-        options.noremap = true;
-      }
-      {
-        mode = "n";
-        key = "<leader>fb";
-        action = ":lua MiniFiles.open()";
-        options.noremap = true;
-      }
-      {
-        key = "<Tab>";
-        action = ":bnext<CR>";
-        options.silent = false;
-      }
-      {
-        key = "<S-Tab>";
-        action = ":bprev<CR>";
-        options.silent = false;
-      }
-    ];
-
-
   };
- } 
+}
+#

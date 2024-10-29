@@ -14,10 +14,10 @@ in lib.mkIf (alacritty == true) {
       ];
       live_config_reload = true;
       cursor = {
-      style = {
-        shape = "Beam";
-        blinking = "On";
-      };
+        style = {
+          shape = "Beam";
+          blinking = "On";
+        };
         blink_interval = 550;
         unfocused_hollow = false;
         thickness = 0.15;
@@ -25,8 +25,19 @@ in lib.mkIf (alacritty == true) {
       env = {
         WINIT_X11_SCALE_FACTOR = x11ScaleFactor;
       };
+      keyboard.bindings = [
+        {
+          key = "0";
+          mods = "Control";
+          action = "ReceiveChar";
+        }
+      ];
       selection = {
         save_to_clipboard = true;
+      };
+      scrolling = {
+        history = 10000;
+        multiplier = 3;
       };
       window = {
         decorations = "none";
@@ -35,10 +46,6 @@ in lib.mkIf (alacritty == true) {
         padding.x = 5;
         padding.y = 5;
         opacity = 1;
-      };
-      scrolling = {
-        history = 10000;
-        multiplier = 3;
       };
     };
   };
