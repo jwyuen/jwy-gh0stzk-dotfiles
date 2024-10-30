@@ -53,8 +53,8 @@ done
 # Show the rofi selection menu with the starting point set to the current rice and store the result in a variable.
 
 # use this until nixos fixes this issue: https://github.com/NixOS/nixpkgs/pull/153275
-selected=$(printf "%s\n" "${options[@]}" | while read -r A ; do  echo -en "$A\x00icon\x1f${preview_dir}$A/../preview.png\n" ; done | $rofi_command -theme-str "$rofi_override" -selected-row "$selected_index")
-#selected=$(printf "%s\n" "${options[@]}" | while read -r A ; do  echo -en "$A\x00icon\x1f${preview_dir}$A/preview.webp\n" ; done | $rofi_command -theme-str "$rofi_override" -selected-row "$selected_index")
+#selected=$(printf "%s\n" "${options[@]}" | while read -r A ; do  echo -en "$A\x00icon\x1f${preview_dir}$A/../preview.png\n" ; done | $rofi_command -theme-str "$rofi_override" -selected-row "$selected_index")
+selected=$(printf "%s\n" "${options[@]}" | while read -r A ; do  echo -en "$A\x00icon\x1f${preview_dir}$A/preview.png\n" ; done | $rofi_command -theme-str "$rofi_override" -selected-row "$selected_index")
 
 # If a valid option was selected, write the value to the configuration file and restart BSPWM.
 [[ -n "$selected" && "$selected" != "$current_rice" ]] || exit 1
