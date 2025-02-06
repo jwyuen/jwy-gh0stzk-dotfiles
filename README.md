@@ -1,7 +1,5 @@
-# BSPWM themes | A complete bspwm environment
+# BSPWM Themes in NixOS | A fully reproducible OS environment
 <div align = center>
-   
-![bspwm-dotfiles](https://github.com/gh0stzk/dotfiles/assets/67278339/0340846a-74d4-4a43-9430-142b0832738d)
 
 
 
@@ -21,33 +19,29 @@ https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-
 ## 🚀 Features
 <img src="https://user-images.githubusercontent.com/67278339/221605474-21d65156-0cf7-485c-bd1a-40792c37817e.png" alt="Linux Fetch" align="right" width="450">
 
-**Experience the Magic of Customization with gh0stzk's bspwm dotfiles**
+**Experience the Magic of a Fully Reproducible OS**
 
-<sup>Welcome to the world of limitless customization! gh0stzk's dotfiles for bspwm offer a unique and exciting experience with 12 different themes, each featuring captivating color schemes, styles and personality. Immerse yourself in a visual journey that will transform your workspace in an impressive way.</sup>
+<sup>Are you tired of brittle bash scripts for setting up your OS just the way you want, or even worse doing it manually?  With NixOS the whole OS can be declaratively configured and is fully reproducible from your config.  Reinstalling or setting up your OS on other machines is literally one click.</sup>
 
 **Change themes on the fly**
 
-<sup>With our custom menu based on rofi launcher, switching between the 12 themes is as easy as a click. Enjoy the versatility of styles and color combinations instantly.</sup>
+<sup>Switching between the 12 themes is as easy as a click. Enjoy the versatility of styles and color combinations instantly.</sup>
 
 **Consistency Across the Environment**
 
-<sup>Each theme not only changes the appearance of bspwm but also instantly transforms the color scheme in alacritty terminal, eww widgets, polybar bars, notifications, and more. Visual harmony is guaranteed in every corner of your system.</sup>
+<sup>Each theme not only changes the appearance of bspwm but also instantly transforms the color scheme in alacritty terminal, eww widgets, polybar bars, notifications, and more.</sup>
 
 **Unique Eww Widgets**
 
 <sup>Discover 4 unique eww widgets, including a calendar, power menu, music player, and user card. These widgets are not only functional but also instantly adapt to the color scheme of the selected theme.</sup>
 
-**Complete Customization**
-
-<sup>Explore an elegant right-click menu made with Jgmenu, which also syncs with themes for flawless visual consistency. Additionally, 10 polybar bars and 2 eww widgets offer a fully customizable user experience.</sup>
-
 **Variety of Wallpapers**
 
 <sup>Each login surprises you with a randomly selected wallpaper specifically tailored to the theme in use. But if surprises aren't your thing, our wallpaper menu lets you choose from over 5 exclusive wallpapers for each theme.</sup>
 
-**Visual Composition with Picom**
+**Animations with Picom**
 
-<sup>Experience effortless beauty with picom as the compositor, providing a pleasing aesthetic without sacrificing performance. Enjoy a hassle-free working experience with delightful visual effects, balance between performance and beauty..
+<sup>Experience effortless beauty with picom as the compositor, providing a pleasing aesthetics and animations without sacrificing performance. Enjoy a hassle-free working experience with delightful visual effects, balance between performance and beauty..
 And you can adjust the transparency of your open windows with a simple key combination. Control the appearance of your desktop to perfectly suit your mood and style.</sup>
 
 **Additional Features:**
@@ -62,18 +56,6 @@ And you can adjust the transparency of your open windows with a simple key combi
 
   <sup>Access the scratchpad functionality, a terminal window you can show or hide for tasks when you don't want the window taking up unnecessary space.</sup>
 
-Transform your user experience with gh0stzk's dotfiles for bspwm! Install now and breathe life into your desktop with style and personality.
-
-## :book: Wiki
-I already started writing the [**Wiki**](https://github.com/gh0stzk/dotfiles/wiki), you should give it a read. If it is your first time with a WM, you may be interested in reading [First steps after installing the dotfiles](https://github.com/gh0stzk/dotfiles/wiki/Firsts-steps-after-installing) or maybe read [frequently asked questions and answers](https://github.com/gh0stzk/dotfiles/wiki/Questions---Answers) [Keybinds](https://github.com/gh0stzk/dotfiles/wiki/Keyboard-Shortcuts) [Firefox Theme](https://github.com/gh0stzk/dotfiles/wiki/Firefox-Theme).
-
-<br>
-
-> [!CAUTION]
-> ⚠️⚠️⚠️ This dotfiles are configured at **1600x900** resolution with **96** DPI and **1** monitor.
-> Some stuff might break on lower or higher resolutions, but still work!! ⚠️⚠️⚠️
-
-<br>
 
 
 ## 🎨 The themes
@@ -286,22 +268,22 @@ And more.. You need to look sxhkdrc file for more.
 ## 📦 setup
 
 ### 💾 Installation:
-The installer only works for **ARCH** Linux, and based distros.
+The installer only works for **NixOS** Linux
 
 <b>Open a terminal in HOME</b>
-- **First download the installer**
+- **Clone this repo**
 ```sh
-curl https://raw.githubusercontent.com/gh0stzk/dotfiles/master/RiceInstaller -o $HOME/RiceInstaller
-
-# Maybe you want a short url??
-
-curl -L https://is.gd/gh0stzk_dotfiles -o $HOME/RiceInstaller
+git clone https://github.com/jwyuen/jwy-gh0stzk-dotfiles.git
 ```
-- **Now give it execute permissions**
+- **cd into repo**
 ```sh
-chmod +x RiceInstaller
+cd jwy-gh0stzk-dotfiles
 ```
-- **Finally run the installer**
+- **Give install script execute permissions**
 ```sh
-./RiceInstaller
+chmod +x install.sh
+```
+- **Run the installer**
+```sh
+./install.sh
 ```
