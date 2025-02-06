@@ -8,8 +8,6 @@
 &ensp;[<kbd> <br> Features <br> </kbd>](#-features)&ensp;
 &ensp;[<kbd> <br> Themes <br> </kbd>](#-the-themes)&ensp;
 &ensp;[<kbd> <br> Keybindings <br> </kbd>](#very-useful-keybindigs-to-know)&ensp;
-&ensp;[<kbd> <br> Wiki <br> </kbd>](https://github.com/gh0stzk/dotfiles/wiki)&ensp;
-&ensp;[<kbd> <br> En Español <br> </kbd>](INICIO.md)&ensp;
 <br><br><br></div>
 
 https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-afed-f352c5d2979e.mp4
@@ -17,7 +15,7 @@ https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-
 <br>
 
 ## 🚀 Features
-<img src="https://user-images.githubusercontent.com/67278339/221605474-21d65156-0cf7-485c-bd1a-40792c37817e.png" alt="Linux Fetch" align="right" width="450">
+<img src="https://i.imgur.com/Xf8X4sd.png" alt="Linux Fetch" align="right" width="450">
 
 **Experience the Magic of a Fully Reproducible OS**
 
@@ -237,19 +235,11 @@ And you can adjust the transparency of your open windows with a simple key combi
 
 </details>
 
-## Firefox Theme (z0mbi3 Fox)
-
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/9b956d3d-fc7b-49ca-b27f-dc6aa83d9e2f" alt="Firefox theme - z0mbi3-Fox" width="700">|
-|:-:|
-Complementarily you can install [this extension](https://github.com/PonyLucky/gh0stzk-Firefox/tree/master/extension) made by [PonyLucky](https://github.com/PonyLucky). It is a startpage to enhance UX. [Preview and configuration options](https://github.com/PonyLucky/gh0stzk-Firefox/tree/master/extension). Looks awesome with the firefox theme.
-
 ## Neovim Setup
 
-|<img src="https://github.com/gh0stzk/dotfiles/assets/67278339/17a1eb30-437e-4bf2-980c-6a410eff76bb" alt="Neovim configuration" width="700">|
-|:-:|
-Plugins included [Neovim setup wiki](https://github.com/gh0stzk/dotfiles/wiki/Neovim-setup)
+Neovim is automatically set up with the installer.  The plugin selection and configuration is loosely based on lazy vim.  Adding other plugins is simple provided they are in nix packages.  See neovim.nix for all the configuration details.
 
-## Very useful keybindigs to know...
+## Very useful keybindings to know...
 
 | Keys | Action |
 |:-|:-|
@@ -263,7 +253,7 @@ Plugins included [Neovim setup wiki](https://github.com/gh0stzk/dotfiles/wiki/Ne
 |<kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>p</kbd><br><kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>r</kbd><br><kbd>ctrl</kbd> + <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>k| Power off computer<br>Restart computer<br>Brute kill a window/process
 |<kbd>super</kbd> + <kbd>alt</kbd> + <kbd>r</kbd>| Restart bspwm.
 
-And more.. You need to look sxhkdrc file for more.
+And more.. please refer to the sxhkdrc file for other keybinds!
 
 ## 📦 setup
 
