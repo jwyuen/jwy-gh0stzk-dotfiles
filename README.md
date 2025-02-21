@@ -19,11 +19,11 @@ https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-
 
 **Experience the Magic of a Fully Reproducible OS**
 
-<sup>Are you tired of brittle bash scripts for setting up your OS just the way you want, or even worse doing it manually?  With NixOS the whole OS can be declaratively configured and is fully reproducible from your config.  Reinstalling or setting up your OS on other machines is literally one click.</sup>
+<sup>Are you tired of brittle bash scripts for setting up your OS just the way you want, or even worse doing it manually?  With NixOS the whole OS can be declaratively configured and is fully reproducible from your config.  Reinstalling or setting up your OS on other machines is as easy as running one install script.</sup>
 
 **Change themes on the fly**
 
-<sup>Switching between the 12 themes is as easy as a click. Enjoy the versatility of styles and color combinations instantly.</sup>
+<sup>Switching between between 12+ themes quickly through a theme switcher.</sup>
 
 **Consistency Across the Environment**
 
@@ -31,16 +31,15 @@ https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-
 
 **Unique Eww Widgets**
 
-<sup>Discover 4 unique eww widgets, including a calendar, power menu, music player, and user card. These widgets are not only functional but also instantly adapt to the color scheme of the selected theme.</sup>
+<sup>Discover 4 unique eww widgets, including a calendar, power menu, music player, and user card. These widgets are not only functional but also adapt to the color scheme of the selected theme.</sup>
 
 **Variety of Wallpapers**
 
-<sup>Each login surprises you with a randomly selected wallpaper specifically tailored to the theme in use. But if surprises aren't your thing, our wallpaper menu lets you choose from over 5 exclusive wallpapers for each theme.</sup>
+<sup>Each login a randomly selected wallpaper specifically tailored to the current theme will be chosen. You can also choose set the wallpaper manually.</sup>
 
 **Animations with Picom**
 
-<sup>Experience effortless beauty with picom as the compositor, providing a pleasing aesthetics and animations without sacrificing performance. Enjoy a hassle-free working experience with delightful visual effects, balance between performance and beauty..
-And you can adjust the transparency of your open windows with a simple key combination. Control the appearance of your desktop to perfectly suit your mood and style.</sup>
+<sup>Have fun with picom as the compositor, providing smooth and easy animations that don't tank performance.</sup>
 
 **Additional Features:**
 
@@ -49,7 +48,7 @@ And you can adjust the transparency of your open windows with a simple key combi
   <sup>Manage your local music from the polybar module and the ncmpcpp player, both with a unique design that adapts to the theme's color scheme.</sup>
 - **Flexibility:**
 
-  <sup>Hide and show the polybar and eww widgets according to your needs, giving you complete control over your workspace.</sup>
+  <sup>Hide and show the polybar and eww widgets according to your needs, giving you control over your workspace.</sup>
 - **Functional Scratchpad:**
 
   <sup>Access the scratchpad functionality, a terminal window you can show or hide for tasks when you don't want the window taking up unnecessary space.</sup>
