@@ -23,7 +23,7 @@ https://user-images.githubusercontent.com/67278339/211363959-9182ecb7-e56e-4598-
 
 **Change themes on the fly**
 
-<sup>Switching between between 12+ themes quickly through a theme switcher.</sup>
+<sup>Switch between 12+ themes quickly through a theme switcher.</sup>
 
 **Consistency Across the Environment**
 
