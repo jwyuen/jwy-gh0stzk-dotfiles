@@ -114,7 +114,7 @@ super + Escape
 super + m
 	bspc desktop -l next
 
-# set the window state
+# set the window state (tiled, pseudo_tiled, floating, fullscreen)
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
