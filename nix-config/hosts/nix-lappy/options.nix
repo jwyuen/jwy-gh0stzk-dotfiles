@@ -4,7 +4,8 @@ let
   # THINGS YOU NEED TO CHANGE
   setUsername = "non";
   setHostname = "nix-lappy";
-in {
+in
+{
 
   #inherit username hostname userHome flakeDir;
   username = "${setUsername}";
@@ -27,7 +28,7 @@ in {
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/New_York";
   theShell = "zsh"; # Possible options: bash, zsh
-  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
+  theKernel = "default"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
   cpuType = "amd";
@@ -41,7 +42,7 @@ in {
   # DE / WM
   bspwm = true;
   kde = false;
-  
+
   # Base16 Theme
   theme = "catppuccin-mocha";
 
@@ -72,7 +73,7 @@ in {
 
   # Enable Python & PyCharm
   python = false;
-  
+
   # Enable SyncThing
   syncthing = true;
 
@@ -85,6 +86,5 @@ in {
 
   # Use lanzaboote for secureboot
   secureboot = true;
-
 
 }

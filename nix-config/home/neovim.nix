@@ -61,6 +61,8 @@
         lualine-nvim
         # snippet engine
         luasnip
+        # code completion using LLMs
+        minuet-ai-nvim
         # replaces UI for messages, cmdline, and popupmenu
         noice-nvim
         # dep for noice-nvim
