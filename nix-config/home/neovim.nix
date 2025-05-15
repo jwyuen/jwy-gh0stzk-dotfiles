@@ -42,7 +42,7 @@
         # better code formatter, requires setup (https://github.com/stevearc/conform.nvim/)
         conform-nvim
         # startup screen
-        dashboard-nvim
+        #dashboard-nvim
         # improve default vim.ui interfaces
         dressing-nvim
         # large colletion of code snippets (use w/ snippet plugin like luasnip)
