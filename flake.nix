@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
+      url = "github:nix-community/lanzaboote/v0.4.2";
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -31,7 +31,7 @@
     }:
     let
       system = "x86_64-linux";
-      host = "nix-deskstar";
+      host = "nix-lappy";
       inherit (import ./nix-config/hosts/${host}/options.nix) username hostname;
       pkgs = import nixpkgs {
         inherit system;
