@@ -1,18 +1,26 @@
-
-{ pkgs, config, lib, host, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  host,
+  ...
+}:
 
 let
   palette = config.colorScheme.palette;
   inherit (import ../hosts/${host}/options.nix) alacritty x11ScaleFactor;
-in lib.mkIf (alacritty == true) {
+in
+lib.mkIf (alacritty == true) {
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [
-        "~/.config/alacritty/rice-colors.toml"
-        "~/.config/alacritty/fonts.toml"
-      ];
-      live_config_reload = true;
+      general = {
+        import = [
+          "~/.config/alacritty/rice-colors.toml"
+          "~/.config/alacritty/fonts.toml"
+        ];
+        live_config_reload = true;
+      };
       cursor = {
         style = {
           shape = "Beam";
