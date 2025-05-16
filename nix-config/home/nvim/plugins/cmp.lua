@@ -15,6 +15,7 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
+		["<A-y>"] = require("minuet").make_cmp_map(),
 		["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 		["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -25,11 +26,20 @@ cmp.setup({
 	}),
 	-- sources for autocompletion
 	sources = cmp.config.sources({
+		{ name = "minuet" }, -- LLM
 		{ name = "nvim_lsp" }, -- language servers
 		{ name = "luasnip" }, -- snippets
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 	}),
+
+	performance = {
+		-- It is recommended to increase the timeout duration due to
+		-- the typically slower response speed of LLMs compared to
+		-- other completion sources. This is not needed when you only
+		-- need manual completion.
+		fetching_timeout = 1000,
+	},
 
 	-- configure lspkind for vs-code like pictograms in completion menu
 	formatting = {

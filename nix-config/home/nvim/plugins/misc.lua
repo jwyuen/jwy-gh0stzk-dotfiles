@@ -7,6 +7,7 @@ require("bufferline").setup({
 		end,
 	},
 })
+
 require("gitsigns").setup()
 require("ibl").setup()
 require("lsp_lines").setup()
@@ -17,6 +18,50 @@ require("mini.surround").setup()
 -- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
 	virtual_text = false,
+})
+
+require("minuet").setup({
+	provider = "openai_fim_compatible",
+	n_completions = 1, -- recommend for local model for resource saving
+	-- I recommend beginning with a small context window size and incrementally
+	-- expanding it, depending on your local computing power. A context window
+	-- of 512, serves as an good starting point to estimate your computing
+	-- power. Once you have a reliable estimate of your local computing power,
+	-- you should adjust the context window to a larger value.
+	context_window = 512,
+	provider_options = {
+		openai_fim_compatible = {
+			-- For Windows users, TERM may not be present in environment variables.
+			-- Consider using APPDATA instead.
+			api_key = "TERM",
+			name = "Ollama",
+			-- end_point = "http://localhost:11434/v1/completions",
+			-- 192.168.187.1 is the ip of the host machine if serving ollama from a host machine and current machine is a dev vm using vmware
+			end_point = "http://192.168.187.1:11434/v1/completions",
+			model = "qwen2.5-coder:14b",
+			optional = {
+				max_tokens = 56,
+				top_p = 0.9,
+			},
+		},
+	},
+	virtualtext = {
+		auto_trigger_ft = {},
+		keymap = {
+			-- accept whole completion
+			accept = "<A-A>",
+			-- accept one line
+			accept_line = "<A-a>",
+			-- accept n lines (prompts for number)
+			-- e.g. "A-z 2 CR" will accept 2 lines
+			accept_n_lines = "<A-z>",
+			-- Cycle to prev completion item, or manually invoke completion
+			prev = "<A-[>",
+			-- Cycle to next completion item, or manually invoke completion
+			next = "<A-]>",
+			dismiss = "<A-e>",
+		},
+	},
 })
 
 require("noice").setup({
