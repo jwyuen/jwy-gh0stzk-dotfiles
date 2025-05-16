@@ -4,7 +4,8 @@ let
   # THINGS YOU NEED TO CHANGE
   setUsername = "non";
   setHostname = "nix-deskstar";
-in {
+in
+{
 
   #inherit username hostname userHome flakeDir;
   username = "${setUsername}";
@@ -27,7 +28,7 @@ in {
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/New_York";
   theShell = "zsh"; # Possible options: bash, zsh
-  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
+  theKernel = "latest"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
   # For Hybrid Systems intel-nvidia
@@ -35,7 +36,7 @@ in {
   cpuType = "vm";
   gpuType = "vm";
 
-  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS! 
+  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS!
   amd-bus-id = "PCI:1:0:0";
   intel-bus-id = "PCI:1:0:0";
   nvidia-bus-id = "PCI:0:2:0";
@@ -43,7 +44,7 @@ in {
   # DE / WM
   bspwm = true;
   kde = false;
-  
+
   # Base16 Theme
   theme = "catppuccin-mocha";
 
@@ -74,7 +75,7 @@ in {
 
   # Enable Python & PyCharm
   python = false;
-  
+
   # Enable SyncThing
   syncthing = true;
 

@@ -28,14 +28,14 @@ in
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/New_York";
   theShell = "zsh"; # Possible options: bash, zsh
-  theKernel = "default"; # Possible options: default, latest, lqx, xanmod, zen
+  theKernel = "latest"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
   cpuType = "amd";
   #gpuType = "nvidia";
   gpuType = "amd";
 
-  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS! 
+  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS!
   amd-bus-id = "";
   nvidia-bus-id = "";
 
