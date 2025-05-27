@@ -38,7 +38,7 @@ require("minuet").setup({
 			-- end_point = "http://localhost:11434/v1/completions",
 			-- 192.168.187.1 is the ip of the host machine if serving ollama from a host machine and current machine is a dev vm using vmware
 			end_point = "http://192.168.187.1:11434/v1/completions",
-			model = "qwen2.5-coder:14b",
+			model = "qwen2.5-coder:1.5b",
 			optional = {
 				max_tokens = 56,
 				top_p = 0.9,

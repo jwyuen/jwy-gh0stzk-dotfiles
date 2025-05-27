@@ -85,6 +85,8 @@
         nvim-web-devicons
         # lua functions (dep for plugins)
         plenary-nvim
+        # render markdown directly in neovim
+        render-markdown-nvim
         telescope-fzf-native-nvim
         # extendable fuzzy finder over lists
         telescope-nvim
