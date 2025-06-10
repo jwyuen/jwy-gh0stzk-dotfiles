@@ -1,22 +1,20 @@
 { pkgs, config, ... }:
 let
-  tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      pluginName = "tmux-sessionx";
-      version = "unstable-2024-06-25";
-      src = pkgs.fetchFromGitHub {
-        owner = "omerxx";
-        repo = "tmux-sessionx";
-        rev = "ecc926e7db7761bfbd798cd8f10043e4fb1b83ba";
-        sha256 = "sha256-S/1mcmOrNKkzRDwMLGqnLUbvzUxcO1EcMdPwcipRQuE=";
-      };
+  tmux-sessionx-old = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-sessionx";
+    version = "unstable-2024-06-25";
+    src = pkgs.fetchFromGitHub {
+      owner = "omerxx";
+      repo = "tmux-sessionx";
+      rev = "ecc926e7db7761bfbd798cd8f10043e4fb1b83ba";
+      sha256 = "sha256-S/1mcmOrNKkzRDwMLGqnLUbvzUxcO1EcMdPwcipRQuE=";
     };
+  };
 in
 {
   programs.tmux = {
     enable = true;
-    plugins = with pkgs.tmuxPlugins; 
-    [
+    plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
       sensible
       yank
@@ -27,6 +25,7 @@ in
       fzf-tmux-url
       vim-tmux-navigator
       catppuccin
+      tmux-floax
       {
         plugin = tmux-sessionx;
         extraConfig = ''
@@ -57,20 +56,10 @@ in
       bind-key -n C-l select-pane -R
       bind-key -n C-S-F2 new-session
 
-      bind-key "o" run-shell "sesh connect \"$(sesh list | fzf-tmux -p 55%,60% \
-		--no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-		--header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-		--bind 'tab:down,btab:up' \
-		--bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list)' \
-		--bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t)' \
-		--bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c)' \
-		--bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z)' \
-		--bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-		--bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(⚡  )+reload(sesh list)'
-)\""
+
       bind T new-window -c "$HOME"
       bind r command-prompt "rename-window %%"
-      bind R source-file ~/.config/tmux/tmux.conf
+      bind R source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded..."
       bind ^A last-window
       bind ^W list-windows
       bind w list-windows
@@ -81,7 +70,7 @@ in
       bind s split-window -v -c "#{pane_current_path}"
       bind v split-window -h -c "#{pane_current_path}"
       bind '"' choose-window
-      
+
       bind -r -T prefix , resize-pane -L 20
       bind -r -T prefix . resize-pane -R 20
       bind -r -T prefix - resize-pane -D 7
@@ -96,7 +85,7 @@ in
       bind K send-keys "clear"\; send-keys "Enter"
       bind-key -T copy-mode-vi v send-keys -X begin-selection
 
-      
+
 
       set -g prefix ^A
       set -g base-index 1              # start indexing windows at 1 instead of 0
@@ -105,38 +94,74 @@ in
       set -g history-limit 1000000     # increase history size (from 2,000)
       set -g renumber-windows on       # renumber all windows when any window is closed
       set -g set-clipboard on          # use system clipboard
-      set -g status-position top       # macOS / darwin style
       setw -g mode-keys vi
       set-option -g mouse on
 
       set -g @fzf-url-fzf-options '-p 60%,30% --prompt="   " --border-label=" Open URL "'
       set -g @fzf-url-history-limit '2000'
 
-      
+
       set -g @continuum-restore 'on'
       set -g @resurrect-strategy-nvim 'session'
 
-      set-option -g default-terminal 'screen-256color'
-      set-option -g terminal-overrides ',xterm-256color:RGB'
-      set -g pane-active-border-style 'fg=magenta,bg=default'
-      set -g pane-border-style 'fg=brightblack,bg=default'
-      set -g @catppuccin_window_left_separator ""
-      set -g @catppuccin_window_right_separator " "
-      set -g @catppuccin_window_middle_separator " █"
-      set -g @catppuccin_window_number_position "right"
-      set -g @catppuccin_window_default_fill "number"
-      set -g @catppuccin_window_default_text "#W"
-      set -g @catppuccin_window_current_fill "number"
-      set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
-      set -g @catppuccin_status_modules_right "directory date_time"
-      set -g @catppuccin_status_modules_left "session"
-      set -g @catppuccin_status_left_separator  " "
+      # make sure we can use 24-bit or True Color.  For some reason using $TERM 
+      # instead of tmux-256color causes issues when typing
+      set -g default-terminal 'tmux-256color'
+      set -ag terminal-overrides ',xterm-256color:RGB'
+
+
+      ## Tmux bar customization (includes Window and Status bar areas)
+      set -g @catppuccin_flavor 'mocha'
+      set -g status-position top
+      set -g status-justify absolute-centre
+      set -g status-interval 1
+
+      set-window-option -g window-status-style 'fg=#{@thm_surface_2}'
+      set-window-option -g window-status-current-style 'italics'
+      set-window-option -g automatic-rename on
+      set-window-option -g automatic-rename-format '#{b:pane_current_path}'
+
+      # set status bar background transparent
+      set -g status-style fg=default,bg=default 
+      set -g @catppuccin_status_background "none"
+
+      set -g @catppuccin_flavor "macchiato"
+      set -g @catppuccin_window_status "icon"
+      set -g @catppuccin_window_status_style "custom"
+      set -g @catppuccin_pane_status_enabled "yes" 
+      set -g @catppuccin_pane_border_status "yes"
+      # set -g @catppuccin_window_flags "icon"
+      set -g @catppuccin_window_current_text_color "#[bg=default,fg=#{@thm_flamingo}"
+      set -g @catppuccin_window_text_color "#[bg=default,fg=#{@thm_surface_2}"
+      set -g @catppuccin_window_left_separator "#[bg=default,fg=#{@thm_surface_2}] #[bg=default,fg=#{@thm_surface_2}]"
+      set -g @catppuccin_window_right_separator "#[bg=default,fg=#{@thm_surface_2}] #[bg=default,fg=#{@thm_surface_2}]"
+      set -g @catppuccin_window_current_left_separator "#[bg=default,fg=#{@thm_flamingo}] "
+      set -g @catppuccin_window_current_middle_separator ""
+      set -g @catppuccin_window_current_right_separator "#[bg=default,fg=#{@thm_flamingo}] #[fg=#{@thm_surface_2}]"
+      # set -g @catppuccin_window_number_position "right"
+      set -g @catppuccin_status_left_separator ""
+      set -g @catppuccin_status_middle_separator ""
       set -g @catppuccin_status_right_separator " "
-      set -g @catppuccin_status_right_separator_inverse "no"
-      set -g @catppuccin_status_fill "icon"
-      set -g @catppuccin_status_connect_separator "no"
+
+      set -g status-right-length 100
+      set -g status-left-length 100
+      set -g status-left ""
+      set -g status-right "#{E:@catppuccin_status_application}"
+      set -ag status-right "#{E:@catppuccin_status_session}"
+      set-option -g window-status-style 'fg=#{@thm_surface_2}'
+      set-option -g window-status-separator "#[fg=#585b70]•"
+      # set -ag status-right "#{E:@catppuccin_status_uptime}"
+      # set -g @catppuccin_window_default_text "#[bg=default,fg=#{@thm_mauve}] #W"
+      set -g @catppuccin_window_text " #W"
+      set -g @catppuccin_window_current_text " #W#{?window_zoomed_flag, 󰊓,}"
+      set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
       set -g @catppuccin_directory_text "#{b:pane_current_path}"
-      set -g @catppuccin_date_time_text "%H:%M"
+      set -g @catppuccin_status_background "none"
+      set -g @catppuccin_menu_selected_style "fg=#{@thm_fg},italics"
+      set -g @catppuccin_status_connect_separator "no"
+
+      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
+            
     '';
   };
 }

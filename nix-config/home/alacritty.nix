@@ -32,6 +32,7 @@ lib.mkIf (alacritty == true) {
       };
       env = {
         WINIT_X11_SCALE_FACTOR = x11ScaleFactor;
+        TERM = "xterm-256color";
       };
       keyboard.bindings = [
         {

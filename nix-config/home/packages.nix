@@ -88,6 +88,7 @@ in
     clarity-city
     cozette
     terminus_font
+    maple-mono.NF
     nerd-fonts.jetbrains-mono
     nerd-fonts.inconsolata
 
