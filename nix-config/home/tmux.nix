@@ -109,6 +109,10 @@ in
       set -g default-terminal 'tmux-256color'
       set -ag terminal-overrides ',xterm-256color:RGB'
 
+      # setting these 2 options (along with an certain keyboard settings in alacritty) makes sure
+      # we can use Ctrl-[0-9] for actual keybindings (like buffer prev/next in neovim)
+      set -s extended-keys on
+      set -as terminal-features 'xterm*:extkeys'
 
       ## Tmux bar customization (includes Window and Status bar areas)
       set -g @catppuccin_flavor 'mocha'

@@ -36,9 +36,54 @@ lib.mkIf (alacritty == true) {
       };
       keyboard.bindings = [
         {
-          key = "0";
+          key = "Key0";
           mods = "Control";
-          action = "ReceiveChar";
+          chars = "\\u001b[48;5u";
+        }
+        {
+          key = "Key1";
+          mods = "Control";
+          chars = "\\u001b[49;5u";
+        }
+        {
+          key = "Key2";
+          mods = "Control";
+          chars = "\\u001b[50;5u";
+        }
+        {
+          key = "Key3";
+          mods = "Control";
+          chars = "\\u001b[51;5u";
+        }
+        {
+          key = "Key4";
+          mods = "Control";
+          chars = "\\u001b[52;5u";
+        }
+        {
+          key = "Key5";
+          mods = "Control";
+          chars = "\\u001b[53;5u";
+        }
+        {
+          key = "Key6";
+          mods = "Control";
+          chars = "\\u001b[54;5u";
+        }
+        {
+          key = "Key7";
+          mods = "Control";
+          chars = "\\u001b[55;5u";
+        }
+        {
+          key = "Key8";
+          mods = "Control";
+          chars = "\\u001b[56;5u";
+        }
+        {
+          key = "Key9";
+          mods = "Control";
+          chars = "\\u001b[57;5u";
         }
       ];
       selection = {
