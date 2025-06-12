@@ -31,7 +31,7 @@
     }:
     let
       system = "x86_64-linux";
-      host = "nix-lappy";
+      host = "nix-vm";
       inherit (import ./nix-config/hosts/${host}/options.nix) username hostname;
       pkgs = import nixpkgs {
         inherit system;
