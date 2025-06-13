@@ -105,9 +105,10 @@ in
       set -g @resurrect-strategy-nvim 'session'
 
       # make sure we can use 24-bit or True Color.  For some reason using $TERM 
-      # instead of tmux-256color causes issues when typing
+      # instead of tmux-256color causes issues when typing (at least in Alacritty)
+      #set -g default-terminal '\$\{TERM}'
       set -g default-terminal 'tmux-256color'
-      set -ag terminal-overrides ',xterm-256color:RGB'
+      set -sg terminal-overrides ',*:RGB'
 
       # setting these 2 options (along with an certain keyboard settings in alacritty) makes sure
       # we can use Ctrl-[0-9] for actual keybindings (like buffer prev/next in neovim)
