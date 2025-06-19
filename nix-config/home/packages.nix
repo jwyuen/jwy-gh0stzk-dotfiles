@@ -58,6 +58,7 @@ in
     docker
     mysql-workbench
     delta
+    gitg
     # zsh related
     zsh
     zsh-autosuggestions

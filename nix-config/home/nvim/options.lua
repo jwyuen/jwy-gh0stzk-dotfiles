@@ -15,5 +15,6 @@ opt.termguicolors = true
 opt.scrolloff = 8
 opt.updatetime = 50
 opt.showmode = false
-opt.guifont = "JetBrainsMono\\ NFM,Noto_Color_Emoji:h14"
+-- opt.guifont = "JetBrainsMono\\ NFM,Noto_Color_Emoji:h14"
+-- vim.opt.termguicolors = true
 vim.cmd.colorscheme("catppuccin")
