@@ -25,7 +25,7 @@
     eza
     wget
     curl
-    git
+    gitFull
     unzip
     unrar
     virt-viewer
