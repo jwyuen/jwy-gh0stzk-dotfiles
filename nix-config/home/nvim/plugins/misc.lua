@@ -10,6 +10,7 @@ bufferline.setup({
 	},
 })
 
+require("auto-session").setup({})
 require("gitsigns").setup()
 require("ibl").setup()
 require("lsp_lines").setup()
@@ -91,5 +92,5 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 })
-
+require("tailwind-tools").setup({})
 require("trouble").setup()

@@ -70,6 +70,7 @@ in
     imagemagick
     libwebp
     feh
+    gimp3-with-plugins
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
     betterlockscreen

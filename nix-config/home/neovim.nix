@@ -17,6 +17,7 @@
         marksman
         nil
         stylelint-lsp
+        tailwindcss-language-server
         typescript-language-server
         yaml-language-server
         # formatters
@@ -87,6 +88,8 @@
         plenary-nvim
         # render markdown directly in neovim
         render-markdown-nvim
+        # Additional tooling and integration of tailwindcss lsp and neovim
+        tailwind-tools-nvim
         telescope-fzf-native-nvim
         # extendable fuzzy finder over lists
         telescope-nvim
