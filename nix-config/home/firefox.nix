@@ -30,6 +30,7 @@
           sidebery
           tabliss
           tab-session-manager
+          react-devtools
         ];
         search = {
           force = true;

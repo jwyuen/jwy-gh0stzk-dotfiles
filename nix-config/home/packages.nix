@@ -41,6 +41,7 @@ in
     mpc-cli
     pamixer
     # dev related
+    age
     alacritty
     geany
     libvirt
@@ -71,6 +72,7 @@ in
     libwebp
     feh
     gimp3-with-plugins
+    inkscape-with-extensions
     #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
     # other
     betterlockscreen

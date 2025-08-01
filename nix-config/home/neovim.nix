@@ -13,6 +13,7 @@
         # LSPs
         bash-language-server
         biome
+        # ethersync # not ready yet - needs ethersync-nvim plugin too which is not available on nixpkgs yet
         lua-language-server
         marksman
         nil
