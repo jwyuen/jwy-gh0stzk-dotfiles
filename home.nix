@@ -1,16 +1,29 @@
-{ config, pkgs, inputs, username, host,
-  gtkThemeFromScheme, ... }:
-let 
+{
+  config,
+  pkgs,
+  inputs,
+  username,
+  host,
+  gtkThemeFromScheme,
+  ...
+}:
+let
   inherit (import ./nix-config/hosts/${host}/options.nix)
-    gitUsername gitEmail theme browser 
-    wallpaperDir wallpaperGit flakeDir 
-    waybarStyle;
-in {
+    gitUsername
+    gitEmail
+    theme
+    browser
+    wallpaperDir
+    wallpaperGit
+    flakeDir
+    waybarStyle
+    ;
+in
+{
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
-
 
   # Set The Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes."${theme}";
@@ -18,7 +31,7 @@ in {
   # Import Program Configurations
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     #inputs.hyprland.homeManagerModules.default
     ./nix-config/home
   ];
@@ -51,8 +64,8 @@ in {
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
     };
   };
 

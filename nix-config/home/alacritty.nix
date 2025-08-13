@@ -85,6 +85,16 @@ lib.mkIf (alacritty == true) {
           mods = "Control";
           chars = "\\u001b[57;5u";
         }
+        {
+          key = "Comma";
+          mods = "Control";
+          chars = "\x1b[44;5u";
+        }
+        {
+          key = "Period";
+          mods = "Control";
+          chars = "\x1b[46;5u";
+        }
       ];
       selection = {
         save_to_clipboard = true;

@@ -43,13 +43,14 @@ in
       # unbind-key -a
       # Now reinsert all the regular tmux keys
       bind ^X lock-server
-      bind ^C new-window -c "$HOME"
+      #bind ^C new-window -c "$HOME"
+      bind c new-window -c "$HOME"
       bind ^D detach
       bind * list-clients
 
       # -n doesn't require prefix key first
-      bind-key -n C-w previous-window
-      bind-key -n C-e next-window
+      bind-key -n C-e previous-window
+      bind-key -n C-o next-window
       bind-key -n C-h select-pane -L
       bind-key -n C-j select-pane -D
       bind-key -n C-k select-pane -U
@@ -78,7 +79,7 @@ in
       bind : command-prompt
       bind * setw synchronize-panes
       bind P set pane-border-status
-      bind c kill-pane
+      bind k kill-pane
       bind x swap-pane -D
       bind S choose-session
       bind R source-file ~/.config/tmux/tmux.conf
