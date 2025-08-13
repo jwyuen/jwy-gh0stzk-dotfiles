@@ -93,4 +93,10 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 })
 require("tailwind-tools").setup({})
-require("trouble").setup()
+require("trouble").setup({
+	win = {
+		wo = {
+			wrap = true,
+		},
+	},
+})
