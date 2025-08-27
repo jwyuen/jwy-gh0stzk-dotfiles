@@ -43,7 +43,6 @@ in
       # unbind-key -a
       # Now reinsert all the regular tmux keys
       bind ^X lock-server
-      #bind ^C new-window -c "$HOME"
       bind c new-window -c "$HOME"
       bind ^D detach
       bind * list-clients
@@ -82,7 +81,6 @@ in
       bind k kill-pane
       bind x swap-pane -D
       bind S choose-session
-      bind R source-file ~/.config/tmux/tmux.conf
       bind K send-keys "clear"\; send-keys "Enter"
       bind-key -T copy-mode-vi v send-keys -X begin-selection
 

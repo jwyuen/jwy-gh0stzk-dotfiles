@@ -11,11 +11,14 @@ bufferline.setup({
 })
 
 require("auto-session").setup({})
+require("flash").setup({
+	modes = { search = { enabled = true } },
+})
 require("gitsigns").setup()
 require("ibl").setup()
 require("lsp_lines").setup()
 require("mini.files").setup()
-require("mini.pairs").setup()
+-- require("mini.pairs").setup()
 require("mini.surround").setup()
 
 -- Disable virtual_text since it's redundant due to lsp_lines.
@@ -86,6 +89,8 @@ require("noice").setup({
 	},
 })
 
+require("nvim-autopairs").setup({})
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {},
 	auto_install = false,
@@ -98,5 +103,23 @@ require("trouble").setup({
 		wo = {
 			wrap = true,
 		},
+	},
+})
+
+require("wtf").setup({
+	popup_type = "popup",
+	provider = "ollama",
+	providers = {
+		ollama = {
+			url = "http://192.168.187.1:11434/v1/chat/completions",
+			model_id = "devstral:latest",
+		},
+	},
+	language = "english",
+	additional_instructions = "Start the reply with 'OH HAI THERE'",
+	search_engine = "duck_duck_go",
+	hooks = {
+		request_started = nil,
+		request_finished = nil,
 	},
 })

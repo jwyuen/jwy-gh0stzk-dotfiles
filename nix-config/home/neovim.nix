@@ -47,6 +47,8 @@
         #dashboard-nvim
         # improve default vim.ui interfaces
         dressing-nvim
+        # quickly jump to different areas in current buffer
+        flash-nvim
         # large colletion of code snippets (use w/ snippet plugin like luasnip)
         friendly-snippets
         # fast git decorations - can integrate with vim-fugitive and trouble.nvim
@@ -69,6 +71,7 @@
         noice-nvim
         # dep for noice-nvim
         nui-nvim
+        nvim-autopairs
         # completion
         nvim-cmp
         # quickstart configs for LSPs
@@ -106,13 +109,15 @@
         # file manager
         mini-files
         # auto pairs like parentheses, etc.
-        mini-pairs
+        #mini-pairs
         # add/delete/change surrounding pairs like parentheses, etc.
         mini-surround
         # move between vim and tmux panes seamlessly
         vim-tmux-navigator
         # check keybinds easily
         which-key-nvim
+        # explain lsp error or debug messages
+        wtf-nvim
       ];
       extraConfig = '''';
       extraLuaConfig = ''
