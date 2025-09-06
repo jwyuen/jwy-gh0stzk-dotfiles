@@ -89,7 +89,10 @@
         nvim-ts-autotag
         # setting comment string based on cursor location in file
         nvim-ts-context-commentstring
+        # dep for other plugins
         nvim-web-devicons
+        # quick outline tree (like table of contents) (compatible w/ lsp)
+        outline-nvim
         # lua functions (dep for plugins)
         plenary-nvim
         # render markdown directly in neovim

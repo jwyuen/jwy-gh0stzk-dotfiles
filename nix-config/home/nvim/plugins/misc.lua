@@ -98,6 +98,8 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 })
 
+require("outline").setup({})
+
 require("snacks").setup({
 
 	animate = { enabled = true },
