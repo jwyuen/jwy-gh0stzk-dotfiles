@@ -97,6 +97,23 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 })
+
+require("snacks").setup({
+
+	animate = { enabled = true },
+	bigfile = { enabled = true },
+	bufdelete = { enabled = true },
+	dim = { enabled = true },
+	image = {
+		enabled = true,
+		doc = {
+			inline = true,
+			float = true,
+		},
+	},
+	scroll = { enabled = true },
+	zen = { enabled = true },
+})
 require("tailwind-tools").setup({})
 require("trouble").setup({
 	win = {

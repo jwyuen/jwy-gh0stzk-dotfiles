@@ -65,6 +65,8 @@
         lualine-nvim
         # snippet engine
         luasnip
+        # icons (dep for other plugins)
+        mini-icons
         # code completion using LLMs
         minuet-ai-nvim
         # replaces UI for messages, cmdline, and popupmenu
@@ -92,6 +94,8 @@
         plenary-nvim
         # render markdown directly in neovim
         render-markdown-nvim
+        # misc QoL plugins like image support
+        snacks-nvim
         # Additional tooling and integration of tailwindcss lsp and neovim
         tailwind-tools-nvim
         telescope-fzf-native-nvim

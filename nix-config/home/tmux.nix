@@ -95,7 +95,7 @@ in
       set -g set-clipboard on          # use system clipboard
       setw -g mode-keys vi
       set-option -g mouse on
-      set -g allow-passthrough         # so we can apply term colors to neovim 
+      set -gq allow-passthrough         # so we can apply term colors to neovim 
 
       set -g @fzf-url-fzf-options '-p 60%,30% --prompt="   " --border-label=" Open URL "'
       set -g @fzf-url-history-limit '2000'
