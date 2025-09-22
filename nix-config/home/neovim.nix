@@ -43,6 +43,7 @@
         cmp-buffer
         # better code formatter, requires setup (https://github.com/stevearc/conform.nvim/)
         conform-nvim
+        comment-nvim
         # startup screen
         #dashboard-nvim
         # improve default vim.ui interfaces

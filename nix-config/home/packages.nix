@@ -85,6 +85,8 @@ in
     inetutils
     remmina
     keepassxc
+    libreoffice
+    evince # for pdfs
 
     # fonts
     cherry
