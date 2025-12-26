@@ -1,23 +1,26 @@
-{ pkgs, config, lib, host, ... }:
-
-let inherit (import ../hosts/${host}/options.nix) secureboot; in
 {
+  pkgs,
+  config,
+  lib,
+  host,
+  ...
+}:
 
+let
+  inherit (import ../hosts/${host}/options.nix) secureboot;
+in
+{
 
   # Bootloader
   #boot.loader.systemd-boot.enable = lib.mkForce false;
-  #boot.loader.systemd-boot.enable = mkMerge 
+  #boot.loader.systemd-boot.enable = mkMerge
   boot.loader.systemd-boot = lib.mkMerge [
-    (lib.mkIf (secureboot == true)
-      {
-        enable = lib.mkForce false;
-      }
-    )
-    (lib.mkIf (secureboot == false)
-      {
-        enable = true;
-      }
-    )
+    (lib.mkIf (secureboot == true) {
+      enable = lib.mkForce false;
+    })
+    (lib.mkIf (secureboot == false) {
+      enable = true;
+    })
   ];
 
   boot.lanzaboote = lib.mkIf (secureboot == true) {
@@ -25,9 +28,14 @@ let inherit (import ../hosts/${host}/options.nix) secureboot; in
     pkiBundle = "/etc/secureboot";
   };
 
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernel.sysctl = { "vm.max_map_count" = 2147483642; };
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 2147483642;
+  };
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "25%";
 
