@@ -16,8 +16,8 @@ in
   screenshotDir = "/home/${setUsername}/Pictures/Screenshots";
 
   # User Variables
-  gitUsername = "John Smith";
-  gitEmail = "johnsmith@gmail.com";
+  gitUsername = "jwy";
+  gitEmail = "jwingy@gmail.com";
 
   # System Settings
   clock24h = false;
@@ -33,17 +33,16 @@ in
 
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "vm";
-  gpuType = "vm";
+  cpuType = "amd";
+  gpuType = "nvidia";
 
   # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS!
-  amd-bus-id = "PCI:1:0:0";
-  intel-bus-id = "PCI:1:0:0";
-  nvidia-bus-id = "PCI:0:2:0";
+  amd-bus-id = "";
+  nvidia-bus-id = "";
 
   # DE / WM
   bspwm = true;
-  kde = false;
+  kde = true;
 
   # Base16 Theme
   theme = "catppuccin-mocha";
@@ -56,7 +55,7 @@ in
   printer = false;
 
   # Program options
-  terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
+  terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
   browser = "firefox";
   distrobox = false;
   flatpak = false;
@@ -80,7 +79,7 @@ in
   syncthing = true;
 
   # Xorg scaling
-  x11ScaleFactor = "1.0";
+  x11ScaleFactor = "1.4";
 
   # Power profiles daemon
   powerprofiles = false;
