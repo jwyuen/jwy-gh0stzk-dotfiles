@@ -1,9 +1,17 @@
-{ pkgs, config, lib, host, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  host,
+  ...
+}:
 
-let inherit (import ../hosts/${host}/options.nix) kde; in
+let
+  inherit (import ../hosts/${host}/options.nix) kde;
+in
 lib.mkIf (kde == true) {
-  services.xserver.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.defaultSession = "plasma";
-  #services.xserver.displayManager.defaultSession = "plasmax11";
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+
 }
