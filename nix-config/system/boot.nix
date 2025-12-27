@@ -12,8 +12,6 @@ in
 {
 
   # Bootloader
-  #boot.loader.systemd-boot.enable = lib.mkForce false;
-  #boot.loader.systemd-boot.enable = mkMerge
   boot.loader.systemd-boot = lib.mkMerge [
     (lib.mkIf (secureboot == true) {
       enable = lib.mkForce false;
@@ -25,12 +23,8 @@ in
 
   boot.lanzaboote = lib.mkIf (secureboot == true) {
     enable = true;
-    pkiBundle = "/etc/secureboot";
+    pkiBundle = "/var/lib/sbctl";
   };
-
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl = {
