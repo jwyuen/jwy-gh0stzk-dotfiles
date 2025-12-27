@@ -4,33 +4,39 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ce306f9c-e7f5-42cb-90f7-6d218b48b58e";
+    { device = "/dev/mapper/luks-4cbc6029-cc46-40c0-aeee-f59f2effb5d2";
       fsType = "ext4";
     };
 
+  boot.initrd.luks.devices."luks-4cbc6029-cc46-40c0-aeee-f59f2effb5d2".device = "/dev/disk/by-uuid/4cbc6029-cc46-40c0-aeee-f59f2effb5d2";
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F318-54FD";
+    { device = "/dev/disk/by-uuid/D072-A19A";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/home" =
+    { device = "/dev/mapper/luks-c862bc1f-ecf7-42a9-8f78-4866ded9f041";
+      fsType = "ext4";
+    };
+
+  boot.initrd.luks.devices."luks-c862bc1f-ecf7-42a9-8f78-4866ded9f041".device = "/dev/disk/by-uuid/c862bc1f-ecf7-42a9-8f78-4866ded9f041";
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/5a43d19f-1deb-479b-926e-01bdc54f643b"; }
+    [ { device = "/dev/mapper/nvme0n1p9_crypt"; }
     ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens33.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
