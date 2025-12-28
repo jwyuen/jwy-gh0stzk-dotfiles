@@ -44,9 +44,9 @@ in
   # Install & Configure Git
   programs.git = {
     enable = true;
-    userName = "${gitUsername}";
-    userEmail = "${gitEmail}";
-    extraConfig = {
+    settings = {
+      user.email = "${gitEmail}";
+      user.name = "${gitUsername}";
       core = {
         editor = "nvim";
         pager = "delta";
