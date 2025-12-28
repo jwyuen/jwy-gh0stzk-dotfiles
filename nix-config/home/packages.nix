@@ -38,7 +38,7 @@ in
     playerctl
     mpd
     ncmpcpp
-    mpc-cli
+    mpc
     pamixer
     # dev related
     age

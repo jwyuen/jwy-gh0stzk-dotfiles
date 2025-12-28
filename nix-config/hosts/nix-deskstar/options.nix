@@ -85,5 +85,5 @@ in
   powerprofiles = false;
 
   # Use lanzaboote for secureboot
-  secureboot = false;
+  secureboot = true;
 }
