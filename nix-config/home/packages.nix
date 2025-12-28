@@ -73,7 +73,7 @@ in
     feh
     gimp3-with-plugins
     inkscape-with-extensions
-    #nixpkgs-unstable.legacyPackages.${pkgs.system}.webp-pixbuf-loader
+    #nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.webp-pixbuf-loader
     # other
     betterlockscreen
     nh
