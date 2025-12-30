@@ -22,6 +22,7 @@
     ./polkit.nix
     ./power-profiles-daemon.nix
     ./services.nix
+    ./swap.nix
     ./syncthing.nix
     ./vm.nix
     ./xorgScale.nix

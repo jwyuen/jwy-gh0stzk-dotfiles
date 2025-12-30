@@ -33,9 +33,7 @@
 
   boot.initrd.luks.devices."luks-c862bc1f-ecf7-42a9-8f78-4866ded9f041".device = "/dev/disk/by-uuid/c862bc1f-ecf7-42a9-8f78-4866ded9f041";
 
-  swapDevices =
-    [ { device = "/dev/mapper/nvme0n1p9_crypt"; }
-    ];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

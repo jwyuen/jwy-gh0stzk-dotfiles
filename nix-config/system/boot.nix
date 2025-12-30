@@ -30,6 +30,7 @@ in
   boot.kernel.sysctl = {
     "vm.max_map_count" = 2147483642;
   };
+
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "25%";
 
