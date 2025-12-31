@@ -15,6 +15,7 @@ post_call() {
 }
 
 get_total_updates() {
+  exit;
   pre_call
   #nhstring="Closure size: 2048 -> 2048 (0 paths added, 0 paths removed, delta +0, disk usage +0B)."
   #Since update checker command takes time to run, show 0 as default until command finishes

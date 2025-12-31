@@ -1,10 +1,17 @@
-{ pkgs, config, lib, host, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  host,
+  ...
+}:
 
-let inherit (import ../hosts/${host}/options.nix) gpuType; in
-lib.mkIf ("${gpuType}" == "intel-amd") { 
-  nixpkgs.config.packageOverrides =
-    pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override {
+let
+  inherit (import ../hosts/${host}/options.nix) gpuType;
+in
+lib.mkIf ("${gpuType}" == "intel-amd") {
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {
       enableHybridCodec = true;
     };
   };
@@ -16,7 +23,6 @@ lib.mkIf ("${gpuType}" == "intel-amd") {
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
-      amdvlk
     ];
     extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
   };

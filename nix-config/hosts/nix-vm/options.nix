@@ -41,6 +41,11 @@ in
   intel-bus-id = "PCI:1:0:0";
   nvidia-bus-id = "PCI:0:2:0";
 
+  # Only if you set up an encrypted swap partition with LUKS
+  # can find the part uuid using the command lsblk -no PARTUUID <device id e.g. /dev/nvme1n1p9>
+  swapPartUUID = "";
+  swapLUKSID = "";
+
   # DE / WM
   bspwm = true;
   kde = false;

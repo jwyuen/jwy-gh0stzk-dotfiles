@@ -22,14 +22,52 @@ echo "Just press enter to select the default"
 
 echo "-----"
 
-read -rp "Enter Your Hostname: [ nix-vm ] " host_name
-if [ -z "$host_name" ]; then
-  host_name="nix-vm"
-fi
+###############################################################################
+
+# Prompt user for type of host environment
+
+optionOne="nix-deskstar (desktop)"
+optionTwo="nix-lappy (laptop)"
+optionThree="nix-vm (virtual machine)"
+
+PS3='Choose install option: '
+options=("$optionOne" "$optionTwo" "$optionThree" "Quit")
+select opt in "${options[@]}"
+do
+  case $opt in
+    "$optionOne")
+      host_name="nix-deskstar"
+      break;
+      ;;
+    "$optionTwo")
+      host_name="nix-lappy"
+      break;
+      ;;
+    "$optionThree")
+      host_name="nix-vm"
+      break;
+      ;;
+    "Quit")
+      break
+      ;;
+    *) echo invalid option;;
+  esac
+done
+
+echo "Host is set to $host_name"
+
+echo "-----"
+###############################################################################
+
 
 read -p "Do you want to do an express install? [use defaults] " -n 1 -r
 if [[ $REPLY =~ ^[Nn]$ ]] ; then
   
+  read -p "Do you want to generate a hardware config? (First time install typically)" -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]] ; then
+  sudo nixos-generate-config --show-hardware-config > ./nix-config/hosts/"$host_name"/hardware.nix
+  fi
+
   read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
   if [ ! -z "$user_name_response" ]; then
     user_name=$user_name_response
@@ -64,6 +102,7 @@ else
 fi
 
 
+###############################################################################
 echo "-----"
 echo "Symlinking dot (.config and .local) files using GNU Stow"
 [ ! -d ~/.config ] && mkdir -p $XDG_CONFIG_HOME
@@ -81,14 +120,9 @@ fc-cache -rf
 #sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default/user.js
 #sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
 
-echo "-----"
-# Exclude nix-lappy host since generating hardware config breaks the encrypted swap for some reason
-if [ "$host_name" != "nix-lappy" ]; then
-  echo "Generating The Hardware Configuration"
-  sudo nixos-generate-config --show-hardware-config > ./nix-config/hosts/"$host_name"/hardware.nix
-echo "-----"
-fi
 
+
+###############################################################################
 echo "Now Going To Build $PROJECT_NAME, 🤞"
 #NIX_CONFIG="experimental-features = nix-command flakes" 
 
@@ -106,6 +140,7 @@ if sudo nixos-rebuild switch --flake .#"$host_name" --show-trace; then
   echo "$PROJECT_NAME Has Been Installed!"
 fi
 
+###############################################################################
 echo "-----"
 echo "Cleaning up..."
 git restore ./flake.nix

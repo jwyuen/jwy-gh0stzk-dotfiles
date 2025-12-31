@@ -39,6 +39,11 @@ in
   amd-bus-id = "";
   nvidia-bus-id = "";
 
+  # Only if you set up an encrypted swap partition with LUKS
+  # can find the part uuid using the command lsblk -no PARTUUID <device id e.g. /dev/nvme1n1p9>
+  swapPartUUID = "";
+  swapLUKSID = "";
+
   # DE / WM
   bspwm = true;
   kde = false;
