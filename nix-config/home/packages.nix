@@ -76,6 +76,7 @@ in
     #nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.webp-pixbuf-loader
     # other
     betterlockscreen
+    xscreensaver
     nh
     tldr
     tor-browser
