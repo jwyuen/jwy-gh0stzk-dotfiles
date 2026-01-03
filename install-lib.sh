@@ -15,6 +15,7 @@ THEME_FILES=(
   dots/config/bspwm/scripts/system.ini
   dots/config/bspwm/scripts/WallSelect.rasi
   dots/config/eww/colors.scss
+  dots/config/mpd/state
 )
 
 # Non intrusive way of adding custom styling to kitty conf without overwriting

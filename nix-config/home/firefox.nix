@@ -15,7 +15,7 @@
         isDefault = true;
         settings = {
           "apz.doubletapzoom.defaultzoomin" = "1.2";
-          "browser.search.defaultenginename" = "Searx";
+          "browser.search.defaultenginename" = "DuckDuckGo";
           "browser.search.order.1" = "Searx";
           "browser.toolbars.bookmarks.visibility" = "always";
           "browser.uiCustomization.state" = ''
@@ -34,8 +34,9 @@
         ];
         search = {
           force = true;
-          default = "Searx";
+          default = "ddg";
           order = [
+            "ddg"
             "Searx"
             "google"
           ];

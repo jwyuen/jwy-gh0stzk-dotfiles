@@ -19,6 +19,8 @@ in
   # Install Packages For The User
   home.packages = with pkgs; [
     # unix porn related
+
+    ## for bspwm rice:
     dunst
     bspwm
     dmenu
@@ -33,6 +35,7 @@ in
     jgmenu
     polybarFull
     polybar-pulseaudio-control
+
     # audio related
     libmpdclient
     playerctl
@@ -40,9 +43,11 @@ in
     ncmpcpp
     mpc
     pamixer
+
     # dev related
     age
     alacritty
+    kitty
     geany
     libvirt
     maim
@@ -59,12 +64,14 @@ in
     docker
     mysql-workbench
     delta
+
     # zsh related
     zsh
     zsh-autosuggestions
     zsh-history-substring-search
     zsh-syntax-highlighting
     zsh-autocomplete
+
     # image related
     gdk-pixbuf
     webp-pixbuf-loader
@@ -73,7 +80,7 @@ in
     feh
     gimp3-with-plugins
     inkscape-with-extensions
-    #nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.webp-pixbuf-loader
+
     # other
     betterlockscreen
     xscreensaver
@@ -88,6 +95,8 @@ in
     keepassxc
     libreoffice
     evince # for pdfs
+    nix-sweep # clean up nix profile generations and left over gc roots
+    goofcord # open source discord client w/ privacy enhancements
 
     # fonts
     cherry

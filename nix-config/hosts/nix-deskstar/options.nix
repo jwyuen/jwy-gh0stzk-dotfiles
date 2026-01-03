@@ -47,7 +47,7 @@ in
 
   # DE / WM
   bspwm = true;
-  kde = true;
+  kde = false;
 
   # Base16 Theme
   theme = "catppuccin-mocha";
@@ -84,7 +84,7 @@ in
   syncthing = true;
 
   # Xorg scaling
-  x11ScaleFactor = "1.4";
+  x11ScaleFactor = "1.0";
 
   # Power profiles daemon
   powerprofiles = false;
