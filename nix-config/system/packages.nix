@@ -25,6 +25,7 @@
     # Hyprland
     #noctalia-shell
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    egl-wayland # required for hyprland
 
     # misc helpful utilities
     eza
@@ -39,10 +40,15 @@
     stow
     brightnessctl
     gparted
-    # other
+    sbctl # secure boot
     polkit_gnome
-    # secure boot
-    sbctl
+
+    # keyboard
+    via
+    vial
+    qmk
+    qmk-udev-rules
+    qmk_hid
 
     # monitoring utils
     btop
@@ -63,15 +69,15 @@
     neovim.enable = true;
     #steam.gamescopeSession.enable = true;
     dconf.enable = true;
-    seahorse.enable = true;
+    seahorse.enable = false;
     hyprland = {
       enable = true;
       #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      withUWSM = true;
+      withUWSM = false;
       xwayland.enable = true;
     };
     # Universal Wayland Session Manager
-    uwsm.enable = true;
+    uwsm.enable = false;
     fuse.userAllowOther = true;
     # network diagnostic tool
     mtr.enable = true;

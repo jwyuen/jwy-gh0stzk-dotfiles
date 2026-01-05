@@ -91,4 +91,8 @@ in
 
   # Use lanzaboote for secureboot
   secureboot = true;
+
+  # NVME ssd acpi power management workaround
+  nvmePowerFix = true;
+  pcieASPMDisable = true;
 }

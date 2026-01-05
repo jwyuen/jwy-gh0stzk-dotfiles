@@ -19,10 +19,16 @@ lib.mkIf ("${gpuType}" == "nvidia") {
     # Modesetting is required.
     modesetting.enable = true;
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
+    # prime = {
+    #   offload.enable = true;
+    #   amdgpuBusId = "PCI:54:0:0";
+    #   nvidiaBusId = "PCI:1:0:0";
+
+    # };
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -35,6 +41,7 @@ lib.mkIf ("${gpuType}" == "nvidia") {
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }

@@ -507,7 +507,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     # disable if using UWSM
-    systemd.enable = false;
+    systemd.enable = true;
 
     settings = {
       # Startup Apps
@@ -521,12 +521,19 @@ in
         "$mod, Return, Open terminal, exec, alacritty"
         "$mod, Q, close active window, killactive"
         "$mod, Space, Noctalia launcher, exec, noctalia-shell ipc call launcher toggle"
+        "$mod CTRL, F, maximize window, fullscreen, 1"
+        "$mod, B, Float current window, togglefloating,"
+        #"$mod ALT, O, Open quake style notes console from top of screen, exec, tdrop -a -w 70% -h 55% -y 0 -x 15%  --class scratch alacritty --class=scratch"
 
         # Move focus with mod + hjkl
         "$mod, h, focus left, movefocus, l"
         "$mod, l, focus right, movefocus, r"
         "$mod, k, focus up, movefocus, u"
         "$mod, j, focus down, movefocus, d"
+
+        # Workspaces
+        "$mod CTRL, l, next workspace, workspace, m+1"
+        "$mod CTRL, h, previous workspace, workspace, m-1"
 
       ];
 

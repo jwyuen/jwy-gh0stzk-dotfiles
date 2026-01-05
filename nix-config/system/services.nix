@@ -55,6 +55,29 @@
   #Upower is a dbus service that provides power management support to apps
   services.upower.enable = true;
 
+  # our attempt to let VIA see our keyboard
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="4e45", ATTRS{idProduct}=="3635", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl" 
+  '';
+
+  # disable wakeup triggers for all PCIe devices
+  # services.udev.extraRules = ''
+  #   ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
+  # '';
+  services.udev = {
+
+    packages = with pkgs; [
+      qmk
+      qmk-udev-rules # the only relevant
+      qmk_hid
+      via
+      vial
+    ]; # packages
+
+  };
+
+  hardware.keyboard.qmk.enable = true;
+
   # Security
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
