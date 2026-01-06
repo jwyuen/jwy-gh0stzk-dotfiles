@@ -52,7 +52,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
 
-  #Upower is a dbus service that provides power management support to apps
+  # Noctalia shell battery
   services.upower.enable = true;
 
   # our attempt to let VIA see our keyboard
@@ -60,10 +60,6 @@
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="4e45", ATTRS{idProduct}=="3635", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl" 
   '';
 
-  # disable wakeup triggers for all PCIe devices
-  # services.udev.extraRules = ''
-  #   ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
-  # '';
   services.udev = {
 
     packages = with pkgs; [
@@ -83,6 +79,8 @@
   security.pam.services.sddm.enableGnomeKeyring = true;
   #security.pam.services.login.enableGnomeKeyring = true;
   security.rtkit.enable = true;
+
+  # TODO: set lock screen based on X or Wayland?
   security.pam.services.i3lock.enable = true;
   security.pam.services.i3lock-color.enable = true;
   security.pam.services.betterlockscreen = {

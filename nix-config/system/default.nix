@@ -1,6 +1,14 @@
-{ config, pkgs, ... }:
-
 {
+  inputs,
+  host,
+  ...
+}:
+let
+  # Import the host-specific variables.nix
+  vars = import ../hosts/${host}/variables.nix;
+in
+{
+
   imports = [
     ./amd-gpu.nix
     ./appimages.nix
@@ -15,6 +23,7 @@
     ./intel-nvidia.nix
     ./kernel.nix
     ./logitech.nix
+    ./maccel.nix
     ./ntp.nix
     ./nvidia.nix
     ./opengl.nix
@@ -22,9 +31,13 @@
     ./polkit.nix
     ./power-profiles-daemon.nix
     ./services.nix
+    ./stylix.nix
     ./swap.nix
     ./syncthing.nix
+    ./virtualisation.nix
     ./vm.nix
     ./xorgScale.nix
+
+    inputs.stylix.nixosModules.stylix
   ];
 }

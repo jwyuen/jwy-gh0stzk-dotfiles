@@ -109,7 +109,7 @@ lib.mkIf (alacritty == true) {
         dynamic_padding = true;
         padding.x = 5;
         padding.y = 5;
-        opacity = 1;
+        opacity = 1.0;
       };
     };
   };

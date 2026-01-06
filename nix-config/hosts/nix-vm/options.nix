@@ -20,13 +20,13 @@ in
   gitEmail = "jwingy@gmail.com";
 
   # System Settings
-  clock24h = false;
   theLocale = "en_US.UTF-8";
-  theKBDLayout = "us";
-  theSecondKBDLayout = "de";
-  theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/New_York";
+  keyboardLayout = "us";
+  keyboardVariant = "";
+  consoleKeyMap = "us";
+
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "latest"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
@@ -61,9 +61,6 @@ in
   printer = false;
 
   # Program options
-
-  terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
-  browser = "firefox";
   distrobox = false;
   flatpak = false;
   kdenlive = false;
@@ -93,4 +90,42 @@ in
 
   # Use lanzaboote for secureboot
   secureboot = false;
+
+  # NVME ssd acpi power management workaround
+  nvmePowerFix = false;
+  pcieASPMDisable = false;
+
+  #### Hyprland / Wayland #######
+
+  # Choose between noctalia or waybar
+  barChoice = "noctalia";
+
+  # Waybar Settings (used when barChoice = "waybar")
+  clock24h = false;
+
+  # Program Options
+  # Set Default Browser (google-chrome-stable for google-chrome)
+  # This does NOT install your browser
+  # You need to install it by adding it to the `packages.nix`
+  # or as a flatpak
+  browser = "firefox";
+
+  # Available Options:
+  # Kitty, ghostty, wezterm, aalacrity
+  # Note: kitty, wezterm, alacritty have to be enabled in `variables.nix`
+  # Setting it here does not enable it. Kitty is installed by default
+  terminal = "alacritty"; # Set Default System Terminal
+
+  # Examples:
+  # extraMonitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
+  # extraMonitorSettings = "monitor = HDMI-A-1,1920x1080@60,auto,1";
+  # You can configure multiple monitors.
+  # Inside the quotes, create a new line for each monitor.
+  extraMonitorSettings = "
+
+    ";
+
+  # Set Waybar
+  #  Available Options:
+  waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
 }

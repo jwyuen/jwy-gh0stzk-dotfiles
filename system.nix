@@ -1,19 +1,34 @@
-{ inputs, config, pkgs,
-  username, hostname, host, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  username,
+  hostname,
+  host,
+  ...
+}:
 
-let 
-  inherit (import ./nix-config/hosts/${host}/options.nix) 
-    theLocale theTimezone gitUsername
-    theShell wallpaperDir wallpaperGit
-    theLCVariables theKBDLayout flakeDir
-    theme;
-in {
-  imports =
-    [
-      ./nix-config/hosts/${host}/hardware.nix
-      ./nix-config/system
-      ./nix-config/users/users.nix
-    ];
+let
+  inherit (import ./nix-config/hosts/${host}/options.nix)
+    theLocale
+    theTimezone
+    gitUsername
+    theShell
+    wallpaperDir
+    wallpaperGit
+    theLCVariables
+    keyboardLayout
+    consoleKeyMap
+    flakeDir
+    theme
+    ;
+in
+{
+  imports = [
+    ./nix-config/hosts/${host}/hardware.nix
+    ./nix-config/system
+    ./nix-config/users/users.nix
+  ];
 
   # Enable networking
   networking.hostName = "${hostname}"; # Define your hostname
@@ -21,7 +36,6 @@ in {
   #networking.firewall.allowedTCPPorts = [ 8384 22000 3000 ];
   #networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   networking.firewall.enable = false;
-  
 
   # Set your time zone
   time.timeZone = "${theTimezone}";
@@ -40,7 +54,7 @@ in {
     LC_TIME = "${theLCVariables}";
   };
 
-  console.keyMap = "${theKBDLayout}";
+  console.keyMap = "${consoleKeyMap}";
 
   environment.variables = {
     FLAKE = "${flakeDir}";
@@ -51,7 +65,10 @@ in {
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       #substituters = ["https://hyprland.cachix.org"];
       #trusted-public-keys = [
       #  "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="

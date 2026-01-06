@@ -1,29 +1,36 @@
-{ pkgs, config, ... }:
-
+{ host, ... }:
+let
+  vars = import ../hosts/${host}/options.nix;
+  inherit (vars)
+    alacrittyEnable
+    barChoice
+    ghosttyEnable
+    tmuxEnable
+    waybarChoice
+    weztermEnable
+    vscodeEnable
+    helixEnable
+    doomEmacsEnable
+    antigravityEnable
+    ;
+  # Select bar module based on barChoice
+  barModule = if barChoice == "noctalia" then ./noctalia.nix else waybarChoice;
+in
 {
+
   imports = [
     # Enable &/ Configure Programs
     ./alacritty.nix
-#    ./bash.nix
     ./betterlockscreen.nix
     ./firefox.nix
-#    ./gtk-qt.nix
-#    ./hyprland.nix
-#    ./kdenlive.nix
-#    ./kitty.nix
+    ./hyprland
     ./mpd.nix
     ./neovim.nix
     ./packages.nix
-#    ./rofi.nix
-#    ./waybar.nix
-#    ./wlogout.nix
     ./starship.nix
-#    ./swappy.nix
-#    ./swaylock.nix
-#    ./swaync.nix
+    ./stylix.nix
     ./tmux.nix
-#    ./wezterm.nix
-#    ./zeroad.nix
+    ./zen-browser.nix
     ./zsh.nix
 
     # Place home and dot files like Pictures
