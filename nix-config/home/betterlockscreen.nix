@@ -1,5 +1,20 @@
-{ pkgs, lib, inputs, config, ...}: {
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}:
+{
   services.betterlockscreen = {
-    enable = true;
+    enable = false;
   };
+
+  # services.xscreensaver = {
+  #   enable = false;
+  #   settings = {
+  #     mode = "blank";
+  #     lock = false;
+  #   };
+  # };
 }

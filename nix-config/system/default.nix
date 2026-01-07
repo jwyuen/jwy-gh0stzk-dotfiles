@@ -30,6 +30,7 @@ in
     ./packages.nix
     ./polkit.nix
     ./power-profiles-daemon.nix
+    ./security.nix
     ./services.nix
     ./stylix.nix
     ./swap.nix

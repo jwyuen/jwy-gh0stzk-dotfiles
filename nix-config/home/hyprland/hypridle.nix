@@ -11,11 +11,12 @@
         };
         listener = [
           {
-            timeout = 900;
+            timeout = 60;
             on-timeout = "hyprlock";
+            #on-timeout = "xscreensaver";
           }
           {
-            timeout = 1200;
+            timeout = 1200; # 2 min
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on";
           }

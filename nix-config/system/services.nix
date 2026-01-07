@@ -16,20 +16,6 @@
   services.openssh.enable = true;
   services.fstrim.enable = true;
 
-  # Screensharing
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal
-    ];
-  };
-
   # Audio
   services.pipewire = {
     enable = true;
@@ -73,20 +59,4 @@
   };
 
   hardware.keyboard.qmk.enable = true;
-
-  # Security
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
-  #security.pam.services.login.enableGnomeKeyring = true;
-  security.rtkit.enable = true;
-
-  # TODO: set lock screen based on X or Wayland?
-  security.pam.services.i3lock.enable = true;
-  security.pam.services.i3lock-color.enable = true;
-  security.pam.services.betterlockscreen = {
-
-    text = ''
-      auth include login
-    '';
-  };
 }

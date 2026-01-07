@@ -40,7 +40,7 @@ in
     ./virtmanager.nix
     ./wlogout
     ./xdg.nix
-    #./yazi.nix
+    #./yazi.nix # TODO: currently broken. May need to refactor the way user is created
     ./zen-browser.nix
     ./zoxide.nix
     ./zsh.nix
