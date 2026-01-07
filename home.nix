@@ -4,7 +4,6 @@
   inputs,
   username,
   host,
-  gtkThemeFromScheme,
   ...
 }:
 let

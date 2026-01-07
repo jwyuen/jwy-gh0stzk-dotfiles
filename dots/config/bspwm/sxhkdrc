@@ -17,7 +17,7 @@ super + alt + Return
 	OpenApps --floating
 
 # Application menu (rofi)
-super + @space
+super + d
 	OpenApps --menu
 
 #####
