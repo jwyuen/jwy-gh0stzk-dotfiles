@@ -30,6 +30,7 @@ in
     ./starship.nix
     ./stylix.nix
     ./tmux.nix
+    ./wlogout
     ./zen-browser.nix
     ./zsh.nix
 
