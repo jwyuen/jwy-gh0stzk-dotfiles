@@ -121,7 +121,8 @@ in
             tooltip = false;
             format = "";
             # exec = "rofi -show drun";
-            on-click = "sleep 0.1 && rofi-launcher";
+            #on-click = "sleep 0.1 && rofi-launcher";
+            on-click = "sleep 0.1 && nwg-drawer -mb 200 -mt 200 -mr 200 -ml 200";
           };
           "custom/hyprbindings" = {
             tooltip = false;
@@ -184,7 +185,7 @@ in
         ''
           * {
             font-family: JetBrainsMono Nerd Font Mono;
-            font-size: 16px;
+            font-size: 18px;
             border-radius: 0px;
             border: none;
             min-height: 0px;
@@ -241,35 +242,40 @@ in
             margin: 4px 0px;
             margin-left: 7px;
             padding: 0px 18px;
-            background: #${config.lib.stylix.colors.base04};
-            color: #${config.lib.stylix.colors.base00};
-            border-radius: 24px 10px 24px 10px;
+            background: #${config.lib.stylix.colors.base00};
+            color: #${config.lib.stylix.colors.base08};
+            border-radius: 8px 8px 8px 8px;
+          }
+          #idle_inhibitor {
+          font-size: 28px;
           }
           #custom-startmenu {
             color: #${config.lib.stylix.colors.base0B};
             background: #${config.lib.stylix.colors.base02};
-            font-size: 28px;
+            font-size: 22px;
             margin: 0px;
-            padding: 0px 30px 0px 15px;
-            border-radius: 0px 0px 40px 0px;
+            padding: 0px 5px 0px 5px;
+            border-radius: 16px 16px 16px 16px;
           }
           #custom-hyprbindings, #network, #battery,
           #custom-notification, #tray, #custom-exit {
-            font-weight: bold;
-            background: #${config.lib.stylix.colors.base0F};
-            color: #${config.lib.stylix.colors.base00};
+            /* font-weight: bold; */
+            font-size: 20px;
+            background: #${config.lib.stylix.colors.base00};
+            color: #${config.lib.stylix.colors.base08};
             margin: 4px 0px;
             margin-right: 7px;
-            border-radius: 10px 24px 10px 24px;
+            border-radius: 8px 8px 8px 8px;
             padding: 0px 18px;
           }
           #clock {
             font-weight: bold;
+            font-size: 16px;
             color: #0D0E15;
-            background: linear-gradient(90deg, #${config.lib.stylix.colors.base0E}, #${config.lib.stylix.colors.base0C});
+            background: linear-gradient(90deg, #${config.lib.stylix.colors.base0B}, #${config.lib.stylix.colors.base02});
             margin: 0px;
-            padding: 0px 15px 0px 30px;
-            border-radius: 0px 0px 0px 40px;
+            padding: 0px 5px 0px 5px;
+            border-radius: 16px 16px 16px 16px;
           }
         ''
       ];

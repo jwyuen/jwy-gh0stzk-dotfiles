@@ -7,7 +7,7 @@
 }:
 
 let
-  inherit (import ../hosts/${host}/options.nix) flakeDir theShell hostname;
+  inherit (import ../hosts/${host}/options.nix) theShell hostname;
 in
 lib.mkIf (theShell == "zsh") {
   programs.zsh = {
@@ -15,6 +15,7 @@ lib.mkIf (theShell == "zsh") {
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
     historySubstringSearch.enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
     plugins = [
       {
         name = "fzf-tab";

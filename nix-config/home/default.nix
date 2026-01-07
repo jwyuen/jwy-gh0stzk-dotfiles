@@ -23,15 +23,26 @@ in
     ./alacritty.nix
     ./betterlockscreen.nix
     ./firefox.nix
+    ./git.nix
+    ./gtk.nix
     ./hyprland
     ./mpd.nix
     ./neovim.nix
+    ./overview.nix
     ./packages.nix
+    ./python.nix
+    ./qt.nix
+    ./rofi.nix
     ./starship.nix
     ./stylix.nix
+    ./swaync.nix
     ./tmux.nix
+    ./virtmanager.nix
     ./wlogout
+    ./xdg.nix
+    #./yazi.nix
     ./zen-browser.nix
+    ./zoxide.nix
     ./zsh.nix
 
     # Place home and dot files like Pictures
