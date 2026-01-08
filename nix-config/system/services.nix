@@ -43,7 +43,14 @@
 
   # our attempt to let VIA see our keyboard
   services.udev.extraRules = ''
+    # Let VIA see our keyboard
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="4e45", ATTRS{idProduct}=="3635", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl" 
+
+    # Disable wakeup triggers for all PCIe devices
+    ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
+
+    # Disable Logitech Universal Receiver wakeup 
+    ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52b|c548", ATTR{power/wakeup}="disabled"
   '';
 
   services.udev = {

@@ -82,6 +82,7 @@
     unzip # Tool For Handling .zip Files
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
+    sysfsutils # set of utilites built upon sysfs that exposes a system's device tree
 
     # Wayland / Hyprland
     egl-wayland # required for hyprland

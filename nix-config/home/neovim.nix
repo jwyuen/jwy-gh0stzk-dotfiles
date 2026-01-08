@@ -84,8 +84,6 @@
         # dep for noice-nvim
         nvim-notify
         nvim-treesitter.withAllGrammars
-        nvim-treesitter-context
-        nvim-treesitter-textobjects
         # Use treesitter to autoclose and autorename html tag
         nvim-ts-autotag
         # setting comment string based on cursor location in file

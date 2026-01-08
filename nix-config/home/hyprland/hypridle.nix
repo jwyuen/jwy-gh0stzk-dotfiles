@@ -11,7 +11,7 @@
         };
         listener = [
           {
-            timeout = 60;
+            timeout = 120;
             on-timeout = "hyprlock";
             #on-timeout = "xscreensaver";
           }

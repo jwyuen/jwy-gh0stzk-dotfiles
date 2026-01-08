@@ -40,6 +40,7 @@ let
 
   hyprKbLayout = layoutFromVariant;
   hyprKbVariant = variantFinal;
+
 in
 {
   home.packages = with pkgs; [
