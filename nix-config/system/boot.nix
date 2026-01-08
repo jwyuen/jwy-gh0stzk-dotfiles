@@ -38,6 +38,7 @@ in
   # This is for OBS Virtual Cam Support - v4l2loopback setup
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+
   boot.kernelParams = lib.mkMerge [
     (lib.mkIf (nvmePowerFix == true) [ "nvme_core.default_ps_max_latency_us=0" ])
     (lib.mkIf (pcieASPMDisable == true) [ "pcie_aspm=off" ])
