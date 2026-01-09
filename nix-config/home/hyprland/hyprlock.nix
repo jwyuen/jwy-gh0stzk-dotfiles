@@ -16,13 +16,18 @@
 
       ## Commenting out background and image settings will give us a pure black screen (except for pass field)
       ## This is what we want on an OLED screen
+
+      # OLED friendly dot only input field
       input-field = [
         {
-          size = "200, 50";
-          position = "0, -80";
+          #size = "200, 50";
+          #position = "0, -80";
+          size = "0, 0";
+          position = "0, 0";
           monitor = "";
           dots_center = true;
           fade_on_empty = true;
+          fade_timeout = 2000;
           font_color = "rgb(CFE6F4)";
           inner_color = "rgb(657DC2)";
           outer_color = "rgb(0D0E15)";
