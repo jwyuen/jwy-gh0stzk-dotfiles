@@ -8,10 +8,6 @@
 
 {
 
-  imports = [
-    inputs.noctalia.nixosModules.default
-  ];
-
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
@@ -25,9 +21,6 @@
     jack.enable = true;
   };
   services.pulseaudio.enable = false;
-
-  # Hyprland
-  services.noctalia-shell.enable = true;
 
   programs.thunar.enable = true;
   services.blueman.enable = true;

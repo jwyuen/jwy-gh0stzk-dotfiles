@@ -5,7 +5,7 @@
 }:
 {
   programs.hyprlock = {
-    enable = false;
+    enable = true;
     settings = {
       general = {
         disable_loading_bar = true;
@@ -13,32 +13,16 @@
         hide_cursor = true;
         no_fade_in = false;
       };
-      background = [
-        {
-          path = config.stylix.image;
-          blur_passes = 3;
-          blur_size = 8;
-        }
-      ];
-      image = [
-        {
-          path = "/home/${username}/.config/face.jpg";
-          size = 150;
-          border_size = 4;
-          border_color = "rgb(0C96F9)";
-          rounding = -1; # Negative means circle
-          position = "0, 200";
-          halign = "center";
-          valign = "center";
-        }
-      ];
+
+      ## Commenting out background and image settings will give us a pure black screen (except for pass field)
+      ## This is what we want on an OLED screen
       input-field = [
         {
           size = "200, 50";
           position = "0, -80";
           monitor = "";
           dots_center = true;
-          fade_on_empty = false;
+          fade_on_empty = true;
           font_color = "rgb(CFE6F4)";
           inner_color = "rgb(657DC2)";
           outer_color = "rgb(0D0E15)";
@@ -47,6 +31,26 @@
           shadow_passes = 2;
         }
       ];
+      # background = [
+      #   {
+      #     path = config.stylix.image;
+      #     blur_passes = 3;
+      #     blur_size = 8;
+      #   }
+      # ];
+      # image = [
+      #   {
+      #     path = "/home/${username}/.config/face.jpg";
+      #     size = 150;
+      #     border_size = 4;
+      #     border_color = "rgb(0C96F9)";
+      #     rounding = -1; # Negative means circle
+      #     position = "0, 200";
+      #     halign = "center";
+      #     valign = "center";
+      #   }
+      # ];
+
     };
   };
 }

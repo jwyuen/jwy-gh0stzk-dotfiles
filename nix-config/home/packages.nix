@@ -25,7 +25,7 @@ in
     with pkgs;
     noctaliaPkgs
     ++ [
-      # unix porn related
+      ### unix porn related
 
       # Hyprland
       cliphist
@@ -106,7 +106,6 @@ in
       libreoffice
       evince # for pdfs
       nix-sweep # clean up nix profile generations and left over gc roots
-      goofcord # open source discord client w/ privacy enhancements
 
       # fonts
       cherry

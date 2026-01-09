@@ -143,11 +143,11 @@ in
 
   # Set Waybar
   #  Available Options:
-  waybarChoice = ../home/waybar/waybar-curved.nix;
+  waybarChoice = ../../home/waybar/waybar-curved.nix;
 
   # Set Animation style
   # Available options are:
-  animChoice = ../home/hyprland/animations/animations-def.nix;
+  animChoice = ../../home/hyprland/animations/animations-def.nix;
   #animChoice = ../../modules/home/hyprland/animations-end4.nix;
   #animChoice = ../../modules/home/hyprland/animations-end4-slide.nix;
   #animChoice = ../../modules/home/hyprland/animations-end-slide.nix;
