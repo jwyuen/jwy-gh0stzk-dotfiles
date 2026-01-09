@@ -5,6 +5,8 @@ _: {
     hyprland.enable = false;
     hyprlock.enable = false;
     ghostty.enable = false;
+    neovim.enable = false;
+    alacritty.enable = false;
     qt = {
       enable = true;
       platform = "qtct";
