@@ -91,7 +91,7 @@ require("noice").setup({
 
 require("nvim-autopairs").setup({})
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
 	ensure_installed = {},
 	auto_install = false,
 	highlight = { enable = true },

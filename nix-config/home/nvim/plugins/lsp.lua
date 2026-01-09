@@ -1,9 +1,12 @@
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp
 
-require("lspconfig").bashls.setup({})
-require("lspconfig").biome.setup({})
-require("lspconfig").marksman.setup({})
-require("lspconfig").nil_ls.setup({
+lspconfig.enable("bashls")
+lspconfig.enable("biome")
+lspconfig.enable("marksman")
+lspconfig.enable("stylelint_lsp")
+lspconfig.enable("ts_ls")
+lspconfig.enable("yamlls")
+lspconfig.config("nil_ls", {
 	autostart = true,
 	capabilities = caps,
 	settings = {
@@ -14,6 +17,3 @@ require("lspconfig").nil_ls.setup({
 		},
 	},
 })
-require("lspconfig").stylelint_lsp.setup({})
-require("lspconfig").ts_ls.setup({})
-require("lspconfig").yamlls.setup({})
