@@ -23,7 +23,7 @@
         yaml-language-server
         # formatters
         beautysh
-        nixfmt-rfc-style
+        nixfmt
         stylelint
         stylua
       ];
