@@ -21,8 +21,10 @@ in
   imports = [
     # Enable &/ Configure Programs
     ./alacritty.nix
+    barModule
     ./betterlockscreen.nix
     ./firefox.nix
+    ./games.nix
     ./git.nix
     ./gtk.nix
     ./hyprland
@@ -32,7 +34,8 @@ in
     ./packages.nix
     ./python.nix
     ./qt.nix
-    ./rofi.nix
+    ./rofi
+    ./scripts
     ./starship.nix
     ./stylix.nix
     ./swaync.nix
