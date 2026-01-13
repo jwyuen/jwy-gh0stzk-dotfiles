@@ -27,6 +27,9 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
+  # GPU overclock/tuning tool (like MSI Afterburner)
+  services.lact.enable = true;
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
