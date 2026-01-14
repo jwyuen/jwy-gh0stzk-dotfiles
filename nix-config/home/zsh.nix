@@ -102,9 +102,9 @@ lib.mkIf (theShell == "zsh") {
       cd = "z";
       v = "nvim";
       ls = "eza -a --icons --git --group-directories-first";
-      ll = "eza -l --icons --git --group-directories-first";
-      la = "eza -la --icons --git --group-directories-first";
-      lt = "eza -la --icons --git --tree --level=2 --group-directories-first";
+      ll = "eza -lg --icons --git --group-directories-first";
+      la = "eza -lag --icons --git --group-directories-first";
+      lt = "eza -lag --icons --git --tree --level=2 --group-directories-first";
       ".." = "cd ..";
       history = "history 0";
       nf = "nvim $(fzf)";

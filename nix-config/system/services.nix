@@ -30,6 +30,8 @@
   # GPU overclock/tuning tool (like MSI Afterburner)
   services.lact.enable = true;
 
+  programs.coolercontrol.enable = true;
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
@@ -44,6 +46,9 @@
 
     # Disable wakeup triggers for all PCIe devices
     ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
+
+    # Disable usb xHCI controller from waking up pc on ASRock AM5 motherboards
+    ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:08:00.0", ATTR{power/wakeup}="disabled"
 
     # Disable Logitech Universal Receiver wakeup 
     ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52b|c548", ATTR{power/wakeup}="disabled"

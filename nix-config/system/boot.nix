@@ -7,7 +7,12 @@
 }:
 
 let
-  inherit (import ../hosts/${host}/options.nix) secureboot nvmePowerFix pcieASPMDisable;
+  inherit (import ../hosts/${host}/options.nix)
+    secureboot
+    nvmePowerFix
+    pcieASPMDisable
+    gpuType
+    ;
 in
 {
 
@@ -42,5 +47,6 @@ in
   boot.kernelParams = lib.mkMerge [
     (lib.mkIf (nvmePowerFix == true) [ "nvme_core.default_ps_max_latency_us=0" ])
     (lib.mkIf (pcieASPMDisable == true) [ "pcie_aspm=off" ])
+    (lib.mkIf (gpuType == "nvidia") [ "mem_sleep_default=s2idle" ])
   ];
 }

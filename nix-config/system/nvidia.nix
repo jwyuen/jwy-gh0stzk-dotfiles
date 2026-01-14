@@ -9,7 +9,6 @@ let
   inherit (import ../hosts/${host}/options.nix) gpuType;
 in
 lib.mkIf ("${gpuType}" == "nvidia") {
-  # boot.kernelParams = lib.mkAfter [ "module_blacklist=amdgpu" ];
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
