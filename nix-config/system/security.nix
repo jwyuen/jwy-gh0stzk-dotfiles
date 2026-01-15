@@ -7,7 +7,7 @@ _: {
   # TODO: set lock screen based on X or Wayland?
   security = {
     rtkit.enable = true;
-    pam.services.sddm.enableGnomeKeyring = true;
+    #pam.services.sddm.enableGnomeKeyring = true;
     polkit = {
       enable = true;
       extraConfig = ''

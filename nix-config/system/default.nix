@@ -4,24 +4,27 @@
   ...
 }:
 let
-  # Import the host-specific variables.nix
-  vars = import ../hosts/${host}/variables.nix;
+  # Import the host-specific options.nix
+  vars = import ../hosts/${host}/options.nix;
 in
 {
 
   imports = [
+    # Conditionally import the display manager module
+    (if vars.displayManager == "tui" then ./ly.nix else ./sddm.nix)
     ./amd-gpu.nix
     ./appimages.nix
     ./autorun.nix
     ./boot.nix
     ./bspwm.nix
     ./kde.nix
-    ./displaymanager.nix
+    ./gaming.nix
     ./hwclock.nix
     ./intel-amd.nix
     ./intel-gpu.nix
     ./intel-nvidia.nix
     ./kernel.nix
+    ./lact.nix
     ./logitech.nix
     ./maccel.nix
     ./ntp.nix
@@ -32,7 +35,7 @@ in
     ./power-profiles-daemon.nix
     ./security.nix
     ./services.nix
-    ./steam.nix
+    #./steam.nix
     ./stylix.nix
     ./swap.nix
     ./syncthing.nix

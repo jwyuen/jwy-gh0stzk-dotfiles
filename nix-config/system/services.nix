@@ -3,14 +3,31 @@
   config,
   lib,
   inputs,
+  host,
   ...
 }:
 
+let
+  inherit (import ../hosts/${host}/options.nix)
+    keyboardVariant
+    keyboardLayout
+    ;
+in
 {
 
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
+
+  services.xserver = {
+    enable = true;
+    xkb = {
+      variant = "${keyboardVariant}";
+      layout = "${keyboardLayout}";
+      options = "ctrl:nocaps";
+    };
+  };
+  services.libinput.enable = true;
 
   # Audio
   services.pipewire = {
@@ -26,9 +43,6 @@
   services.blueman.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
-
-  # GPU overclock/tuning tool (like MSI Afterburner)
-  services.lact.enable = true;
 
   programs.coolercontrol.enable = true;
 

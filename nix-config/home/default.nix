@@ -28,6 +28,7 @@ in
     ./git.nix
     ./gtk.nix
     ./hyprland
+    ./mangohud.nix
     ./mpd.nix
     ./neovim.nix
     ./overview.nix

@@ -27,6 +27,11 @@ in
   keyboardVariant = "";
   consoleKeyMap = "us";
 
+  # Set Display Manager
+  # `tui` for Text login
+  # `sddm` for graphical GUI (default)
+  displayManager = "sddm";
+
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "latest"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
