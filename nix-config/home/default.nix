@@ -14,7 +14,13 @@ let
     antigravityEnable
     ;
   # Select bar module based on barChoice
-  barModule = if barChoice == "noctalia" then ./noctalia.nix else waybarChoice;
+  barModule =
+    if barChoice == "noctalia" then
+      ./noctalia.nix
+    else if barChoice == "dms" then
+      ./dms.nix
+    else
+      waybarChoice;
 in
 {
 

@@ -35,7 +35,6 @@ in
     ./power-profiles-daemon.nix
     ./security.nix
     ./services.nix
-    #./steam.nix
     ./stylix.nix
     ./swap.nix
     ./syncthing.nix

@@ -1,5 +1,6 @@
 {
   username,
+  inputs,
   ...
 }:
 {
@@ -11,6 +12,7 @@
   # Import Program Configurations
   imports = [
     ./nix-config/home
+    inputs.dms.homeModules.dank-material-shell
   ];
 
   programs.home-manager.enable = true;

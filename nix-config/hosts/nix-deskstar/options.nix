@@ -101,8 +101,8 @@ in
 
   #### Hyprland / Wayland #######
 
-  # Choose between noctalia or waybar
-  barChoice = "waybar";
+  # Choose between noctalia, dms, or waybar
+  barChoice = "dms";
 
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
