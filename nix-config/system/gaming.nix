@@ -67,8 +67,8 @@
 
     package = pkgs.steam.override {
       extraEnv = {
-        MANGOHUD = 1;
-        #MANGOHUD = true;
+        MANGOHUD = "1";
+        USEMANGOHUD = "1";
         OBS_VKCAPTURE = "1";
         RADV_TEX_ANISO = "16";
       };
@@ -90,4 +90,17 @@
   # Gamemode Config  #
   ####################
   programs.gamemode.enable = true;
+
+  programs.gamescope = {
+    enable = true;
+    args = [
+      "--adaptive-sync"
+      "--hdr-enabled"
+      "--mangoapp"
+      "--rt"
+      "--steam"
+      "--expose-wayland"
+    ];
+
+  };
 }
