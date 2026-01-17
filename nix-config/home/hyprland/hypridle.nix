@@ -5,7 +5,7 @@ let
     oled
     ;
   lockTimeout = if oled == true then 120 else 350;
-  screenTimeout = if oled == true then 0 else 1200; # 1200 is 20 min
+  screenTimeout = if oled == true then -1 else 1200; # 1200 is 20 min
 in
 {
   services = {
