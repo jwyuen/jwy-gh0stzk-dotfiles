@@ -11,7 +11,7 @@ in
   username = "${setUsername}";
   hostname = "${setHostname}";
   userHome = "/home/${setUsername}";
-  flakeDir = "/home/${setUsername}/jwy-gh0stzk-dots";
+  flakePath = "/home/${setUsername}/jwy-gh0stzk-dotfiles";
   wallpaperDir = "/home/${setUsername}/Pictures/Wallpapers";
   screenshotDir = "/home/${setUsername}/Pictures/Screenshots";
 
@@ -130,7 +130,7 @@ in
   # You can configure multiple monitors.
   # Inside the quotes, create a new line for each monitor.
   extraMonitorSettings = "
-    monitor = DP-3,3440x1440@174.96,auto,1
+    monitor = DP-3, 3440x1440@174.96, auto, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.15, sdrsaturation, 0.98, vrr, 3
 
     ";
 

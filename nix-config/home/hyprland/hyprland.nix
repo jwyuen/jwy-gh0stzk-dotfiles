@@ -121,6 +121,7 @@ in
       };
 
       misc = {
+        on_focus_under_fullscreen = 1;
         layers_hog_keyboard_focus = true;
         initial_workspace_tracking = 0;
         mouse_move_enables_dpms = true;
@@ -170,7 +171,7 @@ in
         sync_gsettings_theme = true;
         no_hardware_cursors = 2; # change to 1 if want to disable
         enable_hyprcursor = false;
-        warp_on_change_workspace = 2;
+        warp_on_change_workspace = 0;
         no_warps = true;
       };
 
@@ -179,6 +180,8 @@ in
         #explicit_sync = 1; # Change to 1 to disable
         #explicit_sync_kms = 1;
         direct_scanout = 0;
+        cm_fs_passthrough = 2;
+        cm_auto_hdr = 1;
       };
 
       master = {

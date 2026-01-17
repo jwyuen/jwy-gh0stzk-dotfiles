@@ -23,7 +23,7 @@ in
         no_fade_in = false;
       };
 
-      ## Commenting out background and image settings will give us a pure black screen (except for pass field)
+      ## Leaving background and image settings empty will give us a pure black screen (except for pass field)
       ## This is what we want on an OLED screen
 
       # OLED friendly dot only input field

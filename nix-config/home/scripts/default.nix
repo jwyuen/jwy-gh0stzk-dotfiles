@@ -3,6 +3,8 @@
   pkgs,
   username,
   profile,
+  nixpkgs,
+  systems,
   ...
 }:
 {

@@ -17,6 +17,7 @@ in
     ./autorun.nix
     ./boot.nix
     ./bspwm.nix
+    ./dev-mode.nix
     ./kde.nix
     ./gaming.nix
     ./hwclock.nix

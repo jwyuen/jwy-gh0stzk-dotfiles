@@ -11,7 +11,7 @@ in
   username = "${setUsername}";
   hostname = "${setHostname}";
   userHome = "/home/${setUsername}";
-  flakeDir = "/home/${setUsername}/jwy-gh0stzk-dots";
+  flakePath = "/home/${setUsername}/jwy-gh0stzk-dotfiles";
   wallpaperDir = "/home/${setUsername}/Pictures/Wallpapers";
   screenshotDir = "/home/${setUsername}/Pictures/Screenshots";
 

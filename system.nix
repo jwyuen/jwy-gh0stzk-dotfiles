@@ -19,7 +19,7 @@ let
     theLCVariables
     keyboardLayout
     consoleKeyMap
-    flakeDir
+    flakePath
     theme
     ;
 in
@@ -57,7 +57,7 @@ in
   console.keyMap = "${consoleKeyMap}";
 
   environment.variables = {
-    FLAKE = "${flakeDir}";
+    FLAKE = "${flakePath}";
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 
