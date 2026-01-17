@@ -1,8 +1,17 @@
 {
   config,
   username,
+  host,
   ...
 }:
+let
+  vars = import ../../hosts/${host}/options.nix;
+  inherit (vars)
+    oled
+    ;
+  lockTimeout = if oled == true then 120 else 350;
+  screenTimeout = if oled == true then 0 else 1200; # 1200 is 20 min
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -22,8 +31,8 @@
         {
           #size = "200, 50";
           #position = "0, -80";
-          size = "0, 0";
-          position = "0, 0";
+          size = if oled then "0, 0" else "200, 50";
+          position = if oled then "0, 0" else "0, -80";
           monitor = "";
           dots_center = true;
           fade_on_empty = true;
@@ -36,25 +45,33 @@
           shadow_passes = 2;
         }
       ];
-      # background = [
-      #   {
-      #     path = config.stylix.image;
-      #     blur_passes = 3;
-      #     blur_size = 8;
-      #   }
-      # ];
-      # image = [
-      #   {
-      #     path = "/home/${username}/.config/face.jpg";
-      #     size = 150;
-      #     border_size = 4;
-      #     border_color = "rgb(0C96F9)";
-      #     rounding = -1; # Negative means circle
-      #     position = "0, 200";
-      #     halign = "center";
-      #     valign = "center";
-      #   }
-      # ];
+      background =
+        if oled then
+          [ ]
+        else
+          [
+            {
+              path = config.stylix.image;
+              blur_passes = 3;
+              blur_size = 8;
+            }
+          ];
+      image =
+        if oled then
+          [ ]
+        else
+          [
+            {
+              path = "/home/${username}/.config/face.jpg";
+              size = 150;
+              border_size = 4;
+              border_color = "rgb(0C96F9)";
+              rounding = -1; # Negative means circle
+              position = "0, 200";
+              halign = "center";
+              valign = "center";
+            }
+          ];
 
     };
   };

@@ -99,6 +99,9 @@ in
   nvmePowerFix = true;
   pcieASPMDisable = true;
 
+  # For burn in protection on OLED
+  oled = true;
+
   #### Hyprland / Wayland #######
 
   # Choose between noctalia, dms, or waybar

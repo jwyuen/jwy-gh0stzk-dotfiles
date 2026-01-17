@@ -1,4 +1,10 @@
-{ inputs, ... }:
+{ inputs, host, ... }:
+let
+  vars = import ../hosts/${host}/options.nix;
+  inherit (vars)
+    username
+    ;
+in
 {
   imports = [
     inputs.maccel.nixosModules.default
@@ -10,16 +16,23 @@
 
     parameters = {
       # Common (all modes)
-      sensMultiplier = 1.0;
-      yxRatio = 1.0;
-      inputDpi = 1000.0;
-      angleRotation = 0.0;
-      mode = "synchronous";
+      sensMultiplier = 1.2; # default 1.0
+      yxRatio = 2.00; # default 1.0
+      inputDpi = 3200.0; # default 1000.0
+      angleRotation = 1.0; # default 0.0
+      mode = "linear"; # "synchronous"
+
+      # default values
+      # sensMultiplier = 1.0;
+      # yxRatio = 1.0;
+      # inputDpi = 1000.0;
+      # angleRotation = 0.0;
+      # mode = "synchronous";
 
       # Linear mode
-      # acceleration = 0.3;
-      # offset = 2.0;
-      # outputCap = 2.0;
+      acceleration = 0.01;
+      offset = 0.10;
+      outputCap = 10.0;
 
       # # Natural mode
       # decayRate = 0.1;
@@ -35,5 +48,5 @@
   };
 
   # To use maccel CLI/TUI without sudo
-  #users.groups.maccel.members = ["your_username"];
+  users.groups.maccel.members = [ "${username}" ];
 }

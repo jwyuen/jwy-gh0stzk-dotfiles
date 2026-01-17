@@ -1,4 +1,12 @@
-{ ... }:
+{ host, ... }:
+let
+  vars = import ../../hosts/${host}/options.nix;
+  inherit (vars)
+    oled
+    ;
+  lockTimeout = if oled == true then 120 else 350;
+  screenTimeout = if oled == true then 0 else 1200; # 1200 is 20 min
+in
 {
   services = {
     hypridle = {
@@ -11,15 +19,14 @@
         };
         listener = [
           {
-            timeout = 120;
+            timeout = lockTimeout;
             on-timeout = "hyprlock";
-            #on-timeout = "xscreensaver";
           }
-          # {
-          #   timeout = 1200; # 20 min
-          #   on-timeout = "hyprctl dispatch dpms off";
-          #   on-resume = "hyprctl dispatch dpms on";
-          # }
+          {
+            timeout = screenTimeout;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyprctl dispatch dpms on";
+          }
         ];
       };
     };
