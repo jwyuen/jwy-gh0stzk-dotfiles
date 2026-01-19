@@ -123,7 +123,7 @@ in
       misc = {
         on_focus_under_fullscreen = 1;
         layers_hog_keyboard_focus = true;
-        initial_workspace_tracking = 0;
+        initial_workspace_tracking = 2;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         disable_hyprland_logo = true;

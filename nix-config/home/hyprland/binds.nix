@@ -163,6 +163,7 @@ in
     bindm = [
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"
+      ", mouse:274, movewindow"
     ];
   };
 }

@@ -65,7 +65,7 @@ in
     ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:08:00.0", ATTR{power/wakeup}="disabled"
 
     # Disable Logitech Universal Receiver wakeup 
-    ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52b|c548", ATTR{power/wakeup}="disabled"
+    ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52b|c548|c547", ATTR{power/wakeup}="disabled"
   '';
 
   services.udev = {

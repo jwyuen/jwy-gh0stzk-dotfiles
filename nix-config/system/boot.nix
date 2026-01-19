@@ -13,6 +13,18 @@ let
     pcieASPMDisable
     gpuType
     ;
+
+  extraModprobeConfig =
+    if gpuType == "nvidia" then
+      ''
+        blacklist nouveau
+        blacklist nova_core
+        options nouveau modeset=0
+      ''
+    else
+      '''';
+
+  blacklistedKernelModules = if gpuType == "nvidia" then [ "nouveau" ] else [ ];
 in
 {
 
@@ -44,9 +56,14 @@ in
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
+  # Blacklist certain modules if using dedicated Nvidia gpu only
+  boot.extraModprobeConfig = extraModprobeConfig;
+  boot.blacklistedKernelModules = blacklistedKernelModules;
+
   boot.kernelParams = lib.mkMerge [
     (lib.mkIf (nvmePowerFix == true) [ "nvme_core.default_ps_max_latency_us=0" ])
     (lib.mkIf (pcieASPMDisable == true) [ "pcie_aspm=off" ])
     (lib.mkIf (gpuType == "nvidia") [ "mem_sleep_default=s2idle" ])
+    (lib.mkIf (gpuType == "nvidia") [ "module_blacklist=amdgpu" ])
   ];
 }
