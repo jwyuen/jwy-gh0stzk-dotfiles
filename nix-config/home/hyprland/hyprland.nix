@@ -96,6 +96,7 @@ in
           disable_while_typing = true;
           scroll_factor = 0.8;
         };
+        scroll_factor = 2.3;
       }
       // lib.optionalAttrs (hyprKbVariant != "") { kb_variant = hyprKbVariant; };
 
@@ -179,9 +180,9 @@ in
         # Disabling as no longer supported
         #explicit_sync = 1; # Change to 1 to disable
         #explicit_sync_kms = 1;
-        direct_scanout = 0;
+        direct_scanout = 1;
         cm_fs_passthrough = 2;
-        cm_auto_hdr = 1;
+        cm_auto_hdr = 2;
       };
 
       master = {
