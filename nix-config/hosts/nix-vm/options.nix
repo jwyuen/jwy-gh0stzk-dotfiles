@@ -27,6 +27,11 @@ in
   keyboardVariant = "";
   consoleKeyMap = "us";
 
+  # Set Display Manager
+  # `tui` for Text login
+  # `sddm` for graphical GUI (default)
+  displayManager = "sddm";
+
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "latest"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
@@ -95,10 +100,13 @@ in
   nvmePowerFix = false;
   pcieASPMDisable = false;
 
+  # For burn in protection on OLED
+  oled = true;
+
   #### Hyprland / Wayland #######
 
   # Choose between noctalia or waybar
-  barChoice = "noctalia";
+  barChoice = "dms";
 
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
@@ -108,7 +116,8 @@ in
   # This does NOT install your browser
   # You need to install it by adding it to the `packages.nix`
   # or as a flatpak
-  browser = "firefox";
+  #browser = "firefox";
+  browser = "zen-beta";
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity
@@ -125,7 +134,37 @@ in
 
     ";
 
+  ### Themes, waybar and animation.
+  ### Only uncomment your selection - The others much be commented out.
+
+  # Set Stylix Image
+  # This will set your color palette
+  # Default background
+  # Add new images to ~/zaneyos/wallpapers
+  stylixImage = ../../../wallpapers/mountainscapedark.jpg;
+  #stylixImage = ../../../wallpapers/AnimeGirlNightSky.jpg;
+  #stylixImage = ../../../wallpapers/Anime-Purple-eyes.png;
+  #stylixImage = ../../../wallpapers/Rainnight.jpg;
+  #stylixImage = ../../../wallpapers/zaney-wallpaper.jpg;
+  #stylixImage = ../../../wallpapers/nix-wallpaper-stripes-logo.png;
+  #stylixImage = ../../../wallpapers/beautifulmountainscape.jpg;
+
   # Set Waybar
   #  Available Options:
-  waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
+  waybarChoice = ../../home/waybar/waybar-curved.nix;
+
+  # Set Animation style
+  # Available options are:
+  animChoice = ../../home/hyprland/animations/animations-def.nix;
+  #animChoice = ../../modules/home/hyprland/animations-end4.nix;
+  #animChoice = ../../modules/home/hyprland/animations-end4-slide.nix;
+  #animChoice = ../../modules/home/hyprland/animations-end-slide.nix;
+  #animChoice = ../../modules/home/hyprland/animations-dynamic.nix;
+  #animChoice = ../../modules/home/hyprland/animations-moving.nix;
+  #animChoice = ../../modules/home/hyprland/animations-hyde-optimized.nix;
+  #animChoice = ../../modules/home/hyprland/animations-mahaveer-me-1.nix;
+  #animChoice = ../../modules/home/hyprland/animations-mahaveer-me-2.nix;
+  #animChoice = ../../modules/home/hyprland/animations-ml4w-classic.nix;
+  #animChoice = ../../modules/home/hyprland/animations-ml4w-fast.nix;
+  #animChoice = ../../modules/home/hyprland/animations-ml4w-high.nix;
 }
