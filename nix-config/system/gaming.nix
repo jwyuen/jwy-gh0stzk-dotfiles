@@ -10,7 +10,7 @@
     # lutris (optional)
 
     # Emulators
-    retroarch
+    retroarch-full
 
     # Steam / Proton helpers
     protonup-qt

@@ -107,6 +107,7 @@ in
       evince # for pdfs
       nix-sweep # clean up nix profile generations and left over gc roots
       qtox
+      tribler
 
       # fonts
       cherry
