@@ -75,7 +75,6 @@ echo "-----"
 if [ "$use_new_host" == true ]; then
   mkdir -p ./nix-config/hosts/"$host_name"
   cp ./nix-config/hosts/nix-vm/options.nix ./nix-config/hosts/"$host_name"/
-  git add ./nix-config/hosts/"$host_name"/
 
   read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
   if [ ! -z "$user_name_response" ]; then
@@ -98,12 +97,13 @@ if [ "$use_new_host" == true ]; then
       fi
     done
 
-    sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./nix-config/hosts/"$host_name"/options.nix
-    sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./nix-config/hosts/"$host_name"/options.nix
     exit
   fi
 
+  sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./nix-config/hosts/"$host_name"/options.nix
+  sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./nix-config/hosts/"$host_name"/options.nix
   sudo nixos-generate-config --show-hardware-config >./nix-config/hosts/"$host_name"/hardware.nix
+  git add ./nix-config/hosts/"$host_name"/
 
 else
   read -p "Do you want to do an express install [use defaults]? For a new host do not use express install!" -n 1 -r
