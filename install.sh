@@ -75,6 +75,7 @@ echo "-----"
 if [ "$use_new_host" == true ]; then
   mkdir -p ./nix-config/hosts/"$host_name"
   cp ./nix-config/hosts/nix-vm/options.nix ./nix-config/hosts/"$host_name"/
+  git add ./nix-config/hosts/"$host_name"/
 
   read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
   if [ ! -z "$user_name_response" ]; then
