@@ -4,6 +4,7 @@ let
   inherit (vars)
     barChoice
     waybarChoice
+    gamingEnable
     ;
   # Select bar module based on barChoice
   barModule =
@@ -22,7 +23,6 @@ in
     barModule
     ./betterlockscreen.nix
     ./firefox.nix
-    ./games.nix
     ./git.nix
     ./gtk.nix
     ./hyprland
@@ -49,5 +49,6 @@ in
 
     # Place home and dot files like Pictures
     ./files.nix
-  ];
+  ]
+  ++ (if gamingEnable then [ ./games.nix ] else [ ]);
 }

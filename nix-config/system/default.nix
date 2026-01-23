@@ -22,7 +22,6 @@ in
     ./bspwm.nix
     ./dev-mode.nix
     ./kde.nix
-    ./gaming.nix
     ./hwclock.nix
     ./intel-amd.nix
     ./intel-gpu.nix
