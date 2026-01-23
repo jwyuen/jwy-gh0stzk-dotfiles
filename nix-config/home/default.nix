@@ -2,16 +2,8 @@
 let
   vars = import ../hosts/${host}/options.nix;
   inherit (vars)
-    alacrittyEnable
     barChoice
-    ghosttyEnable
-    tmuxEnable
     waybarChoice
-    weztermEnable
-    vscodeEnable
-    helixEnable
-    doomEmacsEnable
-    antigravityEnable
     ;
   # Select bar module based on barChoice
   barModule =

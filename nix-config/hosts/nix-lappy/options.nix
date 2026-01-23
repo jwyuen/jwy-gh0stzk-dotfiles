@@ -101,6 +101,9 @@ in
   # For burn in protection on OLED
   oled = true;
 
+  # Install gaming packages and features
+  gamingEnable = false;
+
   #### Hyprland / Wayland #######
 
   # Choose between noctalia or waybar

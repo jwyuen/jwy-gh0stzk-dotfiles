@@ -6,6 +6,9 @@
 let
   # Import the host-specific options.nix
   vars = import ../hosts/${host}/options.nix;
+  inherit (vars)
+    gamingEnable
+    ;
 in
 {
 
@@ -44,5 +47,8 @@ in
     ./xorgScale.nix
 
     inputs.stylix.nixosModules.stylix
-  ];
+  ]
+  ++ (if gamingEnable then [ ./gaming.nix ] else [ ])
+
+  ;
 }
