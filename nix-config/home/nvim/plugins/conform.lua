@@ -1,6 +1,7 @@
 require("conform").setup({
 	formatters_by_ft = {
-		bash = { "beautysh" },
+		bash = { "shfmt" },
+		sh = { "shfmt" },
 		css = { "stylelint" },
 		-- Conform will run multiple formatters sequentially
 		-- python = { "isort", "black" },

@@ -22,7 +22,7 @@
         typescript-language-server
         yaml-language-server
         # formatters
-        beautysh
+        shfmt # bash
         nixfmt
         stylelint
         stylua

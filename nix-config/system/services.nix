@@ -53,6 +53,10 @@ in
   # Noctalia shell battery
   services.upower.enable = true;
 
+  # ClamAV
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
+
   # our attempt to let VIA see our keyboard
   services.udev.extraRules = ''
     # Let VIA see our keyboard

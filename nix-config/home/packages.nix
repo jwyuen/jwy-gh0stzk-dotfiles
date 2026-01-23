@@ -110,6 +110,7 @@ in
       qtox
       qbittorrent
       tribler
+      clamtk
 
       # fonts
       cherry

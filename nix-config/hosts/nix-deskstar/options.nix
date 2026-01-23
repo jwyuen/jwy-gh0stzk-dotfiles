@@ -1,7 +1,6 @@
 # Easy user options config file to help obviate the need for configuring common user differences in other .nix files
 
 let
-  # THINGS YOU NEED TO CHANGE
   setUsername = "non";
   setHostname = "nix-deskstar";
 in

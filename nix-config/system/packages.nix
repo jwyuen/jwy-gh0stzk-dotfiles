@@ -108,6 +108,7 @@
     iotop # disk io monitoring
     nvtopPackages.full # gpu monitoring
     wireshark # packet monitoring
+    clamav # antivirus
 
   ];
 }

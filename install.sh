@@ -8,13 +8,12 @@ REPO_NAME=$PROJECT_NAME
 current_user_name=$USER
 user_name=$current_user_name
 
-
 if [ -n "$(cat /etc/os-release | grep -i nixos)" ]; then
-    echo "Verified this is NixOS."
-    echo "-----"
+  echo "Verified this is NixOS."
+  echo "-----"
 else
-    echo "This is not NixOS or the distribution information is not available."
-    exit
+  echo "This is not NixOS or the distribution information is not available."
+  exit
 fi
 
 echo "Default options are in brackets []"
@@ -26,31 +25,45 @@ echo "-----"
 
 # Prompt user for type of host environment
 
-optionOne="nix-deskstar (desktop)"
-optionTwo="nix-lappy (laptop)"
-optionThree="nix-vm (virtual machine)"
+option_one="nix-deskstar (desktop)"
+option_two="nix-lappy (laptop)"
+option_three="nix-vm (virtual machine)"
+option_four="Specify host name"
+option_five="New host"
+use_new_host=false
 
 PS3='Choose install option: '
-options=("$optionOne" "$optionTwo" "$optionThree" "Quit")
-select opt in "${options[@]}"
-do
+options=("$option_one" "$option_two" "$option_three" "$option_four" "$option_five" "Quit")
+select opt in "${options[@]}"; do
   case $opt in
-    "$optionOne")
-      host_name="nix-deskstar"
-      break;
-      ;;
-    "$optionTwo")
-      host_name="nix-lappy"
-      break;
-      ;;
-    "$optionThree")
-      host_name="nix-vm"
-      break;
-      ;;
-    "Quit")
-      break
-      ;;
-    *) echo invalid option;;
+  "$option_one")
+    host_name="nix-deskstar"
+    break
+    ;;
+  "$option_two")
+    host_name="nix-lappy"
+    break
+    ;;
+  "$option_three")
+    host_name="nix-vm"
+    break
+    ;;
+  "$option_four")
+    read -rp "Enter Host Name:" new_host
+    host_name=$new_host
+    break
+    ;;
+  "$option_five")
+    read -rp "Enter New Host Name:" new_host
+    host_name=$new_host
+    use_new_host=true
+    break
+    ;;
+
+  "Quit")
+    exit
+    ;;
+  *) echo invalid option ;;
   esac
 done
 
@@ -59,14 +72,9 @@ echo "Host is set to $host_name"
 echo "-----"
 ###############################################################################
 
-
-read -p "Do you want to do an express install? [use defaults] " -n 1 -r
-if [[ $REPLY =~ ^[Nn]$ ]] ; then
-  
-  read -p "Do you want to generate a hardware config? (First time install typically)" -n 1 -r
-  if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  sudo nixos-generate-config --show-hardware-config > ./nix-config/hosts/"$host_name"/hardware.nix
-  fi
+if [ "$use_new_host" == true ]; then
+  mkdir -p ./nix-config/hosts/"$host_name"
+  cp ./nix-config/hosts/nix-vm/options.nix ./nix-config/hosts/"$host_name"/
 
   read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
   if [ ! -z "$user_name_response" ]; then
@@ -77,30 +85,71 @@ if [[ $REPLY =~ ^[Nn]$ ]] ; then
     echo "This will create a hashedPassword for the new user in the options file."
     while true; do
       echo
-      read -s -p -r "Enter New User Password: " new_pass
+      read -rp "Enter New User Password: " new_pass
       echo
-      read -s -p -r "Enter New User Password Again: " new_pass2
+      read -rp "Enter New User Password Again: " new_pass2
       if [ "$new_pass" == "$new_pass2" ]; then
         echo "Passwords Match. Setting password."
         user_password=$(mkpasswd -m sha-512 "$new_pass")
         escaped_user_password=$(echo "$user_password" | sed 's/\//\\\//g')
-        sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_user_password\"#" ./system.nix
+        sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_user_password\"#" ./nix-config/users/users.nix
         break
       fi
     done
 
-    sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./options.nix
+    sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./nix-config/hosts/"$host_name"/options.nix
+    sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./nix-config/hosts/"$host_name"/options.nix
+    exit
   fi
 
-  
+  sudo nixos-generate-config --show-hardware-config >./nix-config/hosts/"$host_name"/hardware.nix
 
 else
-  # express install stuff here
-  echo "-----"
-  echo "Doing express install"
+  read -p "Do you want to do an express install [use defaults]? For a new host do not use express install!" -n 1 -r
+  echo ""
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
 
+    read -p "Do you want to generate a hardware config? (First time install typically)" -n 1 -r
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      echo ""
+      sudo nixos-generate-config --show-hardware-config >./nix-config/hosts/"$host_name"/hardware.nix
+    fi
+    echo ""
+
+    read -rp "Enter Your Username: [ $current_user_name ] " user_name_response
+    if [ ! -z "$user_name_response" ]; then
+      user_name=$user_name_response
+    fi
+    echo ""
+
+    if [ "$current_user_name" != "$user_name" ]; then
+      echo "This will create a hashedPassword for the new user in the options file."
+      while true; do
+        echo
+        read -rp "Enter New User Password: " new_pass
+        echo
+        read -rp "Enter New User Password Again: " new_pass2
+        if [ "$new_pass" == "$new_pass2" ]; then
+          echo "Passwords Match. Setting password."
+          user_password=$(mkpasswd -m sha-512 "$new_pass")
+          escaped_user_password=$(echo "$user_password" | sed 's/\//\\\//g')
+          sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_user_password\"#" ./nix-config/users/users.nix
+          break
+        fi
+      done
+
+      sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$user_name\"/" ./nix-config/hosts/"$host_name"/options.nix
+      sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host_name\"/" ./nix-config/hosts/"$host_name"/options.nix
+
+    fi
+
+  else
+    # express install stuff here
+    echo "-----"
+    echo "Doing express install"
+
+  fi
 fi
-
 
 ###############################################################################
 echo "-----"
@@ -115,16 +164,8 @@ cd $PROJECT_DIR || exit
 
 fc-cache -rf
 
-#echo "-----"
-#echo "Installing custom Firefox startup page"
-#sed -i "s/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/z0mbi3\/.local\/share\/startup-page\/index.html\")/user_pref(\"browser.startup.homepage\", \"file:\/\/\/home\/$USER\/.local\/share\/startup-page\/index.html\")/" "$HOME"/.mozilla/firefox/*.default/user.js
-#sed -i "s/name: 'gh0stzk'/name: '$USER'/" "$HOME"/.local/share/startup-page/config.js
-
-
-
 ###############################################################################
 echo "Now Going To Build $PROJECT_NAME, 🤞"
-#NIX_CONFIG="experimental-features = nix-command flakes" 
 
 if [ "$user_name" != "$current_user_name" ]; then
   echo "Ensuring $PROJECT_NAME repository is in your users HOME directory."
